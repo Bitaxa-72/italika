@@ -1,340 +1,575 @@
 <section class="lk-main" data-lk-main data-lk-endpoint="">
-    <div class="container">
-        <div class="lk-main__head">
-            <div class="lk-main__intro">
-                <p class="lk-main__eyebrow">Личный кабинет</p>
-                <h1 class="lk-main__title">Здравствуйте, Анна</h1>
-                <p class="lk-main__text">Проверьте данные аккаунта, адрес доставки и историю покупок.</p>
-            </div>
+  <div class="container">
+    <div class="lk-main__head">
+      <div class="lk-main__intro">
+        <p class="lk-main__eyebrow">Личный кабинет</p>
+        <h1 class="lk-main__title">Здравствуйте, Анна</h1>
+        <p class="lk-main__text">
+          Проверьте данные аккаунта, адрес доставки и
+          историю покупок.
+        </p>
+      </div>
 
-            <button class="lk-main__logout" type="button" data-lk-logout>Выйти</button>
-        </div>
-
-        <div class="lk-main__layout">
-            <aside class="lk-main__side" aria-label="Разделы личного кабинета">
-                <div class="lk-main__user">
-                    <span class="lk-main__avatar" aria-hidden="true">А</span>
-                    <span class="lk-main__user-info">
-                        <strong>Анна Кондитерова</strong>
-                        <span>anna@example.ru</span>
-                    </span>
-                </div>
-
-                <nav class="lk-main__nav">
-                    <button class="lk-main__nav-item is-active" type="button" role="tab" aria-selected="true"
-                        aria-controls="lk-main-account" data-lk-tab="account">Данные аккаунта</button>
-                    <button class="lk-main__nav-item" type="button" role="tab" aria-selected="false"
-                        aria-controls="lk-main-orders" data-lk-tab="orders">История заказов</button>
-                    <a class="lk-main__nav-item lk-main__nav-link" href="favorites.html">Избранное</a>
-                </nav>
-            </aside>
-
-            <div class="lk-main__content">
-                <div class="lk-main__loader" aria-hidden="true" data-lk-loader>
-                    <span class="lk-main__loader-spinner"></span>
-                    <span>Загружаем раздел</span>
-                </div>
-
-                <section class="lk-main__panel is-active" id="lk-main-account" role="tabpanel"
-                    data-lk-panel="account">
-                    <div class="lk-main__panel-head">
-                        <div>
-                            <h2 class="lk-main__panel-title">Данные аккаунта</h2>
-                            <p class="lk-main__panel-text">Эти данные подставятся при оформлении заказа.</p>
-                        </div>
-                    </div>
-
-                    <form class="lk-main__form" action="#" method="post">
-                        <div class="lk-main__form-grid">
-                            <label class="lk-main__field">
-                                <span class="lk-main__label">Имя</span>
-                                <input class="lk-main__input" name="name" type="text" autocomplete="given-name"
-                                    value="Анна">
-                            </label>
-
-                            <label class="lk-main__field">
-                                <span class="lk-main__label">Фамилия</span>
-                                <input class="lk-main__input" name="surname" type="text" autocomplete="family-name"
-                                    value="Кондитерова">
-                            </label>
-
-                            <label class="lk-main__field">
-                                <span class="lk-main__label">Телефон</span>
-                                <input class="lk-main__input" name="phone" type="tel" autocomplete="tel"
-                                    value="+7 900 000-00-00">
-                            </label>
-
-                            <label class="lk-main__field">
-                                <span class="lk-main__label">Email</span>
-                                <input class="lk-main__input" name="email" type="email" autocomplete="email"
-                                    value="anna@example.ru">
-                            </label>
-                        </div>
-
-                        <label class="lk-main__field">
-                            <span class="lk-main__label">Адрес доставки</span>
-                            <input class="lk-main__input" name="address" type="text" autocomplete="street-address"
-                                value="Москва, ул. Кондитерская, 12">
-                        </label>
-
-                        <div class="lk-main__notice">
-                            <strong>Для быстрых заказов</strong>
-                            <span>Добавьте актуальный телефон и адрес, чтобы менеджер мог быстрее подтвердить доставку.</span>
-                        </div>
-
-                        <div class="lk-main__actions">
-                            <button class="lk-main__submit" type="submit"
-                                data-submit-text="Сохранить изменения">Сохранить изменения</button>
-                            <button class="lk-main__secondary" type="button" data-lk-password>Сменить пароль</button>
-                        </div>
-                    </form>
-                </section>
-
-                <section class="lk-main__panel" id="lk-main-orders" role="tabpanel" data-lk-panel="orders" hidden>
-                    <div class="lk-main__panel-head">
-                        <div>
-                            <h2 class="lk-main__panel-title">Прошлые заказы</h2>
-                            <p class="lk-main__panel-text">Список последних покупок и статусы повторного заказа.</p>
-                        </div>
-                    </div>
-
-                    <div class="lk-main__orders">
-                        <article class="lk-main__order">
-                            <div class="lk-main__order-main">
-                                <span class="lk-main__order-number">№ 1284</span>
-                                <strong>12 апреля 2026</strong>
-                                <span>7 товаров</span>
-                            </div>
-                            <div class="lk-main__order-meta">
-                                <span class="lk-main__order-status">Доставлен</span>
-                                <strong>4 680 ₽</strong>
-                                <button class="lk-main__secondary lk-main__secondary--small" type="button">
-                                    Повторить
-                                </button>
-                            </div>
-                        </article>
-
-                        <article class="lk-main__order">
-                            <div class="lk-main__order-main">
-                                <span class="lk-main__order-number">№ 1197</span>
-                                <strong>28 марта 2026</strong>
-                                <span>3 товара</span>
-                            </div>
-                            <div class="lk-main__order-meta">
-                                <span class="lk-main__order-status lk-main__order-status--wait">В обработке</span>
-                                <strong>1 240 ₽</strong>
-                                <button class="lk-main__secondary lk-main__secondary--small" type="button">
-                                    Детали
-                                </button>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="lk-main__empty" hidden>
-                        <h3 class="lk-main__empty-title">Заказов пока нет</h3>
-                        <p class="lk-main__empty-text">Когда вы оформите первый заказ, он появится в этом разделе.</p>
-                    </div>
-                </section>
-            </div>
-        </div>
+      <button
+        class="lk-main__logout"
+        type="button"
+        data-lk-logout
+      >
+        Выйти
+      </button>
     </div>
 
-    <div class="lk-main__modal" role="dialog" aria-modal="true" aria-labelledby="lk-main-password-title"
-        aria-hidden="true" data-lk-password-modal>
-        <div class="lk-main__modal-overlay" data-lk-password-close></div>
+    <div class="lk-main__layout">
+      <aside
+        class="lk-main__side"
+        aria-label="Разделы личного кабинета"
+      >
+        <div class="lk-main__user">
+          <span class="lk-main__avatar" aria-hidden="true"
+            >А</span
+          >
+          <span class="lk-main__user-info">
+            <strong>Анна Кондитерова</strong>
+            <span>anna@example.ru</span>
+          </span>
+        </div>
 
-        <div class="lk-main__modal-card">
-            <div class="lk-main__modal-head">
-                <div>
-                    <h2 class="lk-main__modal-title" id="lk-main-password-title">Сменить пароль</h2>
-                    <p class="lk-main__modal-text">Введите текущий пароль и задайте новый.</p>
-                </div>
+        <nav class="lk-main__nav">
+          <button
+            class="lk-main__nav-item is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="lk-main-account"
+            data-lk-tab="account"
+          >
+            Данные аккаунта
+          </button>
+          <button
+            class="lk-main__nav-item"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="lk-main-orders"
+            data-lk-tab="orders"
+          >
+            История заказов
+          </button>
+          <a
+            class="lk-main__nav-item lk-main__nav-link"
+            href="favorites.html"
+            >Избранное</a
+          >
+        </nav>
+      </aside>
 
-                <button class="lk-main__modal-close" type="button" aria-label="Закрыть окно"
-                    data-lk-password-close></button>
+      <div class="lk-main__content">
+        <div
+          class="lk-main__loader"
+          aria-hidden="true"
+          data-lk-loader
+        >
+          <span class="lk-main__loader-spinner"></span>
+          <span>Загружаем раздел</span>
+        </div>
+
+        <section
+          class="lk-main__panel is-active"
+          id="lk-main-account"
+          role="tabpanel"
+          data-lk-panel="account"
+        >
+          <div class="lk-main__panel-head">
+            <div>
+              <h2 class="lk-main__panel-title">
+                Данные аккаунта
+              </h2>
+              <p class="lk-main__panel-text">
+                Эти данные подставятся при оформлении
+                заказа.
+              </p>
+            </div>
+          </div>
+
+          <form
+            class="lk-main__form"
+            action="#"
+            method="post"
+          >
+            <div class="lk-main__form-grid">
+              <label class="lk-main__field">
+                <span class="lk-main__label">Имя</span>
+                <input
+                  class="lk-main__input"
+                  name="name"
+                  type="text"
+                  autocomplete="given-name"
+                  value="Анна"
+                />
+              </label>
+
+              <label class="lk-main__field">
+                <span class="lk-main__label">Фамилия</span>
+                <input
+                  class="lk-main__input"
+                  name="surname"
+                  type="text"
+                  autocomplete="family-name"
+                  value="Кондитерова"
+                />
+              </label>
+
+              <label class="lk-main__field">
+                <span class="lk-main__label">Телефон</span>
+                <input
+                  class="lk-main__input"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  value="+7 900 000-00-00"
+                />
+              </label>
+
+              <label class="lk-main__field">
+                <span class="lk-main__label">Email</span>
+                <input
+                  class="lk-main__input"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  value="anna@example.ru"
+                />
+              </label>
             </div>
 
-            <form class="lk-main__form lk-main__password-form" action="#" method="post" data-lk-password-form>
-                <label class="lk-main__field">
-                    <span class="lk-main__label">Текущий пароль</span>
-                    <input class="lk-main__input" name="current-password" type="password"
-                        autocomplete="current-password" required>
-                </label>
+            <label class="lk-main__field">
+              <span class="lk-main__label"
+                >Адрес доставки</span
+              >
+              <input
+                class="lk-main__input"
+                name="address"
+                type="text"
+                autocomplete="street-address"
+                value="Москва, ул. Кондитерская, 12"
+              />
+            </label>
 
-                <label class="lk-main__field">
-                    <span class="lk-main__label">Новый пароль</span>
-                    <input class="lk-main__input" name="new-password" type="password" autocomplete="new-password"
-                        minlength="6" required>
-                </label>
+            <div class="lk-main__notice">
+              <strong>Для быстрых заказов</strong>
+              <span
+                >Добавьте актуальный телефон и адрес, чтобы
+                менеджер мог быстрее подтвердить
+                доставку.</span
+              >
+            </div>
 
-                <label class="lk-main__field">
-                    <span class="lk-main__label">Повторите новый пароль</span>
-                    <input class="lk-main__input" name="new-password-repeat" type="password"
-                        autocomplete="new-password" minlength="6" required>
-                </label>
+            <div class="lk-main__actions">
+              <button
+                class="lk-main__submit"
+                type="submit"
+                data-submit-text="Сохранить изменения"
+              >
+                Сохранить изменения
+              </button>
+              <button
+                class="lk-main__secondary"
+                type="button"
+                data-lk-password
+              >
+                Сменить пароль
+              </button>
+            </div>
+          </form>
+        </section>
 
-                <p class="lk-main__password-error" data-lk-password-error hidden>Новые пароли не совпадают.</p>
+        <section
+          class="lk-main__panel"
+          id="lk-main-orders"
+          role="tabpanel"
+          data-lk-panel="orders"
+          hidden
+        >
+          <div class="lk-main__panel-head">
+            <div>
+              <h2 class="lk-main__panel-title">
+                Прошлые заказы
+              </h2>
+              <p class="lk-main__panel-text">
+                Список последних покупок и статусы
+                повторного заказа.
+              </p>
+            </div>
+          </div>
 
-                <div class="lk-main__actions">
-                    <button class="lk-main__submit" type="submit" data-submit-text="Сохранить пароль">
-                        Сохранить пароль
-                    </button>
-                    <button class="lk-main__secondary" type="button" data-lk-password-close>Отмена</button>
-                </div>
-            </form>
-        </div>
+          <div class="lk-main__orders">
+            <article class="lk-main__order">
+              <div class="lk-main__order-main">
+                <span class="lk-main__order-number"
+                  >№ 1284</span
+                >
+                <strong>12 апреля 2026</strong>
+                <span>7 товаров</span>
+              </div>
+              <div class="lk-main__order-meta">
+                <span class="lk-main__order-status"
+                  >Доставлен</span
+                >
+                <strong>4 680 ₽</strong>
+                <button
+                  class="lk-main__secondary lk-main__secondary--small"
+                  type="button"
+                >
+                  Повторить
+                </button>
+              </div>
+            </article>
+
+            <article class="lk-main__order">
+              <div class="lk-main__order-main">
+                <span class="lk-main__order-number"
+                  >№ 1197</span
+                >
+                <strong>28 марта 2026</strong>
+                <span>3 товара</span>
+              </div>
+              <div class="lk-main__order-meta">
+                <span
+                  class="lk-main__order-status lk-main__order-status--wait"
+                  >В обработке</span
+                >
+                <strong>1 240 ₽</strong>
+                <button
+                  class="lk-main__secondary lk-main__secondary--small"
+                  type="button"
+                >
+                  Детали
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div class="lk-main__empty" hidden>
+            <h3 class="lk-main__empty-title">
+              Заказов пока нет
+            </h3>
+            <p class="lk-main__empty-text">
+              Когда вы оформите первый заказ, он появится в
+              этом разделе.
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
+  </div>
 
-    <script>
-        (function () {
-            var root = document.querySelector('[data-lk-main]');
+  <div
+    class="lk-main__modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lk-main-password-title"
+    aria-hidden="true"
+    data-lk-password-modal
+  >
+    <div
+      class="lk-main__modal-overlay"
+      data-lk-password-close
+    ></div>
 
-            if (!root) {
-                return;
-            }
+    <div class="lk-main__modal-card">
+      <div class="lk-main__modal-head">
+        <div>
+          <h2
+            class="lk-main__modal-title"
+            id="lk-main-password-title"
+          >
+            Сменить пароль
+          </h2>
+          <p class="lk-main__modal-text">
+            Введите текущий пароль и задайте новый.
+          </p>
+        </div>
 
-            var tabs = root.querySelectorAll('[data-lk-tab]');
-            var panels = root.querySelectorAll('[data-lk-panel]');
-            var loader = root.querySelector('[data-lk-loader]');
-            var logoutButton = root.querySelector('[data-lk-logout]');
-            var passwordButton = root.querySelector('[data-lk-password]');
-            var passwordModal = root.querySelector('[data-lk-password-modal]');
-            var passwordForm = root.querySelector('[data-lk-password-form]');
-            var passwordError = root.querySelector('[data-lk-password-error]');
-            var activeMode = 'account';
-            var loadingTimer;
+        <button
+          class="lk-main__modal-close"
+          type="button"
+          aria-label="Закрыть окно"
+          data-lk-password-close
+        ></button>
+      </div>
 
-            function setLoading(isLoading) {
-                root.classList.toggle('is-loading', isLoading);
+      <form
+        class="lk-main__form lk-main__password-form"
+        action="#"
+        method="post"
+        data-lk-password-form
+      >
+        <label class="lk-main__field">
+          <span class="lk-main__label">Текущий пароль</span>
+          <input
+            class="lk-main__input"
+            name="current-password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+        </label>
 
-                if (loader) {
-                    loader.setAttribute('aria-hidden', isLoading ? 'false' : 'true');
-                }
-            }
+        <label class="lk-main__field">
+          <span class="lk-main__label">Новый пароль</span>
+          <input
+            class="lk-main__input"
+            name="new-password"
+            type="password"
+            autocomplete="new-password"
+            minlength="6"
+            required
+          />
+        </label>
 
-            function showPanel(mode) {
-                var i = 0;
+        <label class="lk-main__field">
+          <span class="lk-main__label"
+            >Повторите новый пароль</span
+          >
+          <input
+            class="lk-main__input"
+            name="new-password-repeat"
+            type="password"
+            autocomplete="new-password"
+            minlength="6"
+            required
+          />
+        </label>
 
-                activeMode = mode;
+        <p
+          class="lk-main__password-error"
+          data-lk-password-error
+          hidden
+        >
+          Новые пароли не совпадают.
+        </p>
 
-                for (i = 0; i < tabs.length; i++) {
-                    tabs[i].classList.toggle('is-active', tabs[i].getAttribute('data-lk-tab') === mode);
-                    tabs[i].setAttribute('aria-selected', tabs[i].getAttribute('data-lk-tab') === mode ? 'true' : 'false');
-                }
+        <div class="lk-main__actions">
+          <button
+            class="lk-main__submit"
+            type="submit"
+            data-submit-text="Сохранить пароль"
+          >
+            Сохранить пароль
+          </button>
+          <button
+            class="lk-main__secondary"
+            type="button"
+            data-lk-password-close
+          >
+            Отмена
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-                for (i = 0; i < panels.length; i++) {
-                    panels[i].hidden = panels[i].getAttribute('data-lk-panel') !== mode;
-                    panels[i].classList.toggle('is-active', panels[i].getAttribute('data-lk-panel') === mode);
-                }
-            }
+  <script>
+    ;(function () {
+      var root = document.querySelector('[data-lk-main]')
 
-            function loadPanel(mode) {
-                window.clearTimeout(loadingTimer);
-                setLoading(true);
+      if (!root) {
+        return
+      }
 
-                loadingTimer = window.setTimeout(function () {
-                    showPanel(mode);
-                    setLoading(false);
-                }, 320);
-            }
+      var tabs = root.querySelectorAll('[data-lk-tab]')
+      var panels = root.querySelectorAll('[data-lk-panel]')
+      var loader = root.querySelector('[data-lk-loader]')
+      var logoutButton = root.querySelector(
+        '[data-lk-logout]'
+      )
+      var passwordButton = root.querySelector(
+        '[data-lk-password]'
+      )
+      var passwordModal = root.querySelector(
+        '[data-lk-password-modal]'
+      )
+      var passwordForm = root.querySelector(
+        '[data-lk-password-form]'
+      )
+      var passwordError = root.querySelector(
+        '[data-lk-password-error]'
+      )
+      var activeMode = 'account'
+      var loadingTimer
 
-            function setPasswordModal(isOpen) {
-                if (!passwordModal) {
-                    return;
-                }
+      function setLoading(isLoading) {
+        root.classList.toggle('is-loading', isLoading)
 
-                passwordModal.classList.toggle('is-open', isOpen);
-                passwordModal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        if (loader) {
+          loader.setAttribute(
+            'aria-hidden',
+            isLoading ? 'false' : 'true'
+          )
+        }
+      }
 
-                if (isOpen) {
-                    passwordModal.querySelector('input').focus();
-                    return;
-                }
+      function showPanel(mode) {
+        var i = 0
 
-                if (passwordForm) {
-                    passwordForm.reset();
-                }
+        activeMode = mode
 
-                if (passwordError) {
-                    passwordError.hidden = true;
-                }
-            }
+        for (i = 0; i < tabs.length; i++) {
+          tabs[i].classList.toggle(
+            'is-active',
+            tabs[i].getAttribute('data-lk-tab') === mode
+          )
+          tabs[i].setAttribute(
+            'aria-selected',
+            tabs[i].getAttribute('data-lk-tab') === mode
+              ? 'true'
+              : 'false'
+          )
+        }
 
-            root.addEventListener('click', function (event) {
-                var tab = event.target.closest('[data-lk-tab]');
-                var passwordClose = event.target.closest('[data-lk-password-close]');
+        for (i = 0; i < panels.length; i++) {
+          panels[i].hidden =
+            panels[i].getAttribute('data-lk-panel') !== mode
+          panels[i].classList.toggle(
+            'is-active',
+            panels[i].getAttribute('data-lk-panel') === mode
+          )
+        }
+      }
 
-                if (passwordClose) {
-                    setPasswordModal(false);
-                    return;
-                }
+      function loadPanel(mode) {
+        window.clearTimeout(loadingTimer)
+        setLoading(true)
 
-                if (event.target.closest('[data-lk-password]')) {
-                    setPasswordModal(true);
-                    return;
-                }
+        loadingTimer = window.setTimeout(function () {
+          showPanel(mode)
+          setLoading(false)
+        }, 320)
+      }
 
-                if (!tab) {
-                    return;
-                }
+      function setPasswordModal(isOpen) {
+        if (!passwordModal) {
+          return
+        }
 
-                if (tab.getAttribute('data-lk-tab') === activeMode) {
-                    return;
-                }
+        passwordModal.classList.toggle('is-open', isOpen)
+        passwordModal.setAttribute(
+          'aria-hidden',
+          isOpen ? 'false' : 'true'
+        )
 
-                loadPanel(tab.getAttribute('data-lk-tab'));
-            });
+        if (isOpen) {
+          passwordModal.querySelector('input').focus()
+          return
+        }
 
-            root.addEventListener('submit', function (event) {
-                var submitButton = event.target.querySelector('.lk-main__submit');
-                var newPassword = event.target.querySelector('[name="new-password"]');
-                var passwordRepeat = event.target.querySelector('[name="new-password-repeat"]');
-                var defaultText;
+        if (passwordForm) {
+          passwordForm.reset()
+        }
 
-                event.preventDefault();
+        if (passwordError) {
+          passwordError.hidden = true
+        }
+      }
 
-                if (!submitButton) {
-                    return;
-                }
+      root.addEventListener('click', function (event) {
+        var tab = event.target.closest('[data-lk-tab]')
+        var passwordClose = event.target.closest(
+          '[data-lk-password-close]'
+        )
 
-                if (newPassword && passwordRepeat && newPassword.value !== passwordRepeat.value) {
-                    if (passwordError) {
-                        passwordError.hidden = false;
-                    }
+        if (passwordClose) {
+          setPasswordModal(false)
+          return
+        }
 
-                    passwordRepeat.focus();
-                    return;
-                }
+        if (event.target.closest('[data-lk-password]')) {
+          setPasswordModal(true)
+          return
+        }
 
-                if (passwordError) {
-                    passwordError.hidden = true;
-                }
+        if (!tab) {
+          return
+        }
 
-                defaultText = submitButton.getAttribute('data-submit-text') || submitButton.textContent;
-                submitButton.textContent = 'Сохранено';
-                submitButton.classList.add('is-saved');
+        if (
+          tab.getAttribute('data-lk-tab') === activeMode
+        ) {
+          return
+        }
 
-                window.setTimeout(function () {
-                    submitButton.textContent = defaultText;
-                    submitButton.classList.remove('is-saved');
+        loadPanel(tab.getAttribute('data-lk-tab'))
+      })
 
-                    if (event.target === passwordForm) {
-                        setPasswordModal(false);
-                    }
-                }, 1400);
-            });
+      root.addEventListener('submit', function (event) {
+        var submitButton = event.target.querySelector(
+          '.lk-main__submit'
+        )
+        var newPassword = event.target.querySelector(
+          '[name="new-password"]'
+        )
+        var passwordRepeat = event.target.querySelector(
+          '[name="new-password-repeat"]'
+        )
+        var defaultText
 
-            if (logoutButton) {
-                logoutButton.addEventListener('click', function () {
-                    window.location.href = 'lkReg.html';
-                });
-            }
+        event.preventDefault()
 
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape' && passwordModal && passwordModal.classList.contains('is-open')) {
-                    setPasswordModal(false);
-                }
-            });
-        })();
-    </script>
+        if (!submitButton) {
+          return
+        }
+
+        if (
+          newPassword &&
+          passwordRepeat &&
+          newPassword.value !== passwordRepeat.value
+        ) {
+          if (passwordError) {
+            passwordError.hidden = false
+          }
+
+          passwordRepeat.focus()
+          return
+        }
+
+        if (passwordError) {
+          passwordError.hidden = true
+        }
+
+        defaultText =
+          submitButton.getAttribute('data-submit-text') ||
+          submitButton.textContent
+        submitButton.textContent = 'Сохранено'
+        submitButton.classList.add('is-saved')
+
+        window.setTimeout(function () {
+          submitButton.textContent = defaultText
+          submitButton.classList.remove('is-saved')
+
+          if (event.target === passwordForm) {
+            setPasswordModal(false)
+          }
+        }, 1400)
+      })
+
+      if (logoutButton) {
+        logoutButton.addEventListener('click', function () {
+          window.location.href = 'lkReg.html'
+        })
+      }
+
+      document.addEventListener(
+        'keydown',
+        function (event) {
+          if (
+            event.key === 'Escape' &&
+            passwordModal &&
+            passwordModal.classList.contains('is-open')
+          ) {
+            setPasswordModal(false)
+          }
+        }
+      )
+    })()
+  </script>
 </section>

@@ -1,5 +1,9 @@
 import Swiper from 'swiper'
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import {
+  Autoplay,
+  Navigation,
+  Pagination
+} from 'swiper/modules'
 
 document.addEventListener('DOMContentLoaded', function () {
   var heroSlider = document.querySelector('.js-hero-slider')

@@ -1,293 +1,568 @@
 <section class="checkout-page" data-checkout-endpoint="">
-    <div class="container">
-        <div class="checkout-page__head">
-            <div class="checkout-page__intro">
-                <span class="checkout-page__eyebrow">Оформление</span>
-                <h1 class="checkout-page__title">Данные заказа</h1>
-                <p class="checkout-page__summary js-checkout-summary">Заполните данные и подтвердите заказ.</p>
-            </div>
-            <a class="checkout-page__back" href="/card.html">Вернуться в корзину</a>
-        </div>
-
-        <form class="checkout-page__layout js-checkout-form" novalidate>
-            <div class="checkout-page__main">
-                <section class="checkout-page__panel">
-                    <h2 class="checkout-page__panel-title">Покупатель</h2>
-                    <div class="checkout-page__fields">
-                        <label class="checkout-page__field">
-                            <span>Имя</span>
-                            <input class="js-checkout-required" type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться">
-                        </label>
-                        <label class="checkout-page__field">
-                            <span>Телефон</span>
-                            <input class="js-checkout-required" type="tel" name="phone" autocomplete="tel" placeholder="+7">
-                        </label>
-                        <label class="checkout-page__field checkout-page__field--wide">
-                            <span>Email</span>
-                            <input type="email" name="email" autocomplete="email" placeholder="Для состава заказа">
-                        </label>
-                    </div>
-                </section>
-
-                <section class="checkout-page__panel">
-                    <h2 class="checkout-page__panel-title">Получение</h2>
-                    <div class="checkout-page__delivery">
-                        <label class="checkout-page__option">
-                            <input class="js-checkout-delivery" type="radio" name="delivery" value="pickup" checked>
-                            <span><strong>Самовывоз</strong></span>
-                        </label>
-                        <label class="checkout-page__option">
-                            <input class="js-checkout-delivery" type="radio" name="delivery" value="cdek">
-                            <span><strong>СДЭК</strong></span>
-                        </label>
-                        <label class="checkout-page__option">
-                            <input class="js-checkout-delivery" type="radio" name="delivery" value="boxberry">
-                            <span><strong>Boxberry</strong></span>
-                        </label>
-                        <label class="checkout-page__option">
-                            <input class="js-checkout-delivery" type="radio" name="delivery" value="yandex-delivery">
-                            <span><strong>Яндекс Доставка</strong></span>
-                        </label>
-                    </div>
-
-                    <div class="checkout-page__fields checkout-page__fields--address js-checkout-address" hidden>
-                        <label class="checkout-page__field">
-                            <span>Город</span>
-                            <input class="js-checkout-address-required" type="text" name="city" autocomplete="address-level2" placeholder="Город доставки">
-                        </label>
-                        <div class="checkout-page__address-type">
-                            <span class="checkout-page__address-title">Куда доставить</span>
-                            <label class="checkout-page__option">
-                                <input class="js-checkout-address-type" type="radio" name="address-type" value="pickup-point" checked>
-                                <span><strong>Пункт выдачи</strong></span>
-                            </label>
-                            <label class="checkout-page__option">
-                                <input class="js-checkout-address-type" type="radio" name="address-type" value="courier-address">
-                                <span><strong>Адрес курьера</strong></span>
-                            </label>
-                        </div>
-                        <label class="checkout-page__field checkout-page__field--wide">
-                            <span class="js-checkout-address-label">Пункт выдачи</span>
-                            <input class="js-checkout-address-input js-checkout-address-required" type="text" name="address" autocomplete="street-address" placeholder="Адрес или название пункта выдачи">
-                        </label>
-                    </div>
-                </section>
-
-                <section class="checkout-page__panel">
-                    <h2 class="checkout-page__panel-title">Оплата</h2>
-                    <div class="checkout-page__payments">
-                        <label class="checkout-page__option">
-                            <input class="js-checkout-payment" type="radio" name="payment" value="cash" checked>
-                            <span><strong>Наличные</strong><small>Менеджер подтвердит сумму и условия.</small></span>
-                        </label>
-                        <label class="checkout-page__option">
-                            <input class="js-checkout-payment" type="radio" name="payment" value="card-on-place">
-                            <span><strong>Картой на месте</strong><small>Оплата при получении после подтверждения.</small></span>
-                        </label>
-                        <label class="checkout-page__option">
-                            <input class="js-checkout-payment" type="radio" name="payment" value="payment-link">
-                            <span><strong>Ссылка для оплаты</strong><small>Менеджер отправит ссылку после проверки заказа.</small></span>
-                        </label>
-                    </div>
-                    <p class="checkout-page__manual-note js-checkout-payment-note">Оплата пройдет вручную после звонка или сообщения менеджера.</p>
-                </section>
-
-                <section class="checkout-page__panel">
-                    <h2 class="checkout-page__panel-title">Комментарий</h2>
-                    <label class="checkout-page__field checkout-page__field--wide">
-                        <span>Комментарий к заказу</span>
-                        <textarea name="comment" rows="4" placeholder="Удобное время связи, детали доставки или пожелания"></textarea>
-                    </label>
-                </section>
-            </div>
-
-            <aside class="checkout-page__side" aria-label="Состав заказа">
-                <div class="checkout-page__summary-card">
-                    <h2 class="checkout-page__side-title">Ваш заказ</h2>
-                    <div class="checkout-page__items js-checkout-items"></div>
-                    <dl class="checkout-page__totals">
-                        <div class="checkout-page__total-row"><dt>Товары</dt><dd class="js-checkout-subtotal">0 ₽</dd></div>
-                        <div class="checkout-page__total-row"><dt>Доставка</dt><dd class="js-checkout-shipping">Бесплатно</dd></div>
-                        <div class="checkout-page__total-row checkout-page__total-row--grand"><dt>Итого</dt><dd class="js-checkout-total">0 ₽</dd></div>
-                    </dl>
-                    <button class="checkout-page__submit js-checkout-submit" type="submit">Отправить заказ</button>
-                    <p class="checkout-page__hint">После отправки менеджер свяжется с вами и вручную подтвердит оплату.</p>
-                    <p class="checkout-page__message js-checkout-message" aria-live="polite"></p>
-                </div>
-            </aside>
-        </form>
+  <div class="container">
+    <div class="checkout-page__head">
+      <div class="checkout-page__intro">
+        <span class="checkout-page__eyebrow"
+          >Оформление</span
+        >
+        <h1 class="checkout-page__title">Данные заказа</h1>
+        <p
+          class="checkout-page__summary js-checkout-summary"
+        >
+          Заполните данные и подтвердите заказ.
+        </p>
+      </div>
+      <a class="checkout-page__back" href="card.html"
+        >Вернуться в корзину</a
+      >
     </div>
 
-    <script>
-        (function () {
-            var section = document.querySelector('.checkout-page');
-            if (!section) return;
+    <form
+      class="checkout-page__layout js-checkout-form"
+      novalidate
+    >
+      <div class="checkout-page__main">
+        <section class="checkout-page__panel">
+          <h2 class="checkout-page__panel-title">
+            Покупатель
+          </h2>
+          <div class="checkout-page__fields">
+            <label class="checkout-page__field">
+              <span>Имя</span>
+              <input
+                class="js-checkout-required"
+                type="text"
+                name="name"
+                autocomplete="name"
+                placeholder="Как к вам обращаться"
+              />
+            </label>
+            <label class="checkout-page__field">
+              <span>Телефон</span>
+              <input
+                class="js-checkout-required"
+                type="tel"
+                name="phone"
+                autocomplete="tel"
+                placeholder="+7"
+              />
+            </label>
+            <label
+              class="checkout-page__field checkout-page__field--wide"
+            >
+              <span>Email</span>
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="Для состава заказа"
+              />
+            </label>
+          </div>
+        </section>
 
-            var form = section.querySelector('.js-checkout-form');
-            var itemsNode = section.querySelector('.js-checkout-items');
-            var subtotalNode = section.querySelector('.js-checkout-subtotal');
-            var shippingNode = section.querySelector('.js-checkout-shipping');
-            var totalNode = section.querySelector('.js-checkout-total');
-            var messageNode = section.querySelector('.js-checkout-message');
-            var deliveryRadios = section.querySelectorAll('.js-checkout-delivery');
-            var paymentRadios = section.querySelectorAll('.js-checkout-payment');
-            var addressTypeRadios = section.querySelectorAll('.js-checkout-address-type');
-            var addressBlock = section.querySelector('.js-checkout-address');
-            var addressLabel = section.querySelector('.js-checkout-address-label');
-            var addressInput = section.querySelector('.js-checkout-address-input');
-            var paymentNote = section.querySelector('.js-checkout-payment-note');
-            var submitButton = section.querySelector('.js-checkout-submit');
-            var deliveryType = 'pickup';
-            var paymentType = 'cash';
-            var addressType = 'pickup-point';
-            var isSending = false;
-            var items = [
-                { title: 'Топпер акриловый золотой "Звезда" 23 фев 55x58 мм, арт 134', quantity: 3, price: 47.60 },
-                { title: 'Шоколад белый кондитерский 500 г', quantity: 1, price: 459.00 },
-                { title: 'Мастика сахарная белая 1 кг', quantity: 1, price: 349.00 }
-            ];
+        <section class="checkout-page__panel">
+          <h2 class="checkout-page__panel-title">
+            Получение
+          </h2>
+          <div class="checkout-page__delivery">
+            <label class="checkout-page__option">
+              <input
+                class="js-checkout-delivery"
+                type="radio"
+                name="delivery"
+                value="pickup"
+                checked
+              />
+              <span><strong>Самовывоз</strong></span>
+            </label>
+            <label class="checkout-page__option">
+              <input
+                class="js-checkout-delivery"
+                type="radio"
+                name="delivery"
+                value="cdek"
+              />
+              <span><strong>СДЭК</strong></span>
+            </label>
+            <label class="checkout-page__option">
+              <input
+                class="js-checkout-delivery"
+                type="radio"
+                name="delivery"
+                value="boxberry"
+              />
+              <span><strong>Boxberry</strong></span>
+            </label>
+            <label class="checkout-page__option">
+              <input
+                class="js-checkout-delivery"
+                type="radio"
+                name="delivery"
+                value="yandex-delivery"
+              />
+              <span><strong>Яндекс Доставка</strong></span>
+            </label>
+          </div>
 
-            function escapeHtml(value) {
-                return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+          <div
+            class="checkout-page__fields checkout-page__fields--address js-checkout-address"
+            hidden
+          >
+            <label class="checkout-page__field">
+              <span>Город</span>
+              <input
+                class="js-checkout-address-required"
+                type="text"
+                name="city"
+                autocomplete="address-level2"
+                placeholder="Город доставки"
+              />
+            </label>
+            <div class="checkout-page__address-type">
+              <span class="checkout-page__address-title"
+                >Куда доставить</span
+              >
+              <label class="checkout-page__option">
+                <input
+                  class="js-checkout-address-type"
+                  type="radio"
+                  name="address-type"
+                  value="pickup-point"
+                  checked
+                />
+                <span><strong>Пункт выдачи</strong></span>
+              </label>
+              <label class="checkout-page__option">
+                <input
+                  class="js-checkout-address-type"
+                  type="radio"
+                  name="address-type"
+                  value="courier-address"
+                />
+                <span><strong>Адрес курьера</strong></span>
+              </label>
+            </div>
+            <label
+              class="checkout-page__field checkout-page__field--wide"
+            >
+              <span class="js-checkout-address-label"
+                >Пункт выдачи</span
+              >
+              <input
+                class="js-checkout-address-input js-checkout-address-required"
+                type="text"
+                name="address"
+                autocomplete="street-address"
+                placeholder="Адрес или название пункта выдачи"
+              />
+            </label>
+          </div>
+        </section>
+
+        <section class="checkout-page__panel">
+          <h2 class="checkout-page__panel-title">Оплата</h2>
+          <div class="checkout-page__payments">
+            <label class="checkout-page__option">
+              <input
+                class="js-checkout-payment"
+                type="radio"
+                name="payment"
+                value="cash"
+                checked
+              />
+              <span
+                ><strong>Наличные</strong
+                ><small
+                  >Менеджер подтвердит сумму и
+                  условия.</small
+                ></span
+              >
+            </label>
+            <label class="checkout-page__option">
+              <input
+                class="js-checkout-payment"
+                type="radio"
+                name="payment"
+                value="card-on-place"
+              />
+              <span
+                ><strong>Картой на месте</strong
+                ><small
+                  >Оплата при получении после
+                  подтверждения.</small
+                ></span
+              >
+            </label>
+            <label class="checkout-page__option">
+              <input
+                class="js-checkout-payment"
+                type="radio"
+                name="payment"
+                value="payment-link"
+              />
+              <span
+                ><strong>Ссылка для оплаты</strong
+                ><small
+                  >Менеджер отправит ссылку после проверки
+                  заказа.</small
+                ></span
+              >
+            </label>
+          </div>
+          <p
+            class="checkout-page__manual-note js-checkout-payment-note"
+          >
+            Оплата пройдет вручную после звонка или
+            сообщения менеджера.
+          </p>
+        </section>
+
+        <section class="checkout-page__panel">
+          <h2 class="checkout-page__panel-title">
+            Комментарий
+          </h2>
+          <label
+            class="checkout-page__field checkout-page__field--wide"
+          >
+            <span>Комментарий к заказу</span>
+            <textarea
+              name="comment"
+              rows="4"
+              placeholder="Удобное время связи, детали доставки или пожелания"
+            ></textarea>
+          </label>
+        </section>
+      </div>
+
+      <aside
+        class="checkout-page__side"
+        aria-label="Состав заказа"
+      >
+        <div class="checkout-page__summary-card">
+          <h2 class="checkout-page__side-title">
+            Ваш заказ
+          </h2>
+          <div
+            class="checkout-page__items js-checkout-items"
+          ></div>
+          <dl class="checkout-page__totals">
+            <div class="checkout-page__total-row">
+              <dt>Товары</dt>
+              <dd class="js-checkout-subtotal">0 ₽</dd>
+            </div>
+            <div class="checkout-page__total-row">
+              <dt>Доставка</dt>
+              <dd class="js-checkout-shipping">
+                Бесплатно
+              </dd>
+            </div>
+            <div
+              class="checkout-page__total-row checkout-page__total-row--grand"
+            >
+              <dt>Итого</dt>
+              <dd class="js-checkout-total">0 ₽</dd>
+            </div>
+          </dl>
+          <button
+            class="checkout-page__submit js-checkout-submit"
+            type="submit"
+          >
+            Отправить заказ
+          </button>
+          <p class="checkout-page__hint">
+            После отправки менеджер свяжется с вами и
+            вручную подтвердит оплату.
+          </p>
+          <p
+            class="checkout-page__message js-checkout-message"
+            aria-live="polite"
+          ></p>
+        </div>
+      </aside>
+    </form>
+  </div>
+
+  <script>
+    ;(function () {
+      var section = document.querySelector('.checkout-page')
+      if (!section) return
+
+      var form = section.querySelector('.js-checkout-form')
+      var itemsNode = section.querySelector(
+        '.js-checkout-items'
+      )
+      var subtotalNode = section.querySelector(
+        '.js-checkout-subtotal'
+      )
+      var shippingNode = section.querySelector(
+        '.js-checkout-shipping'
+      )
+      var totalNode = section.querySelector(
+        '.js-checkout-total'
+      )
+      var messageNode = section.querySelector(
+        '.js-checkout-message'
+      )
+      var deliveryRadios = section.querySelectorAll(
+        '.js-checkout-delivery'
+      )
+      var paymentRadios = section.querySelectorAll(
+        '.js-checkout-payment'
+      )
+      var addressTypeRadios = section.querySelectorAll(
+        '.js-checkout-address-type'
+      )
+      var addressBlock = section.querySelector(
+        '.js-checkout-address'
+      )
+      var addressLabel = section.querySelector(
+        '.js-checkout-address-label'
+      )
+      var addressInput = section.querySelector(
+        '.js-checkout-address-input'
+      )
+      var paymentNote = section.querySelector(
+        '.js-checkout-payment-note'
+      )
+      var submitButton = section.querySelector(
+        '.js-checkout-submit'
+      )
+      var deliveryType = 'pickup'
+      var paymentType = 'cash'
+      var addressType = 'pickup-point'
+      var isSending = false
+      var items = [
+        {
+          title:
+            'Топпер акриловый золотой "Звезда" 23 фев 55x58 мм, арт 134',
+          quantity: 3,
+          price: 47.6
+        },
+        {
+          title: 'Шоколад белый кондитерский 500 г',
+          quantity: 1,
+          price: 459.0
+        },
+        {
+          title: 'Мастика сахарная белая 1 кг',
+          quantity: 1,
+          price: 349.0
+        }
+      ]
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;')
+      }
+
+      function formatPrice(value) {
+        return (
+          Number(value).toLocaleString('ru-RU', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          }) + ' ₽'
+        )
+      }
+
+      function getShipping() {
+        return deliveryType === 'pickup' ? 0 : 350
+      }
+
+      function getPaymentNote() {
+        if (paymentType === 'card-on-place')
+          return 'Оплата картой пройдет на месте после подтверждения менеджером.'
+        if (paymentType === 'payment-link')
+          return 'Ссылку для оплаты отправит менеджер после проверки состава заказа.'
+        return 'Оплата наличными пройдет после подтверждения заказа менеджером.'
+      }
+
+      function getTotals() {
+        var subtotal = items.reduce(function (sum, item) {
+          return sum + item.price * item.quantity
+        }, 0)
+        var shipping = getShipping()
+
+        return {
+          subtotal: subtotal,
+          shipping: shipping,
+          total: subtotal + shipping
+        }
+      }
+
+      function renderItems() {
+        var html = items
+          .map(function (item) {
+            return (
+              '' +
+              '<article class="checkout-page__item">' +
+              '<span class="checkout-page__item-name">' +
+              escapeHtml(item.title) +
+              '</span>' +
+              '<span class="checkout-page__item-meta">' +
+              escapeHtml(item.quantity) +
+              ' x ' +
+              formatPrice(item.price) +
+              '</span>' +
+              '<strong class="checkout-page__item-price">' +
+              formatPrice(item.price * item.quantity) +
+              '</strong>' +
+              '</article>'
+            )
+          })
+          .join('')
+
+        itemsNode.innerHTML = html
+      }
+
+      function renderTotals() {
+        var totals = getTotals()
+        subtotalNode.textContent = formatPrice(
+          totals.subtotal
+        )
+        shippingNode.textContent = totals.shipping
+          ? formatPrice(totals.shipping)
+          : 'Бесплатно'
+        totalNode.textContent = formatPrice(totals.total)
+        addressBlock.hidden = deliveryType === 'pickup'
+        paymentNote.textContent = getPaymentNote()
+      }
+
+      function renderAddressType() {
+        var isCourierAddress =
+          addressType === 'courier-address'
+
+        addressLabel.textContent = isCourierAddress
+          ? 'Адрес курьера'
+          : 'Пункт выдачи'
+        addressInput.setAttribute(
+          'placeholder',
+          isCourierAddress
+            ? 'Улица, дом, квартира или офис'
+            : 'Адрес или название пункта выдачи'
+        )
+      }
+
+      function setSending(nextState) {
+        isSending = nextState
+        submitButton.disabled = isSending
+        submitButton.textContent = isSending
+          ? 'Отправляем'
+          : 'Отправить заказ'
+      }
+
+      function validateForm() {
+        var fields = form.querySelectorAll(
+          '.js-checkout-required'
+        )
+        var isValid = true
+
+        Array.prototype.forEach.call(
+          fields,
+          function (field) {
+            var shouldValidate =
+              field.offsetParent !== null ||
+              !field.closest('[hidden]')
+            var fieldValid =
+              !shouldValidate ||
+              field.value.trim().length > 0
+            field.classList.toggle(
+              'is-invalid',
+              !fieldValid
+            )
+            if (!fieldValid) isValid = false
+          }
+        )
+
+        if (deliveryType !== 'pickup') {
+          Array.prototype.forEach.call(
+            form.querySelectorAll(
+              '.js-checkout-address-required'
+            ),
+            function (field) {
+              var fieldValid = field.value.trim().length > 0
+              field.classList.toggle(
+                'is-invalid',
+                !fieldValid
+              )
+              if (!fieldValid) isValid = false
             }
+          )
+        }
 
-            function formatPrice(value) {
-                return Number(value).toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₽';
-            }
+        return isValid
+      }
 
-            function getShipping() {
-                return deliveryType === 'pickup' ? 0 : 350;
-            }
+      Array.prototype.forEach.call(
+        deliveryRadios,
+        function (radio) {
+          radio.addEventListener('change', function () {
+            if (!radio.checked) return
+            deliveryType = radio.value
+            renderTotals()
+          })
+        }
+      )
 
-            function getPaymentNote() {
-                if (paymentType === 'card-on-place') return 'Оплата картой пройдет на месте после подтверждения менеджером.';
-                if (paymentType === 'payment-link') return 'Ссылку для оплаты отправит менеджер после проверки состава заказа.';
-                return 'Оплата наличными пройдет после подтверждения заказа менеджером.';
-            }
+      Array.prototype.forEach.call(
+        paymentRadios,
+        function (radio) {
+          radio.addEventListener('change', function () {
+            if (!radio.checked) return
+            paymentType = radio.value
+            renderTotals()
+          })
+        }
+      )
 
-            function getTotals() {
-                var subtotal = items.reduce(function (sum, item) {
-                    return sum + item.price * item.quantity;
-                }, 0);
-                var shipping = getShipping();
+      Array.prototype.forEach.call(
+        addressTypeRadios,
+        function (radio) {
+          radio.addEventListener('change', function () {
+            if (!radio.checked) return
+            addressType = radio.value
+            renderAddressType()
+          })
+        }
+      )
 
-                return {
-                    subtotal: subtotal,
-                    shipping: shipping,
-                    total: subtotal + shipping
-                };
-            }
+      form.addEventListener('submit', function (event) {
+        event.preventDefault()
+        if (isSending) return
 
-            function renderItems() {
-                var html = items.map(function (item) {
-                    return '' +
-                        '<article class="checkout-page__item">' +
-                        '<span class="checkout-page__item-name">' + escapeHtml(item.title) + '</span>' +
-                        '<span class="checkout-page__item-meta">' + escapeHtml(item.quantity) + ' x ' + formatPrice(item.price) + '</span>' +
-                        '<strong class="checkout-page__item-price">' + formatPrice(item.price * item.quantity) + '</strong>' +
-                        '</article>';
-                }).join('');
+        if (!validateForm()) {
+          messageNode.textContent =
+            'Заполните имя и телефон.'
+          return
+        }
 
-                itemsNode.innerHTML = html;
-            }
+        setSending(true)
+        messageNode.textContent = ''
 
-            function renderTotals() {
-                var totals = getTotals();
-                subtotalNode.textContent = formatPrice(totals.subtotal);
-                shippingNode.textContent = totals.shipping ? formatPrice(totals.shipping) : 'Бесплатно';
-                totalNode.textContent = formatPrice(totals.total);
-                addressBlock.hidden = deliveryType === 'pickup';
-                paymentNote.textContent = getPaymentNote();
-            }
+        window.setTimeout(function () {
+          setSending(false)
+          messageNode.textContent =
+            'Заказ отправлен. Менеджер свяжется с вами для подтверждения.'
+          section.dispatchEvent(
+            new CustomEvent('checkout:submit', {
+              detail: {
+                delivery: deliveryType,
+                addressType: addressType,
+                payment: paymentType,
+                totals: getTotals()
+              }
+            })
+          )
+        }, 600)
+      })
 
-            function renderAddressType() {
-                var isCourierAddress = addressType === 'courier-address';
-
-                addressLabel.textContent = isCourierAddress ? 'Адрес курьера' : 'Пункт выдачи';
-                addressInput.setAttribute('placeholder', isCourierAddress ? 'Улица, дом, квартира или офис' : 'Адрес или название пункта выдачи');
-            }
-
-            function setSending(nextState) {
-                isSending = nextState;
-                submitButton.disabled = isSending;
-                submitButton.textContent = isSending ? 'Отправляем' : 'Отправить заказ';
-            }
-
-            function validateForm() {
-                var fields = form.querySelectorAll('.js-checkout-required');
-                var isValid = true;
-
-                Array.prototype.forEach.call(fields, function (field) {
-                    var shouldValidate = field.offsetParent !== null || !field.closest('[hidden]');
-                    var fieldValid = !shouldValidate || field.value.trim().length > 0;
-                    field.classList.toggle('is-invalid', !fieldValid);
-                    if (!fieldValid) isValid = false;
-                });
-
-                if (deliveryType !== 'pickup') {
-                    Array.prototype.forEach.call(form.querySelectorAll('.js-checkout-address-required'), function (field) {
-                        var fieldValid = field.value.trim().length > 0;
-                        field.classList.toggle('is-invalid', !fieldValid);
-                        if (!fieldValid) isValid = false;
-                    });
-                }
-
-                return isValid;
-            }
-
-            Array.prototype.forEach.call(deliveryRadios, function (radio) {
-                radio.addEventListener('change', function () {
-                    if (!radio.checked) return;
-                    deliveryType = radio.value;
-                    renderTotals();
-                });
-            });
-
-            Array.prototype.forEach.call(paymentRadios, function (radio) {
-                radio.addEventListener('change', function () {
-                    if (!radio.checked) return;
-                    paymentType = radio.value;
-                    renderTotals();
-                });
-            });
-
-            Array.prototype.forEach.call(addressTypeRadios, function (radio) {
-                radio.addEventListener('change', function () {
-                    if (!radio.checked) return;
-                    addressType = radio.value;
-                    renderAddressType();
-                });
-            });
-
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                if (isSending) return;
-
-                if (!validateForm()) {
-                    messageNode.textContent = 'Заполните имя и телефон.';
-                    return;
-                }
-
-                setSending(true);
-                messageNode.textContent = '';
-
-                window.setTimeout(function () {
-                    setSending(false);
-                    messageNode.textContent = 'Заказ отправлен. Менеджер свяжется с вами для подтверждения.';
-                    section.dispatchEvent(new CustomEvent('checkout:submit', {
-                        detail: {
-                            delivery: deliveryType,
-                            addressType: addressType,
-                            payment: paymentType,
-                            totals: getTotals()
-                        }
-                    }));
-                }, 600);
-            });
-
-            renderItems();
-            renderAddressType();
-            renderTotals();
-        })();
-    </script>
+      renderItems()
+      renderAddressType()
+      renderTotals()
+    })()
+  </script>
 </section>

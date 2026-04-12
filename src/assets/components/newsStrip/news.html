@@ -1,145 +1,242 @@
 <section class="news-strip">
-    <div class="container">
-        <div class="news-strip__head">
-            <div class="news-strip__lead">
-                <h2 class="news-strip__title">Новости</h2>
+  <div class="container">
+    <div class="news-strip__head">
+      <div class="news-strip__lead">
+        <h2 class="news-strip__title">Новости</h2>
 
-                <button class="news-strip__subscribe" type="button" data-subscribe-open>
-                    <svg class="news-strip__subscribe-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M4.5 6.5h15v11h-15v-11Z" stroke-width="1.8" stroke-linejoin="round"></path>
-                        <path d="m5 7 7 6 7-6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    <span>Подписаться</span>
-                </button>
-            </div>
+        <button
+          class="news-strip__subscribe"
+          type="button"
+          data-subscribe-open
+        >
+          <svg
+            class="news-strip__subscribe-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M4.5 6.5h15v11h-15v-11Z"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="m5 7 7 6 7-6"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          <span>Подписаться</span>
+        </button>
+      </div>
 
-            <div class="news-strip__actions">
-                <a class="news-strip__all" href="#">Все новости</a>
+      <div class="news-strip__actions">
+        <a class="news-strip__all" href="#">Все новости</a>
 
-                <div class="news-strip__nav">
-                    <button class="news-strip__arrow news-strip__arrow--prev js-news-strip-prev" type="button"
-                        aria-label="Назад"></button>
-                    <button class="news-strip__arrow news-strip__arrow--next js-news-strip-next" type="button"
-                        aria-label="Вперед"></button>
-                </div>
-            </div>
+        <div class="news-strip__nav">
+          <button
+            class="news-strip__arrow news-strip__arrow--prev js-news-strip-prev"
+            type="button"
+            aria-label="Назад"
+          ></button>
+          <button
+            class="news-strip__arrow news-strip__arrow--next js-news-strip-next"
+            type="button"
+            aria-label="Вперед"
+          ></button>
         </div>
-
-        <div class="news-strip__slider swiper js-news-strip-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide news-strip__slide">
-                    <a class="news-strip__card" href="#">
-                        <div class="news-strip__media">
-                            <img class="news-strip__image" src="/src/assets/img/2.jpg" alt="Новость компании" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <div class="news-strip__body">
-                            <h3 class="news-strip__name">Обновили подборку сезонных ингредиентов и упаковки
-                                к весеннему меню</h3>
-                            <div class="news-strip__date">20 марта 2026</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide news-strip__slide">
-                    <a class="news-strip__card" href="#">
-                        <div class="news-strip__media">
-                            <img class="news-strip__image" src="/src/assets/img/3.jpg" alt="Новость компании" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <div class="news-strip__body">
-                            <h3 class="news-strip__name">В ассортименте появились новые формы и декор для
-                                муссовых десертов</h3>
-                            <div class="news-strip__date">03 октября 2025</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide news-strip__slide">
-                    <a class="news-strip__card" href="#">
-                        <div class="news-strip__media">
-                            <img class="news-strip__image" src="/src/assets/img/4.jpg" alt="Новость компании" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <div class="news-strip__body">
-                            <h3 class="news-strip__name">Подвели итоги отраслевой встречи в Екатеринбурге и
-                                собрали материалы для партнёров</h3>
-                            <div class="news-strip__date">14 апреля 2025</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide news-strip__slide">
-                    <a class="news-strip__card" href="#">
-                        <div class="news-strip__media">
-                            <img class="news-strip__image" src="/src/assets/img/2.jpg" alt="Новость компании" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <div class="news-strip__body">
-                            <h3 class="news-strip__name">Снизили минимальную партию на ряд позиций для
-                                небольших кондитерских цехов</h3>
-                            <div class="news-strip__date">04 июня 2023</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide news-strip__slide">
-                    <a class="news-strip__card" href="#">
-                        <div class="news-strip__media">
-                            <img class="news-strip__image" src="/src/assets/img/3.jpg" alt="Новость компании" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <div class="news-strip__body">
-                            <h3 class="news-strip__name">Обновили условия для оптовых клиентов и расширили
-                                список акционных категорий</h3>
-                            <div class="news-strip__date">11 января 2023</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide news-strip__slide">
-                    <a class="news-strip__card" href="#">
-                        <div class="news-strip__media">
-                            <img class="news-strip__image" src="/src/assets/img/4.jpg" alt="Новость компании" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <div class="news-strip__body">
-                            <h3 class="news-strip__name">Изменили график поставок по ходовым позициям и
-                                сократили срок комплектации заказов</h3>
-                            <div class="news-strip__date">17 сентября 2025</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide news-strip__slide">
-                    <a class="news-strip__card" href="#">
-                        <div class="news-strip__media">
-                            <img class="news-strip__image" src="/src/assets/img/2.jpg" alt="Новость компании" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <div class="news-strip__body">
-                            <h3 class="news-strip__name">Подготовили фотоотчёт с отраслевой встречи по
-                                ингредиентам, инвентарю и упаковке</h3>
-                            <div class="news-strip__date">29 августа 2025</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide news-strip__slide">
-                    <a class="news-strip__card" href="#">
-                        <div class="news-strip__media">
-                            <img class="news-strip__image" src="/src/assets/img/3.jpg" alt="Новость компании" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <div class="news-strip__body">
-                            <h3 class="news-strip__name">Открыли запись на весенние мастер-классы для
-                                кондитеров и технологов</h3>
-                            <div class="news-strip__date">08 февраля 2026</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
+    <div
+      class="news-strip__slider swiper js-news-strip-slider"
+    >
+      <div class="swiper-wrapper">
+        <div class="swiper-slide news-strip__slide">
+          <a class="news-strip__card" href="#">
+            <div class="news-strip__media">
+              <img
+                class="news-strip__image"
+                src="img/2.jpg"
+                alt="Новость компании"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="news-strip__body">
+              <h3 class="news-strip__name">
+                Обновили подборку сезонных ингредиентов и
+                упаковки к весеннему меню
+              </h3>
+              <div class="news-strip__date">
+                20 марта 2026
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide news-strip__slide">
+          <a class="news-strip__card" href="#">
+            <div class="news-strip__media">
+              <img
+                class="news-strip__image"
+                src="img/3.jpg"
+                alt="Новость компании"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="news-strip__body">
+              <h3 class="news-strip__name">
+                В ассортименте появились новые формы и декор
+                для муссовых десертов
+              </h3>
+              <div class="news-strip__date">
+                03 октября 2025
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide news-strip__slide">
+          <a class="news-strip__card" href="#">
+            <div class="news-strip__media">
+              <img
+                class="news-strip__image"
+                src="img/4.jpg"
+                alt="Новость компании"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="news-strip__body">
+              <h3 class="news-strip__name">
+                Подвели итоги отраслевой встречи в
+                Екатеринбурге и собрали материалы для
+                партнёров
+              </h3>
+              <div class="news-strip__date">
+                14 апреля 2025
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide news-strip__slide">
+          <a class="news-strip__card" href="#">
+            <div class="news-strip__media">
+              <img
+                class="news-strip__image"
+                src="img/2.jpg"
+                alt="Новость компании"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="news-strip__body">
+              <h3 class="news-strip__name">
+                Снизили минимальную партию на ряд позиций
+                для небольших кондитерских цехов
+              </h3>
+              <div class="news-strip__date">
+                04 июня 2023
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide news-strip__slide">
+          <a class="news-strip__card" href="#">
+            <div class="news-strip__media">
+              <img
+                class="news-strip__image"
+                src="img/3.jpg"
+                alt="Новость компании"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="news-strip__body">
+              <h3 class="news-strip__name">
+                Обновили условия для оптовых клиентов и
+                расширили список акционных категорий
+              </h3>
+              <div class="news-strip__date">
+                11 января 2023
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide news-strip__slide">
+          <a class="news-strip__card" href="#">
+            <div class="news-strip__media">
+              <img
+                class="news-strip__image"
+                src="img/4.jpg"
+                alt="Новость компании"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="news-strip__body">
+              <h3 class="news-strip__name">
+                Изменили график поставок по ходовым позициям
+                и сократили срок комплектации заказов
+              </h3>
+              <div class="news-strip__date">
+                17 сентября 2025
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide news-strip__slide">
+          <a class="news-strip__card" href="#">
+            <div class="news-strip__media">
+              <img
+                class="news-strip__image"
+                src="img/2.jpg"
+                alt="Новость компании"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="news-strip__body">
+              <h3 class="news-strip__name">
+                Подготовили фотоотчёт с отраслевой встречи
+                по ингредиентам, инвентарю и упаковке
+              </h3>
+              <div class="news-strip__date">
+                29 августа 2025
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide news-strip__slide">
+          <a class="news-strip__card" href="#">
+            <div class="news-strip__media">
+              <img
+                class="news-strip__image"
+                src="img/3.jpg"
+                alt="Новость компании"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="news-strip__body">
+              <h3 class="news-strip__name">
+                Открыли запись на весенние мастер-классы для
+                кондитеров и технологов
+              </h3>
+              <div class="news-strip__date">
+                08 февраля 2026
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

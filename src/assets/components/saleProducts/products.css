@@ -158,6 +158,14 @@
   transition: fill var(--transition);
 }
 
+.sale-products__cart svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  stroke: currentcolor;
+  flex: 0 0 20px;
+}
+
 .sale-products__favorite.is-active svg {
   fill: currentcolor;
 }
@@ -342,14 +350,6 @@
 .sale-products__cart.is-added {
   background: var(--color-white-a100);
   color: var(--accent-strong);
-}
-
-.sale-products__cart svg {
-  width: 20px;
-  height: 20px;
-  display: block;
-  stroke: currentcolor;
-  flex: 0 0 20px;
 }
 
 .sale-products__actions {

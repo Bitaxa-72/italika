@@ -2,6 +2,10 @@ import { defineConfig } from 'vite'
 import injectHTML from 'vite-plugin-html-inject'
 
 export default defineConfig({
+  base:
+    process.env.NODE_ENV === 'production'
+      ? '/italika/'
+      : '/',
   server: {
     port: 3030
   },
@@ -18,7 +22,8 @@ export default defineConfig({
         favorites: '/favorites.html',
         lkMain: '/lkMain.html',
         lkReg: '/lkReg.html',
-        search: '/search.html'
+        search: '/search.html',
+        template: '/template.html'
       }
     }
   },

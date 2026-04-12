@@ -13,7 +13,7 @@
 @import url('./lkMain/lk.css');
 @import url('./favorites/favorites.css');
 @import url('./card/card.css');
-@import url('/src/assets/components/checkout/checkout.css');
+@import url('./checkout/checkout.css');
 @import url('./contacts/contacts.css');
 @import url('./subscribe/subscribe.css');
 @import url('./footer/footer.css');

@@ -1,342 +1,501 @@
 <section class="favorites-page">
-    <div class="container">
-        <div class="favorites-page__head">
-            <div class="favorites-page__intro">
-                <span class="favorites-page__eyebrow">Избранное</span>
-                <h1 class="favorites-page__title">Любимые товары</h1>
-                <p class="favorites-page__summary js-favorites-summary">Товары, которые вы отложили для следующего заказа.</p>
-            </div>
+  <div class="container">
+    <div class="favorites-page__head">
+      <div class="favorites-page__intro">
+        <span class="favorites-page__eyebrow"
+          >Избранное</span
+        >
+        <h1 class="favorites-page__title">
+          Любимые товары
+        </h1>
+        <p
+          class="favorites-page__summary js-favorites-summary"
+        >
+          Товары, которые вы отложили для следующего заказа.
+        </p>
+      </div>
 
-            <button class="favorites-page__clear js-favorites-clear" type="button">Очистить список</button>
-        </div>
-
-        <div class="favorites-page__filters js-favorites-filters" aria-label="Фильтр по категориям"></div>
-
-        <div class="sale-products__grid favorites-page__grid js-favorites-grid"></div>
-
-        <div class="favorites-page__empty js-favorites-empty" hidden>
-            <span class="favorites-page__empty-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 20.2 4.7 13.4A4.9 4.9 0 0 1 11.5 6l.5.6.5-.6a4.9 4.9 0 0 1 6.8 7.3L12 20.2Z" stroke-width="1.8" stroke-linejoin="round"></path>
-                </svg>
-            </span>
-            <h2 class="favorites-page__empty-title">В избранном пока пусто</h2>
-            <p class="favorites-page__empty-text">Добавляйте товары сердцем в каталоге, акциях или результатах поиска.</p>
-            <a class="favorites-page__empty-link" href="/">Перейти к товарам</a>
-        </div>
+      <button
+        class="favorites-page__clear js-favorites-clear"
+        type="button"
+      >
+        Очистить список
+      </button>
     </div>
 
-    <script>
-        (function () {
-            var section = document.querySelector('.favorites-page');
+    <div
+      class="favorites-page__filters js-favorites-filters"
+      aria-label="Фильтр по категориям"
+    ></div>
 
-            if (!section) {
-                return;
+    <div
+      class="sale-products__grid favorites-page__grid js-favorites-grid"
+    ></div>
+
+    <div
+      class="favorites-page__empty js-favorites-empty"
+      hidden
+    >
+      <span
+        class="favorites-page__empty-icon"
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 20.2 4.7 13.4A4.9 4.9 0 0 1 11.5 6l.5.6.5-.6a4.9 4.9 0 0 1 6.8 7.3L12 20.2Z"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </span>
+      <h2 class="favorites-page__empty-title">
+        В избранном пока пусто
+      </h2>
+      <p class="favorites-page__empty-text">
+        Добавляйте товары сердцем в каталоге, акциях или
+        результатах поиска.
+      </p>
+      <a
+        class="favorites-page__empty-link"
+        href="index.html"
+        >Перейти к товарам</a
+      >
+    </div>
+  </div>
+
+  <script>
+    ;(function () {
+      var section = document.querySelector(
+        '.favorites-page'
+      )
+
+      if (!section) {
+        return
+      }
+
+      var grid = section.querySelector('.js-favorites-grid')
+      var summary = section.querySelector(
+        '.js-favorites-summary'
+      )
+      var empty = section.querySelector(
+        '.js-favorites-empty'
+      )
+      var clearButton = section.querySelector(
+        '.js-favorites-clear'
+      )
+      var filters = section.querySelector(
+        '.js-favorites-filters'
+      )
+      var activeCategory = 'all'
+      var products = [
+        {
+          title:
+            'Топпер акриловый золотой "Звезда" 23 фев 55×58 мм, арт 134',
+          image: 'img/2.jpg',
+          href: '#',
+          price: 47.6,
+          oldPrice: 59.5,
+          isAvailable: true,
+          badge: 'Акция',
+          category: 'Декор'
+        },
+        {
+          title: 'Шоколад белый кондитерский 500 г',
+          image: 'img/4.jpg',
+          href: '#',
+          price: 459.0,
+          oldPrice: 549.0,
+          isAvailable: false,
+          badge: 'Акция',
+          category: 'Шоколад'
+        },
+        {
+          title: 'Мастика сахарная белая 1 кг',
+          image: 'img/2.jpg',
+          href: '#',
+          price: 349.0,
+          oldPrice: 429.0,
+          isAvailable: true,
+          badge: 'Акция',
+          category: 'Ингредиенты'
+        },
+        {
+          title: 'Шоколад молочный в каллетах 1 кг',
+          image: 'img/3.jpg',
+          href: '#',
+          price: 890.0,
+          oldPrice: 1040.0,
+          isAvailable: true,
+          category: 'Шоколад'
+        }
+      ]
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;')
+      }
+
+      function formatPrice(value) {
+        return (
+          Number(value).toLocaleString('ru-RU', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          }) + ' ₽'
+        )
+      }
+
+      function getDiscountPercent(price, oldPrice) {
+        if (!oldPrice || oldPrice <= price) {
+          return 0
+        }
+
+        return Math.round((1 - price / oldPrice) * 100)
+      }
+
+      function getProductsWord(count) {
+        var lastDigit = count % 10
+        var lastTwoDigits = count % 100
+
+        if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+          return 'товаров'
+        }
+
+        if (lastDigit === 1) {
+          return 'товар'
+        }
+
+        if (lastDigit >= 2 && lastDigit <= 4) {
+          return 'товара'
+        }
+
+        return 'товаров'
+      }
+
+      function getFilteredProducts() {
+        if (activeCategory === 'all') {
+          return products.map(function (product, index) {
+            return {
+              product: product,
+              index: index
             }
+          })
+        }
 
-            var grid = section.querySelector('.js-favorites-grid');
-            var summary = section.querySelector('.js-favorites-summary');
-            var empty = section.querySelector('.js-favorites-empty');
-            var clearButton = section.querySelector('.js-favorites-clear');
-            var filters = section.querySelector('.js-favorites-filters');
-            var activeCategory = 'all';
-            var products = [
-                {
-                    title: 'Топпер акриловый золотой "Звезда" 23 фев 55×58 мм, арт 134',
-                    image: '/src/assets/img/2.jpg',
-                    href: '#',
-                    price: 47.60,
-                    oldPrice: 59.50,
-                    isAvailable: true,
-                    badge: 'Акция',
-                    category: 'Декор'
-                },
-                {
-                    title: 'Шоколад белый кондитерский 500 г',
-                    image: '/src/assets/img/4.jpg',
-                    href: '#',
-                    price: 459.00,
-                    oldPrice: 549.00,
-                    isAvailable: false,
-                    badge: 'Акция',
-                    category: 'Шоколад'
-                },
-                {
-                    title: 'Мастика сахарная белая 1 кг',
-                    image: '/src/assets/img/2.jpg',
-                    href: '#',
-                    price: 349.00,
-                    oldPrice: 429.00,
-                    isAvailable: true,
-                    badge: 'Акция',
-                    category: 'Ингредиенты'
-                },
-                {
-                    title: 'Шоколад молочный в каллетах 1 кг',
-                    image: '/src/assets/img/3.jpg',
-                    href: '#',
-                    price: 890.00,
-                    oldPrice: 1040.00,
-                    isAvailable: true,
-                    category: 'Шоколад'
-                }
-            ];
+        return products.reduce(function (
+          result,
+          product,
+          index
+        ) {
+          if (product.category === activeCategory) {
+            result.push({
+              product: product,
+              index: index
+            })
+          }
 
-            function escapeHtml(value) {
-                return String(value)
-                    .replace(/&/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;')
-                    .replace(/"/g, '&quot;')
-                    .replace(/'/g, '&#039;');
-            }
+          return result
+        }, [])
+      }
 
-            function formatPrice(value) {
-                return Number(value).toLocaleString('ru-RU', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                }) + ' ₽';
-            }
+      function getCategories() {
+        var categories = []
+        var i = 0
 
-            function getDiscountPercent(price, oldPrice) {
-                if (!oldPrice || oldPrice <= price) {
-                    return 0;
-                }
+        for (i = 0; i < products.length; i++) {
+          if (
+            categories.indexOf(products[i].category) === -1
+          ) {
+            categories.push(products[i].category)
+          }
+        }
 
-                return Math.round((1 - price / oldPrice) * 100);
-            }
+        return categories
+      }
 
-            function getProductsWord(count) {
-                var lastDigit = count % 10;
-                var lastTwoDigits = count % 100;
+      function getCategoryCount(category) {
+        var count = 0
+        var i = 0
 
-                if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
-                    return 'товаров';
-                }
+        for (i = 0; i < products.length; i++) {
+          if (
+            category === 'all' ||
+            products[i].category === category
+          ) {
+            count++
+          }
+        }
 
-                if (lastDigit === 1) {
-                    return 'товар';
-                }
+        return count
+      }
 
-                if (lastDigit >= 2 && lastDigit <= 4) {
-                    return 'товара';
-                }
+      function createFilterMarkup(category, label) {
+        var isActive = activeCategory === category
 
-                return 'товаров';
-            }
+        return (
+          '' +
+          '<button class="favorites-page__filter' +
+          (isActive ? ' is-active' : '') +
+          '" type="button" data-category="' +
+          escapeHtml(category) +
+          '" aria-pressed="' +
+          (isActive ? 'true' : 'false') +
+          '">' +
+          '<span>' +
+          escapeHtml(label) +
+          '</span>' +
+          '<span class="favorites-page__filter-count">' +
+          getCategoryCount(category) +
+          '</span>' +
+          '</button>'
+        )
+      }
 
-            function getFilteredProducts() {
-                if (activeCategory === 'all') {
-                    return products.map(function (product, index) {
-                        return {
-                            product: product,
-                            index: index
-                        };
-                    });
-                }
+      function renderFilters() {
+        var categories = getCategories()
+        var markup = createFilterMarkup('all', 'Все')
+        var i = 0
 
-                return products.reduce(function (result, product, index) {
-                    if (product.category === activeCategory) {
-                        result.push({
-                            product: product,
-                            index: index
-                        });
-                    }
+        if (products.length === 0) {
+          filters.innerHTML = ''
+          return
+        }
 
-                    return result;
-                }, []);
-            }
+        if (
+          activeCategory !== 'all' &&
+          categories.indexOf(activeCategory) === -1
+        ) {
+          activeCategory = 'all'
+        }
 
-            function getCategories() {
-                var categories = [];
-                var i = 0;
+        for (i = 0; i < categories.length; i++) {
+          markup += createFilterMarkup(
+            categories[i],
+            categories[i]
+          )
+        }
 
-                for (i = 0; i < products.length; i++) {
-                    if (categories.indexOf(products[i].category) === -1) {
-                        categories.push(products[i].category);
-                    }
-                }
+        filters.innerHTML = markup
+      }
 
-                return categories;
-            }
+      function createCardMarkup(product, index) {
+        var discountPercent = getDiscountPercent(
+          product.price,
+          product.oldPrice
+        )
+        var savings = product.oldPrice
+          ? product.oldPrice - product.price
+          : 0
+        var stockText = product.isAvailable
+          ? 'В наличии'
+          : 'Ожидается поступление'
+        var stockModifier = product.isAvailable
+          ? ' sale-products__stock--available'
+          : ' sale-products__stock--waiting'
+        var cartText = product.isAvailable
+          ? 'В корзину'
+          : 'Ожидается'
+        var cartLabel = product.isAvailable
+          ? 'Добавить в корзину: ' + product.title
+          : 'Ожидается поступление: ' + product.title
+        var cartDisabled = product.isAvailable
+          ? ''
+          : ' disabled'
+        var badgeMarkup =
+          product.badge === 'Акция'
+            ? '<span class="sale-products__badges"><span class="sale-products__badge">Акция</span></span>'
+            : ''
+        var priceBlock =
+          '' +
+          '<span class="sale-products__price-block">' +
+          '<span class="sale-products__price-current">' +
+          formatPrice(product.price) +
+          '/шт</span>'
 
-            function getCategoryCount(category) {
-                var count = 0;
-                var i = 0;
+        if (
+          product.oldPrice &&
+          product.oldPrice > product.price
+        ) {
+          priceBlock +=
+            '' +
+            '<span class="sale-products__price-old">' +
+            formatPrice(product.oldPrice) +
+            '</span>' +
+            '<span class="sale-products__benefit">' +
+            '<span class="sale-products__discount">-' +
+            escapeHtml(discountPercent) +
+            '%</span>' +
+            '<span class="sale-products__benefit-text">Экономия ' +
+            formatPrice(savings) +
+            '</span>' +
+            '</span>'
+        }
 
-                for (i = 0; i < products.length; i++) {
-                    if (category === 'all' || products[i].category === category) {
-                        count++;
-                    }
-                }
+        priceBlock += '</span>'
 
-                return count;
-            }
+        return (
+          '' +
+          '<article class="sale-products__card favorites-page__card" data-favorites-index="' +
+          index +
+          '">' +
+          badgeMarkup +
+          '<button class="sale-products__favorite favorites-page__favorite js-favorites-remove is-active" type="button" aria-label="Убрать из избранного: ' +
+          escapeHtml(product.title) +
+          '" aria-pressed="true">' +
+          '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+          '<path d="M12 20.2 4.7 13.4A4.9 4.9 0 0 1 11.5 6l.5.6.5-.6a4.9 4.9 0 0 1 6.8 7.3L12 20.2Z" stroke-width="1.8" stroke-linejoin="round"></path>' +
+          '</svg>' +
+          '</button>' +
+          '<a class="sale-products__image-box" href="' +
+          escapeHtml(product.href) +
+          '">' +
+          '<img class="sale-products__image" src="' +
+          escapeHtml(product.image) +
+          '" alt="' +
+          escapeHtml(product.title) +
+          '" loading="lazy" decoding="async">' +
+          '</a>' +
+          '<span class="sale-products__content">' +
+          '<a class="sale-products__title-text" href="' +
+          escapeHtml(product.href) +
+          '">' +
+          escapeHtml(product.title) +
+          '</a>' +
+          '<span class="sale-products__stock' +
+          stockModifier +
+          '">' +
+          escapeHtml(stockText) +
+          '</span>' +
+          priceBlock +
+          '<button class="sale-products__cart js-favorites-cart" type="button" aria-label="' +
+          escapeHtml(cartLabel) +
+          '"' +
+          cartDisabled +
+          '>' +
+          '<span class="sale-products__cart-text">' +
+          escapeHtml(cartText) +
+          '</span>' +
+          '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+          '<path d="M3.5 5H6l1.6 8.1c.1.7.7 1.2 1.4 1.2h7.7c.7 0 1.3-.5 1.4-1.2L19.5 8H7.1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>' +
+          '<circle cx="10" cy="18.2" r="1.2" fill="currentColor" stroke="none"></circle>' +
+          '<circle cx="17" cy="18.2" r="1.2" fill="currentColor" stroke="none"></circle>' +
+          '</svg>' +
+          '</button>' +
+          '</span>' +
+          '</article>'
+        )
+      }
 
-            function createFilterMarkup(category, label) {
-                var isActive = activeCategory === category;
+      function updatePageState() {
+        var count = products.length
+        var filteredCount = getFilteredProducts().length
+        var isEmpty = count === 0
+        var categoryText =
+          activeCategory === 'all'
+            ? ''
+            : ' в категории "' + activeCategory + '"'
 
-                return '' +
-                    '<button class="favorites-page__filter' + (isActive ? ' is-active' : '') + '" type="button" data-category="' + escapeHtml(category) + '" aria-pressed="' + (isActive ? 'true' : 'false') + '">' +
-                    '<span>' + escapeHtml(label) + '</span>' +
-                    '<span class="favorites-page__filter-count">' + getCategoryCount(category) + '</span>' +
-                    '</button>';
-            }
+        summary.textContent = isEmpty
+          ? 'Список пуст. Сохраняйте товары, чтобы быстро вернуться к ним позже.'
+          : 'В избранном ' +
+            filteredCount +
+            ' ' +
+            getProductsWord(filteredCount) +
+            categoryText +
+            '.'
+        empty.hidden = !isEmpty
+        grid.hidden = isEmpty
+        clearButton.hidden = isEmpty
+        filters.hidden = isEmpty
+      }
 
-            function renderFilters() {
-                var categories = getCategories();
-                var markup = createFilterMarkup('all', 'Все');
-                var i = 0;
+      function renderProducts() {
+        var fragment = document.createDocumentFragment()
+        var wrapper = document.createElement('div')
+        var visibleProducts
+        var i = 0
 
-                if (products.length === 0) {
-                    filters.innerHTML = '';
-                    return;
-                }
+        grid.innerHTML = ''
+        renderFilters()
+        visibleProducts = getFilteredProducts()
 
-                if (activeCategory !== 'all' && categories.indexOf(activeCategory) === -1) {
-                    activeCategory = 'all';
-                }
+        for (i = 0; i < visibleProducts.length; i++) {
+          wrapper.innerHTML = createCardMarkup(
+            visibleProducts[i].product,
+            visibleProducts[i].index
+          )
+          fragment.appendChild(wrapper.firstChild)
+        }
 
-                for (i = 0; i < categories.length; i++) {
-                    markup += createFilterMarkup(categories[i], categories[i]);
-                }
+        grid.appendChild(fragment)
+        updatePageState()
+      }
 
-                filters.innerHTML = markup;
-            }
+      grid.addEventListener('click', function (event) {
+        var removeButton = event.target.closest(
+          '.js-favorites-remove'
+        )
+        var cartButton = event.target.closest(
+          '.js-favorites-cart'
+        )
+        var card
+        var index
+        var buttonText
 
-            function createCardMarkup(product, index) {
-                var discountPercent = getDiscountPercent(product.price, product.oldPrice);
-                var savings = product.oldPrice ? product.oldPrice - product.price : 0;
-                var stockText = product.isAvailable ? 'В наличии' : 'Ожидается поступление';
-                var stockModifier = product.isAvailable ? ' sale-products__stock--available' : ' sale-products__stock--waiting';
-                var cartText = product.isAvailable ? 'В корзину' : 'Ожидается';
-                var cartLabel = product.isAvailable ? 'Добавить в корзину: ' + product.title : 'Ожидается поступление: ' + product.title;
-                var cartDisabled = product.isAvailable ? '' : ' disabled';
-                var badgeMarkup = product.badge === 'Акция'
-                    ? '<span class="sale-products__badges"><span class="sale-products__badge">Акция</span></span>'
-                    : '';
-                var priceBlock = '' +
-                    '<span class="sale-products__price-block">' +
-                    '<span class="sale-products__price-current">' + formatPrice(product.price) + '/шт</span>';
+        if (removeButton) {
+          card = removeButton.closest(
+            '.favorites-page__card'
+          )
+          index = Number(
+            card.getAttribute('data-favorites-index')
+          )
+          products.splice(index, 1)
+          renderProducts()
 
-                if (product.oldPrice && product.oldPrice > product.price) {
-                    priceBlock += '' +
-                        '<span class="sale-products__price-old">' + formatPrice(product.oldPrice) + '</span>' +
-                        '<span class="sale-products__benefit">' +
-                        '<span class="sale-products__discount">-' + escapeHtml(discountPercent) + '%</span>' +
-                        '<span class="sale-products__benefit-text">Экономия ' + formatPrice(savings) + '</span>' +
-                        '</span>';
-                }
+          return
+        }
 
-                priceBlock += '</span>';
+        if (!cartButton || cartButton.disabled) {
+          return
+        }
 
-                return '' +
-                    '<article class="sale-products__card favorites-page__card" data-favorites-index="' + index + '">' +
-                    badgeMarkup +
-                    '<button class="sale-products__favorite favorites-page__favorite js-favorites-remove is-active" type="button" aria-label="Убрать из избранного: ' + escapeHtml(product.title) + '" aria-pressed="true">' +
-                    '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
-                    '<path d="M12 20.2 4.7 13.4A4.9 4.9 0 0 1 11.5 6l.5.6.5-.6a4.9 4.9 0 0 1 6.8 7.3L12 20.2Z" stroke-width="1.8" stroke-linejoin="round"></path>' +
-                    '</svg>' +
-                    '</button>' +
-                    '<a class="sale-products__image-box" href="' + escapeHtml(product.href) + '">' +
-                    '<img class="sale-products__image" src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.title) + '" loading="lazy" decoding="async">' +
-                    '</a>' +
-                    '<span class="sale-products__content">' +
-                    '<a class="sale-products__title-text" href="' + escapeHtml(product.href) + '">' + escapeHtml(product.title) + '</a>' +
-                    '<span class="sale-products__stock' + stockModifier + '">' + escapeHtml(stockText) + '</span>' +
-                    priceBlock +
-                    '<button class="sale-products__cart js-favorites-cart" type="button" aria-label="' + escapeHtml(cartLabel) + '"' + cartDisabled + '>' +
-                    '<span class="sale-products__cart-text">' + escapeHtml(cartText) + '</span>' +
-                    '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
-                    '<path d="M3.5 5H6l1.6 8.1c.1.7.7 1.2 1.4 1.2h7.7c.7 0 1.3-.5 1.4-1.2L19.5 8H7.1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>' +
-                    '<circle cx="10" cy="18.2" r="1.2" fill="currentColor" stroke="none"></circle>' +
-                    '<circle cx="17" cy="18.2" r="1.2" fill="currentColor" stroke="none"></circle>' +
-                    '</svg>' +
-                    '</button>' +
-                    '</span>' +
-                    '</article>';
-            }
+        buttonText = cartButton.querySelector(
+          '.sale-products__cart-text'
+        )
+        cartButton.classList.add('is-added')
+        cartButton.setAttribute(
+          'aria-label',
+          'Товар добавлен в корзину'
+        )
 
-            function updatePageState() {
-                var count = products.length;
-                var filteredCount = getFilteredProducts().length;
-                var isEmpty = count === 0;
-                var categoryText = activeCategory === 'all' ? '' : ' в категории "' + activeCategory + '"';
+        if (buttonText) {
+          buttonText.textContent = 'Добавлено'
+        }
+      })
 
-                summary.textContent = isEmpty
-                    ? 'Список пуст. Сохраняйте товары, чтобы быстро вернуться к ним позже.'
-                    : 'В избранном ' + filteredCount + ' ' + getProductsWord(filteredCount) + categoryText + '.';
-                empty.hidden = !isEmpty;
-                grid.hidden = isEmpty;
-                clearButton.hidden = isEmpty;
-                filters.hidden = isEmpty;
-            }
+      filters.addEventListener('click', function (event) {
+        var button = event.target.closest(
+          '.favorites-page__filter'
+        )
 
-            function renderProducts() {
-                var fragment = document.createDocumentFragment();
-                var wrapper = document.createElement('div');
-                var visibleProducts;
-                var i = 0;
+        if (!button) {
+          return
+        }
 
-                grid.innerHTML = '';
-                renderFilters();
-                visibleProducts = getFilteredProducts();
+        activeCategory =
+          button.getAttribute('data-category')
+        renderProducts()
+      })
 
-                for (i = 0; i < visibleProducts.length; i++) {
-                    wrapper.innerHTML = createCardMarkup(visibleProducts[i].product, visibleProducts[i].index);
-                    fragment.appendChild(wrapper.firstChild);
-                }
+      clearButton.addEventListener('click', function () {
+        products = []
+        renderProducts()
+      })
 
-                grid.appendChild(fragment);
-                updatePageState();
-            }
-
-            grid.addEventListener('click', function (event) {
-                var removeButton = event.target.closest('.js-favorites-remove');
-                var cartButton = event.target.closest('.js-favorites-cart');
-                var card;
-                var index;
-                var buttonText;
-
-                if (removeButton) {
-                    card = removeButton.closest('.favorites-page__card');
-                    index = Number(card.getAttribute('data-favorites-index'));
-                    products.splice(index, 1);
-                    renderProducts();
-
-                    return;
-                }
-
-                if (!cartButton || cartButton.disabled) {
-                    return;
-                }
-
-                buttonText = cartButton.querySelector('.sale-products__cart-text');
-                cartButton.classList.add('is-added');
-                cartButton.setAttribute('aria-label', 'Товар добавлен в корзину');
-
-                if (buttonText) {
-                    buttonText.textContent = 'Добавлено';
-                }
-            });
-
-            filters.addEventListener('click', function (event) {
-                var button = event.target.closest('.favorites-page__filter');
-
-                if (!button) {
-                    return;
-                }
-
-                activeCategory = button.getAttribute('data-category');
-                renderProducts();
-            });
-
-            clearButton.addEventListener('click', function () {
-                products = [];
-                renderProducts();
-            });
-
-            renderProducts();
-        })();
-    </script>
+      renderProducts()
+    })()
+  </script>
 </section>

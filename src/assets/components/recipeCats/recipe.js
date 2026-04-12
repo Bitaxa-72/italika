@@ -2,7 +2,9 @@ import Swiper from 'swiper'
 import { Navigation } from 'swiper/modules'
 
 document.addEventListener('DOMContentLoaded', function () {
-  var slider = document.querySelector('.js-recipe-cats-slider')
+  var slider = document.querySelector(
+    '.js-recipe-cats-slider'
+  )
 
   if (!slider) {
     return

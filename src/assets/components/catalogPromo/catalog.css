@@ -160,7 +160,6 @@
   border: 1px solid var(--color-white-a16);
   background: var(--color-white-a12);
   backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
   position: relative;
   flex: 0 0 40px;
   transition:
