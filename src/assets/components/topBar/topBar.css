@@ -1,7 +1,6 @@
 .topbar {
   background: var(--bg-dark);
   color: var(--color-white-a90);
-  border-bottom: 1px solid var(--color-white-a08);
 }
 
 .topbar__inner {

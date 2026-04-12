@@ -1,0 +1,584 @@
+<section
+  class="recipes-page"
+  data-recipes
+  data-recipes-endpoint=""
+>
+  <div class="container">
+    <div class="recipes-page__head">
+      <div class="recipes-page__intro">
+        <h1 class="recipes-page__title">Рецепты</h1>
+      </div>
+
+      <div class="recipes-page__subscribe">
+        <div>
+          <h2 class="recipes-page__subscribe-title">
+            Новости и рецепты на почту
+          </h2>
+          <p class="recipes-page__subscribe-text">
+            Отправляем полезные подборки и обновления сайта.
+          </p>
+        </div>
+        <button
+          class="recipes-page__subscribe-button"
+          type="button"
+          data-subscribe-open
+        >
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M4.5 6.5h15v11h-15v-11Z"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="m5 7 7 6 7-6"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          <span>Подписаться</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="recipes-page__layout">
+      <aside class="recipes-page__aside" aria-label="Категории рецептов">
+        <div class="recipes-page__filter">
+          <div class="recipes-page__filter-title">Категории</div>
+          <div
+            class="recipes-page__categories js-recipes-categories"
+          ></div>
+        </div>
+      </aside>
+
+      <div class="recipes-page__content">
+        <div
+          class="recipes-page__grid js-recipes-grid"
+          aria-live="polite"
+        ></div>
+
+        <div
+          class="recipes-page__empty js-recipes-empty"
+          hidden
+        >
+          <h2 class="recipes-page__empty-title">
+            Рецепты не найдены
+          </h2>
+          <p class="recipes-page__empty-text">
+            Выберите другую категорию или сбросьте фильтр.
+          </p>
+        </div>
+
+        <div class="recipes-page__actions">
+          <button
+            class="recipes-page__more js-recipes-more"
+            type="button"
+          >
+            <span class="recipes-page__more-text"
+              >Загрузить еще</span
+            >
+            <span
+              class="recipes-page__more-spinner"
+              aria-hidden="true"
+            ></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    ;(function () {
+      var section = document.querySelector('[data-recipes]')
+
+      if (!section) {
+        return
+      }
+
+      var grid = section.querySelector('.js-recipes-grid')
+      var categoriesNode = section.querySelector(
+        '.js-recipes-categories'
+      )
+      var empty = section.querySelector('.js-recipes-empty')
+      var moreButton = section.querySelector(
+        '.js-recipes-more'
+      )
+      var moreButtonText = moreButton.querySelector(
+        '.recipes-page__more-text'
+      )
+      var endpoint = section.getAttribute(
+        'data-recipes-endpoint'
+      )
+      var pageSize = 21
+      var currentPage = 1
+      var currentCategory = 'all'
+      var totalCount = 0
+      var renderedCount = 0
+      var isLoading = false
+      var categories = [
+        { id: 'all', title: 'Все рецепты' },
+        {
+          id: 'gastronomic',
+          title: 'Гастрономические рецепты'
+        },
+        { id: 'desserts', title: 'Десерты' },
+        { id: 'baking', title: 'Выпечка' },
+        { id: 'chocolate', title: 'Шоколад' },
+        { id: 'cream', title: 'Кремы и начинки' },
+        { id: 'seasonal', title: 'Сезонное меню' }
+      ]
+      var recipes = [
+        {
+          title: 'Фаршированные ракушки в томатном соусе',
+          categoryId: 'gastronomic',
+          category: 'Гастрономические рецепты',
+          image: 'img/2.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Шоколадный тарт с ягодной начинкой',
+          categoryId: 'chocolate',
+          category: 'Шоколад',
+          image: 'img/3.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Муссовый десерт с ванильным кремом',
+          categoryId: 'desserts',
+          category: 'Десерты',
+          image: 'img/4.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Песочные тарталетки с лимонным курдом',
+          categoryId: 'baking',
+          category: 'Выпечка',
+          image: 'img/2.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Крем-чиз для выравнивания торта',
+          categoryId: 'cream',
+          category: 'Кремы и начинки',
+          image: 'img/3.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Летний ягодный чизкейк без выпечки',
+          categoryId: 'seasonal',
+          category: 'Сезонное меню',
+          image: 'img/4.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Паста с печеными томатами и базиликом',
+          categoryId: 'gastronomic',
+          category: 'Гастрономические рецепты',
+          image: 'img/2.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Брауни с плотной шоколадной серединой',
+          categoryId: 'chocolate',
+          category: 'Шоколад',
+          image: 'img/3.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Капкейки с клубничной шапочкой',
+          categoryId: 'desserts',
+          category: 'Десерты',
+          image: 'img/4.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Булочки с корицей и сливочной глазурью',
+          categoryId: 'baking',
+          category: 'Выпечка',
+          image: 'img/2.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Фисташковая начинка для макарон',
+          categoryId: 'cream',
+          category: 'Кремы и начинки',
+          image: 'img/3.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Пасхальный кулич на сливках',
+          categoryId: 'seasonal',
+          category: 'Сезонное меню',
+          image: 'img/4.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Ризотто с грибами и пармезаном',
+          categoryId: 'gastronomic',
+          category: 'Гастрономические рецепты',
+          image: 'img/2.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Темперированный шоколад для декора',
+          categoryId: 'chocolate',
+          category: 'Шоколад',
+          image: 'img/3.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Панна-котта с малиновым соусом',
+          categoryId: 'desserts',
+          category: 'Десерты',
+          image: 'img/4.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Слоеные корзинки с яблоком',
+          categoryId: 'baking',
+          category: 'Выпечка',
+          image: 'img/2.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Заварной крем для эклеров',
+          categoryId: 'cream',
+          category: 'Кремы и начинки',
+          image: 'img/3.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Новогоднее печенье с пряностями',
+          categoryId: 'seasonal',
+          category: 'Сезонное меню',
+          image: 'img/4.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Лазанья с овощами и томатным соусом',
+          categoryId: 'gastronomic',
+          category: 'Гастрономические рецепты',
+          image: 'img/2.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Ганаш на темном шоколаде',
+          categoryId: 'chocolate',
+          category: 'Шоколад',
+          image: 'img/3.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Мини-павлова с сезонными ягодами',
+          categoryId: 'desserts',
+          category: 'Десерты',
+          image: 'img/4.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Творожное печенье с сахарной корочкой',
+          categoryId: 'baking',
+          category: 'Выпечка',
+          image: 'img/2.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Карамельная начинка с морской солью',
+          categoryId: 'cream',
+          category: 'Кремы и начинки',
+          image: 'img/3.jpg',
+          href: 'recipe-single.html'
+        },
+        {
+          title: 'Осенний пирог с грушей',
+          categoryId: 'seasonal',
+          category: 'Сезонное меню',
+          image: 'img/4.jpg',
+          href: 'recipe-single.html'
+        }
+      ]
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;')
+      }
+
+      function normalizeRecipes(response) {
+        if (Array.isArray(response)) {
+          return {
+            items: response,
+            total: response.length
+          }
+        }
+
+        return {
+          items: response.items || response.recipes || [],
+          total:
+            response.total ||
+            response.count ||
+            (response.items || response.recipes || []).length
+        }
+      }
+
+      function getDemoRecipes(categoryId, page) {
+        var filteredRecipes =
+          categoryId === 'all'
+            ? recipes
+            : recipes.filter(function (recipe) {
+                return recipe.categoryId === categoryId
+              })
+        var start = (page - 1) * pageSize
+
+        return {
+          items: filteredRecipes.slice(
+            start,
+            start + pageSize
+          ),
+          total: filteredRecipes.length
+        }
+      }
+
+      function requestRecipes(categoryId, page) {
+        var url
+
+        if (!endpoint) {
+          return new Promise(function (resolve) {
+            setTimeout(function () {
+              resolve(getDemoRecipes(categoryId, page))
+            }, 320)
+          })
+        }
+
+        url = new URL(endpoint, window.location.origin)
+        url.searchParams.set('category', categoryId)
+        url.searchParams.set('page', page)
+        url.searchParams.set('limit', pageSize)
+
+        return fetch(url.toString(), {
+          headers: {
+            Accept: 'application/json'
+          }
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Recipes request failed')
+            }
+
+            return response.json()
+          })
+          .then(normalizeRecipes)
+      }
+
+      function createCardMarkup(recipe) {
+        return (
+          '' +
+          '<article class="recipes-page__card">' +
+          '<a class="recipes-page__media" href="' +
+          escapeHtml(recipe.href) +
+          '">' +
+          '<img class="recipes-page__image" src="' +
+          escapeHtml(recipe.image) +
+          '" alt="' +
+          escapeHtml(recipe.title) +
+          '" loading="lazy" decoding="async">' +
+          '</a>' +
+          '<div class="recipes-page__body">' +
+          '<div class="recipes-page__meta">' +
+          escapeHtml(recipe.category) +
+          '</div>' +
+          '<h2 class="recipes-page__name">' +
+          '<a href="' +
+          escapeHtml(recipe.href) +
+          '">' +
+          escapeHtml(recipe.title) +
+          '</a>' +
+          '</h2>' +
+          '</div>' +
+          '</article>'
+        )
+      }
+
+      function createSkeletonMarkup() {
+        return (
+          '' +
+          '<div class="recipes-page__card recipes-page__card--skeleton">' +
+          '<span class="recipes-page__media">' +
+          '<span class="recipes-page__skeleton recipes-page__skeleton-image"></span>' +
+          '</span>' +
+          '<span class="recipes-page__body">' +
+          '<span class="recipes-page__skeleton recipes-page__skeleton-meta"></span>' +
+          '<span class="recipes-page__skeleton recipes-page__skeleton-title"></span>' +
+          '<span class="recipes-page__skeleton recipes-page__skeleton-title recipes-page__skeleton-title--short"></span>' +
+          '</span>' +
+          '</div>'
+        )
+      }
+
+      function appendMarkup(markup, parent) {
+        var wrapper = document.createElement('div')
+        wrapper.innerHTML = markup
+        parent.appendChild(wrapper.firstChild)
+      }
+
+      function appendRecipes(items) {
+        var fragment = document.createDocumentFragment()
+        var wrapper = document.createElement('div')
+        var i = 0
+
+        for (i = 0; i < items.length; i++) {
+          wrapper.innerHTML = createCardMarkup(items[i])
+          fragment.appendChild(wrapper.firstChild)
+        }
+
+        grid.appendChild(fragment)
+      }
+
+      function appendSkeletons(count) {
+        var fragment = document.createDocumentFragment()
+        var wrapper = document.createElement('div')
+        var i = 0
+
+        for (i = 0; i < count; i++) {
+          wrapper.innerHTML = createSkeletonMarkup()
+          fragment.appendChild(wrapper.firstChild)
+        }
+
+        grid.appendChild(fragment)
+      }
+
+      function removeSkeletons() {
+        var skeletons = grid.querySelectorAll(
+          '.recipes-page__card--skeleton'
+        )
+        var i = 0
+
+        for (i = 0; i < skeletons.length; i++) {
+          skeletons[i].parentNode.removeChild(skeletons[i])
+        }
+      }
+
+      function renderCategories() {
+        var i = 0
+
+        categoriesNode.innerHTML = ''
+
+        for (i = 0; i < categories.length; i++) {
+          appendMarkup(
+            '' +
+              '<button class="recipes-page__category" type="button" data-recipes-category="' +
+              escapeHtml(categories[i].id) +
+              '" aria-pressed="false">' +
+              '<span>' +
+              escapeHtml(categories[i].title) +
+              '</span>' +
+              '</button>',
+            categoriesNode
+          )
+        }
+      }
+
+      function updateCategories() {
+        var buttons = categoriesNode.querySelectorAll(
+          '[data-recipes-category]'
+        )
+        var i = 0
+
+        for (i = 0; i < buttons.length; i++) {
+          buttons[i].classList.toggle(
+            'is-active',
+            buttons[i].getAttribute(
+              'data-recipes-category'
+            ) === currentCategory
+          )
+          buttons[i].setAttribute(
+            'aria-pressed',
+            buttons[i].classList.contains('is-active')
+              ? 'true'
+              : 'false'
+          )
+        }
+      }
+
+      function updateMoreButton() {
+        var hasMore = renderedCount < totalCount
+
+        moreButton.hidden = !hasMore
+        moreButton.disabled = !hasMore || isLoading
+        moreButton.classList.toggle('is-loading', isLoading)
+        moreButtonText.textContent = isLoading
+          ? 'Загрузка'
+          : 'Загрузить еще'
+      }
+
+      function setLoading(nextState) {
+        isLoading = nextState
+        section.classList.toggle('is-loading', isLoading)
+        updateMoreButton()
+      }
+
+      function renderRecipes(page, shouldReset) {
+        if (isLoading) {
+          return
+        }
+
+        setLoading(true)
+        empty.hidden = true
+
+        if (shouldReset) {
+          grid.innerHTML = ''
+          currentPage = 1
+          totalCount = 0
+          renderedCount = 0
+        }
+
+        appendSkeletons(pageSize)
+
+        requestRecipes(currentCategory, page)
+          .then(function (result) {
+            removeSkeletons()
+            totalCount = result.total
+            appendRecipes(result.items)
+            renderedCount += result.items.length
+            currentPage = page
+            empty.hidden = totalCount !== 0
+          })
+          .catch(function () {
+            removeSkeletons()
+            empty.hidden = false
+          })
+          .finally(function () {
+            setLoading(false)
+          })
+      }
+
+      categoriesNode.addEventListener('click', function (event) {
+        var button = event.target.closest(
+          '[data-recipes-category]'
+        )
+
+        if (!button) {
+          return
+        }
+
+        currentCategory = button.getAttribute(
+          'data-recipes-category'
+        )
+        updateCategories()
+        renderRecipes(1, true)
+      })
+
+      moreButton.addEventListener('click', function () {
+        renderRecipes(currentPage + 1, false)
+      })
+
+      renderCategories()
+      updateCategories()
+      renderRecipes(1, true)
+    })()
+  </script>
+</section>

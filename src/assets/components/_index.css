@@ -3,9 +3,13 @@
 @import url('./breadcrumbs/breadcrumbs.css');
 @import url('./heroMain/hero.css');
 @import url('./catalogPromo/catalog.css');
+@import url('./catalog/catalog.css');
 @import url('./saleProducts/products.css');
 @import url('./newsStrip/news.css');
+@import url('./newsPage/news.css');
 @import url('./recipeCats/recipe.css');
+@import url('./recipes/recipes.css');
+@import url('./postSingle/postSingle.css');
 @import url('./aboutPromo/about.css');
 @import url('./about/about.css');
 @import url('./search/search.css');
@@ -13,7 +17,10 @@
 @import url('./lkMain/lk.css');
 @import url('./favorites/favorites.css');
 @import url('./card/card.css');
+@import url('./product/product.css');
 @import url('./checkout/checkout.css');
 @import url('./contacts/contacts.css');
+@import url('./delivery/delivery.css');
+@import url('./legalPage/legalPage.css');
 @import url('./subscribe/subscribe.css');
 @import url('./footer/footer.css');

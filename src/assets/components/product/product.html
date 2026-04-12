@@ -1,0 +1,272 @@
+<section class="product-page">
+  <div class="container">
+    <div class="product-page__layout">
+      <div
+        class="product-page__gallery"
+        aria-label="Галерея товара"
+      >
+        <div class="product-page__preview">
+          <span class="product-page__badge">Акция</span>
+          <img
+            class="product-page__image js-product-image"
+            src="img/4.jpg"
+            alt="Шоколад белый кондитерский 500 г"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+
+        <div class="product-page__thumbs">
+          <button
+            class="product-page__thumb is-active js-product-thumb"
+            type="button"
+            data-image="img/4.jpg"
+            aria-label="Фото товара 1"
+          >
+            <img
+              src="img/4.jpg"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button
+            class="product-page__thumb js-product-thumb"
+            type="button"
+            data-image="img/3.jpg"
+            aria-label="Фото товара 2"
+          >
+            <img
+              src="img/3.jpg"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button
+            class="product-page__thumb js-product-thumb"
+            type="button"
+            data-image="img/2.jpg"
+            aria-label="Фото товара 3"
+          >
+            <img
+              src="img/2.jpg"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+        </div>
+      </div>
+
+      <div class="product-page__content">
+        <p class="product-page__eyebrow">Артикул: CH-500</p>
+        <h1 class="product-page__title">
+          Шоколад белый кондитерский 500 г
+        </h1>
+
+        <div class="product-page__meta">
+          <span
+            class="product-page__stock product-page__stock--available"
+            >В наличии</span
+          >
+          <span>Поставка: 1-2 дня</span>
+        </div>
+
+        <div class="product-page__buy">
+          <div class="product-page__price">
+            <strong>459,00 ₽/шт</strong>
+            <span>549,00 ₽</span>
+          </div>
+          <div class="product-page__discount">
+            Экономия 90,00 ₽
+          </div>
+
+          <div
+            class="product-page__actions"
+            aria-label="Покупка товара"
+          >
+            <div
+              class="product-page__quantity"
+              aria-label="Количество"
+            >
+              <button
+                class="product-page__quantity-button js-product-minus"
+                type="button"
+                aria-label="Уменьшить количество"
+              >
+                -
+              </button>
+              <input
+                class="product-page__quantity-input js-product-quantity"
+                type="number"
+                min="1"
+                max="99"
+                value="1"
+                inputmode="numeric"
+              />
+              <button
+                class="product-page__quantity-button js-product-plus"
+                type="button"
+                aria-label="Увеличить количество"
+              >
+                +
+              </button>
+            </div>
+
+            <button
+              class="product-page__cart js-product-cart"
+              type="button"
+            >
+              В корзину
+            </button>
+            <button
+              class="product-page__favorite js-product-favorite"
+              type="button"
+              aria-label="Добавить в избранное"
+              aria-pressed="false"
+            >
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 20.2 4.7 13.4A4.9 4.9 0 0 1 11.5 6l.5.6.5-.6a4.9 4.9 0 0 1 6.8 7.3L12 20.2Z"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="product-page__info">
+          <div class="product-page__info-block">
+            <h2>Описание</h2>
+            <p>
+              Белый кондитерский шоколад для начинок,
+              глазирования, декора и десертов. Подходит для
+              цехов, кофеен и домашнего производства.
+            </p>
+          </div>
+
+          <div class="product-page__info-block">
+            <h2>Характеристики</h2>
+            <dl class="product-page__specs">
+              <div>
+                <dt>Вес</dt>
+                <dd>500 г</dd>
+              </div>
+              <div>
+                <dt>Категория</dt>
+                <dd>Шоколад и глазури</dd>
+              </div>
+              <div>
+                <dt>Упаковка</dt>
+                <dd>Пакет</dd>
+              </div>
+              <div>
+                <dt>Срок годности</dt>
+                <dd>12 месяцев</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    ;(function () {
+      var section = document.querySelector('.product-page')
+
+      if (!section) {
+        return
+      }
+
+      var image = section.querySelector('.js-product-image')
+      var thumbs = section.querySelectorAll(
+        '.js-product-thumb'
+      )
+      var quantityInput = section.querySelector(
+        '.js-product-quantity'
+      )
+      var minusButton = section.querySelector(
+        '.js-product-minus'
+      )
+      var plusButton = section.querySelector(
+        '.js-product-plus'
+      )
+      var cartButton = section.querySelector(
+        '.js-product-cart'
+      )
+      var favoriteButton = section.querySelector(
+        '.js-product-favorite'
+      )
+
+      function setQuantity(value) {
+        var min = Number(quantityInput.min) || 1
+        var max = Number(quantityInput.max) || 99
+        var nextValue = Math.max(
+          min,
+          Math.min(Number(value) || min, max)
+        )
+
+        quantityInput.value = nextValue
+      }
+
+      Array.prototype.forEach.call(
+        thumbs,
+        function (thumb) {
+          thumb.addEventListener('click', function () {
+            var nextImage = thumb.getAttribute('data-image')
+
+            if (!nextImage) {
+              return
+            }
+
+            image.setAttribute('src', nextImage)
+
+            Array.prototype.forEach.call(
+              thumbs,
+              function (item) {
+                item.classList.toggle(
+                  'is-active',
+                  item === thumb
+                )
+              }
+            )
+          })
+        }
+      )
+
+      minusButton.addEventListener('click', function () {
+        setQuantity(Number(quantityInput.value) - 1)
+      })
+
+      plusButton.addEventListener('click', function () {
+        setQuantity(Number(quantityInput.value) + 1)
+      })
+
+      quantityInput.addEventListener('change', function () {
+        setQuantity(quantityInput.value)
+      })
+
+      cartButton.addEventListener('click', function () {
+        cartButton.classList.add('is-added')
+        cartButton.textContent = 'Добавлено'
+      })
+
+      favoriteButton.addEventListener('click', function () {
+        var isActive =
+          !favoriteButton.classList.contains('is-active')
+
+        favoriteButton.classList.toggle(
+          'is-active',
+          isActive
+        )
+        favoriteButton.setAttribute(
+          'aria-pressed',
+          isActive ? 'true' : 'false'
+        )
+      })
+    })()
+  </script>
+</section>
