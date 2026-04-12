@@ -1,0 +1,59 @@
+.topbar {
+  background: var(--bg-dark);
+  color: var(--color-white-a90);
+  border-bottom: 1px solid var(--color-white-a08);
+}
+
+.topbar__inner {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 13px;
+}
+
+.topbar__left,
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.topbar__badge {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--color-white-a08);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.topbar__schedule {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.topbar__schedule span + span {
+  position: relative;
+  padding-left: 12px;
+}
+
+.topbar__schedule span + span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 14px;
+  background: var(--color-white-a10);
+  transform: translateY(-50%);
+}
+
+@media (width <= 1200px) {
+  .topbar {
+    display: none;
+  }
+}

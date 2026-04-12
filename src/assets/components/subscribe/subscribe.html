@@ -1,0 +1,37 @@
+<div class="subscribe-modal" data-subscribe-modal aria-hidden="true">
+    <div class="subscribe-modal__overlay" data-subscribe-close></div>
+
+    <section class="subscribe-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="subscribe-modal-title"
+        aria-describedby="subscribe-modal-text">
+        <button class="subscribe-modal__close" type="button" data-subscribe-close aria-label="Закрыть окно"></button>
+
+        <div class="subscribe-modal__media" aria-hidden="true">
+            <span class="subscribe-modal__icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4.5 6.5h15v11h-15v-11Z" stroke-width="1.8" stroke-linejoin="round"></path>
+                    <path d="m5 7 7 6 7-6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </span>
+        </div>
+
+        <div class="subscribe-modal__content">
+            <p class="subscribe-modal__eyebrow">Рассылка Italika</p>
+            <h2 class="subscribe-modal__title" id="subscribe-modal-title">Новости и рецепты на почту</h2>
+            <p class="subscribe-modal__text" id="subscribe-modal-text">
+                Отправляем полезные подборки.
+            </p>
+
+            <form class="subscribe-modal__form" action="#" method="post">
+                <label class="subscribe-modal__label" for="subscribe-email">Email</label>
+                <div class="subscribe-modal__field">
+                    <input class="subscribe-modal__input" id="subscribe-email" name="email" type="email"
+                        placeholder="mail@example.ru" autocomplete="email" required>
+                    <button class="subscribe-modal__submit" type="submit">Подписаться</button>
+                </div>
+                <p class="subscribe-modal__note">
+                    Нажимая кнопку, вы соглашаетесь получать письма от Italika. Отписаться можно в любой момент.
+                </p>
+            </form>
+        </div>
+    </section>
+</div>

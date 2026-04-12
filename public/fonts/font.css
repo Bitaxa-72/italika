@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Inter';
+  src:
+    url('Inter18pt-Light.woff2') format('woff2'),
+    url('Inter18pt-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    url('Inter28pt-Regular.woff2') format('woff2'),
+    url('Inter28pt-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    url('Inter28pt-Medium.woff2') format('woff2'),
+    url('Inter28pt-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    url('Inter28pt-SemiBold.woff2') format('woff2'),
+    url('Inter28pt-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    url('Inter24pt-Bold.woff2') format('woff2'),
+    url('Inter24pt-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    url('Inter18pt-Black.woff2') format('woff2'),
+    url('Inter18pt-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

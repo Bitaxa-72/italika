@@ -1,0 +1,7 @@
+import './heroMain/hero'
+import './newsStrip/news'
+import './recipeCats/recipe'
+import './header/header'
+import './breadcrumbs/breadcrumbs'
+import './about/about'
+import './subscribe/subscribe'

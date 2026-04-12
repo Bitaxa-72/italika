@@ -1,0 +1,170 @@
+<section class="lk-reg" data-lk-reg>
+    <div class="container">
+        <div class="lk-reg__shell">
+            <div class="lk-reg__panel">
+                <div class="lk-reg__tabs" role="tablist" aria-label="Выберите действие">
+                    <button class="lk-reg__tab is-active" type="button" role="tab" aria-selected="true"
+                        aria-controls="lk-login" data-lk-tab="login">Вход</button>
+                    <button class="lk-reg__tab" type="button" role="tab" aria-selected="false"
+                        aria-controls="lk-register" data-lk-tab="register">Регистрация</button>
+                </div>
+
+                <form class="lk-reg__form is-active" id="lk-login" action="#" method="post" data-lk-panel="login">
+                    <div class="lk-reg__form-head">
+                        <h2 class="lk-reg__form-title">Войти в кабинет</h2>
+                        <p class="lk-reg__form-text">Введите email или телефон и пароль.</p>
+                    </div>
+
+                    <label class="lk-reg__field">
+                        <span class="lk-reg__label">Email или телефон</span>
+                        <input class="lk-reg__input" name="login" type="text" autocomplete="username"
+                            placeholder="mail@example.ru" required>
+                    </label>
+
+                    <label class="lk-reg__field">
+                        <span class="lk-reg__label">Пароль</span>
+                        <span class="lk-reg__password">
+                            <input class="lk-reg__input" name="password" type="password"
+                                autocomplete="current-password" placeholder="Введите пароль" required>
+                            <button class="lk-reg__password-toggle" type="button" data-password-toggle
+                                aria-label="Показать пароль"></button>
+                        </span>
+                    </label>
+
+                    <div class="lk-reg__row">
+                        <label class="lk-reg__check">
+                            <input class="lk-reg__check-input" name="remember" type="checkbox" checked>
+                            <span class="lk-reg__check-box" aria-hidden="true"></span>
+                            <span>Запомнить меня</span>
+                        </label>
+                        <button class="lk-reg__link" type="button" data-lk-switch="recovery">Забыли пароль?</button>
+                    </div>
+
+                    <a href="lkMain.html" class="lk-reg__submit" type="submit">Войти</a>
+                </form>
+
+                <form class="lk-reg__form" id="lk-register" action="#" method="post" data-lk-panel="register" hidden>
+                    <div class="lk-reg__form-head">
+                        <h2 class="lk-reg__form-title">Создать аккаунт</h2>
+                        <p class="lk-reg__form-text">Заполните данные для быстрых заказов.</p>
+                    </div>
+
+                    <div class="lk-reg__grid">
+                        <label class="lk-reg__field">
+                            <span class="lk-reg__label">Имя</span>
+                            <input class="lk-reg__input" name="name" type="text" autocomplete="given-name"
+                                placeholder="Ваше имя" required>
+                        </label>
+
+                        <label class="lk-reg__field">
+                            <span class="lk-reg__label">Телефон</span>
+                            <input class="lk-reg__input" name="phone" type="tel" autocomplete="tel"
+                                placeholder="+7 900 000-00-00" required>
+                        </label>
+                    </div>
+
+                    <label class="lk-reg__field">
+                        <span class="lk-reg__label">Email</span>
+                        <input class="lk-reg__input" name="email" type="email" autocomplete="email"
+                            placeholder="mail@example.ru" required>
+                    </label>
+
+                    <label class="lk-reg__field">
+                        <span class="lk-reg__label">Пароль</span>
+                        <span class="lk-reg__password">
+                            <input class="lk-reg__input" name="password" type="password" autocomplete="new-password"
+                                placeholder="Минимум 6 символов" minlength="6" required>
+                            <button class="lk-reg__password-toggle" type="button" data-password-toggle
+                                aria-label="Показать пароль"></button>
+                        </span>
+                    </label>
+
+                    <label class="lk-reg__check lk-reg__check--wide">
+                        <input class="lk-reg__check-input" name="agreement" type="checkbox" required>
+                        <span class="lk-reg__check-box" aria-hidden="true"></span>
+                        <span>Согласен на обработку персональных данных</span>
+                    </label>
+
+                    <button class="lk-reg__submit" type="submit">Зарегистрироваться</button>
+                </form>
+
+                <form class="lk-reg__form" id="lk-recovery" action="#" method="post" data-lk-panel="recovery" hidden>
+                    <div class="lk-reg__form-head">
+                        <h2 class="lk-reg__form-title">Восстановить пароль</h2>
+                        <p class="lk-reg__form-text">Отправим ссылку для смены пароля на вашу почту.</p>
+                    </div>
+
+                    <label class="lk-reg__field">
+                        <span class="lk-reg__label">Email</span>
+                        <input class="lk-reg__input" name="email" type="email" autocomplete="email"
+                            placeholder="mail@example.ru" required>
+                    </label>
+
+                    <button class="lk-reg__submit" type="submit">Отправить ссылку</button>
+                    <button class="lk-reg__link lk-reg__link--back" type="button" data-lk-switch="login">
+                        Вернуться ко входу
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var root = document.querySelector('[data-lk-reg]');
+
+            if (!root) {
+                return;
+            }
+
+            var tabs = root.querySelectorAll('[data-lk-tab]');
+            var panels = root.querySelectorAll('[data-lk-panel]');
+
+            function setMode(mode) {
+                var i = 0;
+
+                for (i = 0; i < tabs.length; i++) {
+                    tabs[i].classList.toggle('is-active', tabs[i].getAttribute('data-lk-tab') === mode);
+                    tabs[i].setAttribute('aria-selected', tabs[i].getAttribute('data-lk-tab') === mode ? 'true' : 'false');
+                }
+
+                for (i = 0; i < panels.length; i++) {
+                    panels[i].hidden = panels[i].getAttribute('data-lk-panel') !== mode;
+                    panels[i].classList.toggle('is-active', panels[i].getAttribute('data-lk-panel') === mode);
+                }
+            }
+
+            root.addEventListener('click', function (event) {
+                var tab = event.target.closest('[data-lk-tab]');
+                var switchButton = event.target.closest('[data-lk-switch]');
+                var passwordButton = event.target.closest('[data-password-toggle]');
+                var passwordInput;
+
+                if (tab) {
+                    setMode(tab.getAttribute('data-lk-tab'));
+                    return;
+                }
+
+                if (switchButton) {
+                    setMode(switchButton.getAttribute('data-lk-switch'));
+                    return;
+                }
+
+                if (passwordButton) {
+                    passwordInput = passwordButton.parentNode.querySelector('input');
+
+                    if (!passwordInput) {
+                        return;
+                    }
+
+                    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+                    passwordButton.classList.toggle('is-visible', passwordInput.type === 'text');
+                    passwordButton.setAttribute(
+                        'aria-label',
+                        passwordInput.type === 'text' ? 'Скрыть пароль' : 'Показать пароль'
+                    );
+                }
+            });
+        })();
+    </script>
+</section>

@@ -1,0 +1,414 @@
+<section class="sale-products">
+
+    <div class="container">
+        <div class="sale-products__head">
+            <h2 class="sale-products__title">Акции недели</h2>
+            <a class="sale-products__link" href="#">Перейти в акции</a>
+        </div>
+
+        <div class="sale-products__grid js-sale-products-grid"></div>
+
+        <div class="sale-products__actions">
+            <button class="sale-products__more js-sale-products-more" type="button">
+                <span class="sale-products__more-text">Показать ещё товары</span>
+                <span class="sale-products__more-spinner" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var section = document.querySelector('.sale-products');
+
+            if (!section) {
+                return;
+            }
+
+            var grid = section.querySelector('.js-sale-products-grid');
+            var moreButton = section.querySelector('.js-sale-products-more');
+            var moreButtonText = moreButton.querySelector('.sale-products__more-text');
+            var initialCount = 12;
+            var chunkSize = 4;
+            var renderedCount = 0;
+            var isLoading = false;
+            var products = [
+                {
+                    title: 'Топпер акриловый золотой "Звезда" 23 фев 55×58 мм, арт 134',
+                    image: '/src/assets/img/2.jpg',
+                    href: '#',
+                    price: 47.60,
+                    oldPrice: 59.50,
+                    isAvailable: true,
+                    isFavorite: true
+                },
+                {
+                    title: 'Краситель гелевый насыщенный красный 35 г',
+                    image: '/src/assets/img/3.jpg',
+                    href: '#',
+                    price: 189.00,
+                    oldPrice: 236.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Шоколад белый кондитерский 500 г',
+                    image: '/src/assets/img/4.jpg',
+                    href: '#',
+                    price: 459.00,
+                    oldPrice: 549.00,
+                    isAvailable: false,
+                    isFavorite: true
+                },
+                {
+                    title: 'Коробка для торта с окном 300×300×190 мм',
+                    image: '/src/assets/img/2.jpg',
+                    href: '#',
+                    price: 62.00,
+                    oldPrice: 78.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Посыпка сахарная микс "Праздник" 50 г',
+                    image: '/src/assets/img/3.jpg',
+                    href: '#',
+                    price: 79.00,
+                    oldPrice: 99.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Форма силиконовая для муссовых пирожных',
+                    image: '/src/assets/img/4.jpg',
+                    href: '#',
+                    price: 690.00,
+                    oldPrice: 840.00,
+                    isAvailable: false
+                },
+                {
+                    title: 'Капсулы бумажные усиленные белые 50×40 мм, 100 шт',
+                    image: '/src/assets/img/2.jpg',
+                    href: '#',
+                    price: 115.00,
+                    oldPrice: 145.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Шпатель кондитерский металлический прямой 22 см',
+                    image: '/src/assets/img/3.jpg',
+                    href: '#',
+                    price: 219.00,
+                    oldPrice: 275.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Глазурь зеркальная нейтральная 250 г',
+                    image: '/src/assets/img/4.jpg',
+                    href: '#',
+                    price: 249.00,
+                    oldPrice: 312.00,
+                    isAvailable: false
+                },
+                {
+                    title: 'Лента атласная золото 25 мм, 23 м',
+                    image: '/src/assets/img/2.jpg',
+                    href: '#',
+                    price: 138.00,
+                    oldPrice: 172.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Ароматизатор ваниль бурбон 10 мл',
+                    image: '/src/assets/img/3.jpg',
+                    href: '#',
+                    price: 98.00,
+                    oldPrice: 122.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Подложка усиленная круглая золото/белая 26 см',
+                    image: '/src/assets/img/4.jpg',
+                    href: '#',
+                    price: 31.00,
+                    oldPrice: 39.00,
+                    isAvailable: false
+                },
+                {
+                    title: 'Мастика сахарная белая 1 кг',
+                    image: '/src/assets/img/2.jpg',
+                    href: '#',
+                    price: 349.00,
+                    oldPrice: 429.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Коробка для капкейков на 6 шт с окном',
+                    image: '/src/assets/img/3.jpg',
+                    href: '#',
+                    price: 52.00,
+                    oldPrice: 67.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Насадка кондитерская закрытая звезда 1М',
+                    image: '/src/assets/img/4.jpg',
+                    href: '#',
+                    price: 135.00,
+                    oldPrice: 168.00,
+                    isAvailable: false
+                },
+                {
+                    title: 'Форма разъемная круглая 20 см',
+                    image: '/src/assets/img/2.jpg',
+                    href: '#',
+                    price: 429.00,
+                    oldPrice: 519.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Шоколад молочный в каллетах 1 кг',
+                    image: '/src/assets/img/3.jpg',
+                    href: '#',
+                    price: 890.00,
+                    oldPrice: 1040.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Коврик тефлоновый для выпечки 40×60 см',
+                    image: '/src/assets/img/4.jpg',
+                    href: '#',
+                    price: 278.00,
+                    oldPrice: 340.00,
+                    isAvailable: false
+                },
+                {
+                    title: 'Топпер зеркальный "С Днем Рождения" золото',
+                    image: '/src/assets/img/2.jpg',
+                    href: '#',
+                    price: 54.00,
+                    oldPrice: 69.00,
+                    isAvailable: true
+                },
+                {
+                    title: 'Упаковка для эклеров крафт с прозрачным окном',
+                    image: '/src/assets/img/3.jpg',
+                    href: '#',
+                    price: 43.00,
+                    oldPrice: 56.00,
+                    isAvailable: true
+                }
+            ];
+
+            function escapeHtml(value) {
+                return String(value)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
+            }
+
+            function formatPrice(value) {
+                return Number(value).toLocaleString('ru-RU', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }) + ' ₽';
+            }
+
+            function getDiscountPercent(price, oldPrice) {
+                return Math.round((1 - price / oldPrice) * 100);
+            }
+
+            function getSavings(price, oldPrice) {
+                return oldPrice - price;
+            }
+
+            function createCardMarkup(product) {
+                var discountPercent = getDiscountPercent(product.price, product.oldPrice);
+                var savings = getSavings(product.price, product.oldPrice);
+                var stockText = product.isAvailable ? 'В наличии' : 'Ожидается поступление';
+                var stockModifier = product.isAvailable ? ' sale-products__stock--available' : ' sale-products__stock--waiting';
+                var cartText = product.isAvailable ? 'В корзину' : 'Ожидается';
+                var cartLabel = product.isAvailable ? 'Добавить в корзину: ' + product.title : 'Ожидается поступление: ' + product.title;
+                var cartDisabled = product.isAvailable ? '' : ' disabled';
+                var favoriteActiveClass = product.isFavorite ? ' is-active' : '';
+                var favoriteLabel = product.isFavorite ? 'Убрать из избранного: ' + product.title : 'Добавить в избранное: ' + product.title;
+                var favoritePressed = product.isFavorite ? 'true' : 'false';
+
+                return '' +
+                    '<article class="sale-products__card">' +
+                    '<span class="sale-products__badges">' +
+                    '<span class="sale-products__badge">Акция</span>' +
+                    '</span>' +
+                    '<button class="sale-products__favorite js-sale-products-favorite' + favoriteActiveClass + '" type="button" aria-label="' + escapeHtml(favoriteLabel) + '" aria-pressed="' + favoritePressed + '">' +
+                    '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+                    '<path d="M12 20.2 4.7 13.4A4.9 4.9 0 0 1 11.5 6l.5.6.5-.6a4.9 4.9 0 0 1 6.8 7.3L12 20.2Z" stroke-width="1.8" stroke-linejoin="round"></path>' +
+                    '</svg>' +
+                    '</button>' +
+                    '<a class="sale-products__image-box" href="' + escapeHtml(product.href) + '">' +
+                    '<img class="sale-products__image" src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.title) + '" loading="lazy" decoding="async">' +
+                    '</a>' +
+                    '<span class="sale-products__content">' +
+                    '<a class="sale-products__title-text" href="' + escapeHtml(product.href) + '">' + escapeHtml(product.title) + '</a>' +
+                    '<span class="sale-products__stock' + stockModifier + '">' + escapeHtml(stockText) + '</span>' +
+                    '<span class="sale-products__price-block">' +
+                    '<span class="sale-products__price-current">' + formatPrice(product.price) + '/шт</span>' +
+                    '<span class="sale-products__price-old">' + formatPrice(product.oldPrice) + '</span>' +
+                    '<span class="sale-products__benefit">' +
+                    '<span class="sale-products__discount">-' + escapeHtml(discountPercent) + '%</span>' +
+                    '<span class="sale-products__benefit-text">Экономия ' + formatPrice(savings) + '</span>' +
+                    '</span>' +
+                    '</span>' +
+                    '<button class="sale-products__cart js-sale-products-cart" type="button" aria-label="' + escapeHtml(cartLabel) + '"' + cartDisabled + '>' +
+                    '<span class="sale-products__cart-text">' + escapeHtml(cartText) + '</span>' +
+                    '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+                    '<path d="M3.5 5H6l1.6 8.1c.1.7.7 1.2 1.4 1.2h7.7c.7 0 1.3-.5 1.4-1.2L19.5 8H7.1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>' +
+                    '<circle cx="10" cy="18.2" r="1.2" fill="currentColor" stroke="none"></circle>' +
+                    '<circle cx="17" cy="18.2" r="1.2" fill="currentColor" stroke="none"></circle>' +
+                    '</svg>' +
+                    '</button>' +
+                    '</span>' +
+                    '</article>';
+            }
+
+            function createSkeletonMarkup() {
+                return '' +
+                    '<div class="sale-products__card sale-products__card--skeleton">' +
+                    '<span class="sale-products__skeleton-badges">' +
+                    '<span class="sale-products__skeleton sale-products__skeleton-badge"></span>' +
+                    '</span>' +
+                    '<span class="sale-products__image-box">' +
+                    '<span class="sale-products__skeleton sale-products__skeleton-image"></span>' +
+                    '</span>' +
+                    '<span class="sale-products__content">' +
+                    '<span>' +
+                    '<span class="sale-products__skeleton sale-products__skeleton-title"></span>' +
+                    '<span class="sale-products__skeleton sale-products__skeleton-title"></span>' +
+                    '<span class="sale-products__skeleton sale-products__skeleton-stock"></span>' +
+                    '</span>' +
+                    '<span class="sale-products__price-block">' +
+                    '<span class="sale-products__skeleton sale-products__skeleton-price"></span>' +
+                    '<span class="sale-products__skeleton sale-products__skeleton-old"></span>' +
+                    '<span class="sale-products__skeleton sale-products__skeleton-benefit"></span>' +
+                    '</span>' +
+                    '<span class="sale-products__skeleton sale-products__skeleton-cart"></span>' +
+                    '</span>' +
+                    '</div>';
+            }
+
+            function appendProducts(items) {
+                var fragment = document.createDocumentFragment();
+                var wrapper = document.createElement('div');
+                var i = 0;
+
+                for (i = 0; i < items.length; i++) {
+                    wrapper.innerHTML = createCardMarkup(items[i]);
+                    fragment.appendChild(wrapper.firstChild);
+                }
+
+                grid.appendChild(fragment);
+            }
+
+            function appendSkeletons(count) {
+                var fragment = document.createDocumentFragment();
+                var wrapper = document.createElement('div');
+                var i = 0;
+
+                for (i = 0; i < count; i++) {
+                    wrapper.innerHTML = createSkeletonMarkup();
+                    fragment.appendChild(wrapper.firstChild);
+                }
+
+                grid.appendChild(fragment);
+            }
+
+            function removeSkeletons() {
+                var skeletons = grid.querySelectorAll('.sale-products__card--skeleton');
+                var i = 0;
+
+                for (i = 0; i < skeletons.length; i++) {
+                    skeletons[i].parentNode.removeChild(skeletons[i]);
+                }
+            }
+
+            function updateButtonState() {
+                if (renderedCount >= products.length) {
+                    moreButton.disabled = true;
+                    moreButton.classList.add('is-finished');
+                    moreButtonText.textContent = 'Больше нет товаров';
+                    return;
+                }
+
+                moreButton.disabled = false;
+                moreButton.classList.remove('is-finished');
+                moreButtonText.textContent = 'Загрузить еще';
+            }
+
+            function renderInitial() {
+                var initialItems = products.slice(0, initialCount);
+                renderedCount = initialItems.length;
+                appendProducts(initialItems);
+                updateButtonState();
+            }
+
+            function loadMore() {
+                var nextItems;
+                var nextCount;
+
+                if (isLoading || renderedCount >= products.length) {
+                    return;
+                }
+
+                isLoading = true;
+                moreButton.disabled = true;
+                moreButton.classList.add('is-loading');
+                moreButtonText.textContent = 'Загрузка';
+
+                nextCount = Math.min(chunkSize, products.length - renderedCount);
+                appendSkeletons(nextCount);
+
+                setTimeout(function () {
+                    removeSkeletons();
+                    nextItems = products.slice(renderedCount, renderedCount + nextCount);
+                    appendProducts(nextItems);
+                    renderedCount += nextItems.length;
+                    isLoading = false;
+                    moreButton.classList.remove('is-loading');
+                    updateButtonState();
+                }, 900);
+            }
+
+            grid.addEventListener('click', function (event) {
+                var favoriteButton = event.target.closest('.js-sale-products-favorite');
+                var button = event.target.closest('.js-sale-products-cart');
+                var buttonText;
+                var isFavorite;
+
+                if (favoriteButton) {
+                    isFavorite = !favoriteButton.classList.contains('is-active');
+                    favoriteButton.classList.toggle('is-active', isFavorite);
+                    favoriteButton.setAttribute('aria-pressed', isFavorite ? 'true' : 'false');
+                    favoriteButton.setAttribute('aria-label', isFavorite ? 'Убрать товар из избранного' : 'Добавить товар в избранное');
+
+                    return;
+                }
+
+                if (!button) {
+                    return;
+                }
+
+                if (button.disabled) {
+                    return;
+                }
+
+                buttonText = button.querySelector('.sale-products__cart-text');
+                button.classList.add('is-added');
+                button.setAttribute('aria-label', 'Товар добавлен в корзину');
+
+                if (buttonText) {
+                    buttonText.textContent = 'Добавлено';
+                }
+            });
+
+            renderInitial();
+            moreButton.addEventListener('click', loadMore);
+        })();
+    </script>
+</section>

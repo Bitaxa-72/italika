@@ -1,0 +1,3601 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Италика — интернет-магазин для кондитера</title>
+    <style>
+:root {
+    --color-white: #FFFFFF;
+    --color-bg-dark: #24311C;
+    --color-text: #2B2418;
+    --color-text-soft: #6B5B46;
+    --color-text-muted: #9A886F;
+    --color-line: #DDD1BB;
+    --color-line-strong: #C8B692;
+    --color-accent: #2F6A2B;
+    --color-accent-strong: #1E4A1C;
+    --color-accent-2: #A12B2F;
+    --color-page-top: #F5EBD6;
+    --color-page-bottom: #ECE0C5;
+    --color-nav-muted: #5B513F;
+    --color-hero-grad-start: #F2E4C8;
+    --color-hero-grad-end: #E9D7B8;
+    --color-sale-badge: #D7B04A;
+    --color-sale-badge-text: #3A2B11;
+    --color-stock: #4E7E34;
+    --color-benefit-text: #8A5A2C;
+    --color-skeleton-start: #EFE2C8;
+    --color-skeleton-end: #E5D4B4;
+    --color-card-grad-start: #FBF4E5;
+    --color-card-grad-end: #F0E1C5;
+    --color-shadow-xs: #3A2B1612;
+    --color-shadow-sm: #2E21161F;
+    --color-accent-2-a18: #A12B2F2E;
+    --color-accent-a12: #2F6A2B1F;
+    --color-white-a90: #FFFFFFE6;
+    --color-white-a08: #FFFFFF14;
+    --color-white-a66: #FFFFFFA8;
+    --color-white-a10: #FFFFFF1A;
+    --color-white-a56: #FFFFFF8F;
+    --color-page-top-a88: #F5EBD6E0;
+    --color-accent-a10: #2F6A2B1A;
+    --color-header-shadow: #2B24180D;
+    --color-accent-a08: #2F6A2B14;
+    --color-accent-a16: #2F6A2B29;
+    --color-accent-a18: #2F6A2B2E;
+    --color-accent-a28: #2F6A2B47;
+    --color-white-a78: #FFFFFFC7;
+    --color-purple-shadow-a04: #2E21160A;
+    --color-accent-a06: #2F6A2B0F;
+    --color-accent-a07: #2F6A2B12;
+    --color-accent-a04: #2F6A2B0A;
+    --color-accent-2-a16: #A12B2F29;
+    --color-text-a60: #2B241899;
+    --color-text-a26: #2B241842;
+    --color-text-a08: #2B241814;
+    --color-text-a16: #2B241829;
+    --color-text-a02: #2B241805;
+    --color-text-a30: #2B24184D;
+    --color-white-a12: #FFFFFF1F;
+    --color-text-a28: #2B241847;
+    --color-hero-box-shadow: #1D150D24;
+    --color-white-a82: #FFFFFFD1;
+    --color-white-a18: #FFFFFF2E;
+    --color-white-a40: #FFFFFF66;
+    --color-white-a14: #FFFFFF24;
+    --color-text-a40: #2B241866;
+    --color-white-a22: #FFFFFF38;
+    --color-text-a58: #2B241894;
+    --color-white-a94: #FFFFFFF0;
+    --color-accent-a20: #2F6A2B33;
+    --color-card-shadow-a06: #2E21160F;
+    --color-card-shadow-a10: #2E21161A;
+    --color-text-a04: #2B24180A;
+    --color-text-a78: #2B2418C7;
+    --color-white-a84: #FFFFFFD6;
+    --color-white-a16: #FFFFFF29;
+    --color-white-a24: #FFFFFF3D;
+    --color-card-shadow-a05: #2E21160D;
+    --color-card-shadow-a08: #2E211614;
+    --color-accent-2-a14: #A12B2F24;
+    --color-white-a92: #FFFFFFEB;
+    --color-white-a100: #FFFFFF;
+    --color-white-a75: #FFFFFFBF;
+    --color-white-a72: #FFFFFFB8;
+    --color-white-a96: #FFFFFFF5;
+    --color-white-a88: #FFFFFFE0;
+    --color-accent-a03: #2F6A2B08;
+    --bg-elevated: var(--color-white);
+    --bg-dark: var(--color-bg-dark);
+    --text: var(--color-text);
+    --text-soft: var(--color-text-soft);
+    --text-muted: var(--color-text-muted);
+    --line: var(--color-line);
+    --line-strong: var(--color-line-strong);
+    --accent: var(--color-accent);
+    --accent-strong: var(--color-accent-strong);
+    --accent-2: var(--color-accent-2);
+    --shadow-xs: 0 8px 20px var(--color-shadow-xs);
+    --shadow-sm: 0 14px 30px var(--color-shadow-sm);
+    --container: 1380px;
+    --transition: 0.25s ease;
+}
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-width: 320px;
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, var(--color-accent-2-a18), transparent 28%),
+                radial-gradient(circle at top right, var(--color-accent-a12), transparent 24%),
+                linear-gradient(180deg, var(--color-page-top) 0%, var(--color-page-bottom) 100%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .site {
+            overflow: clip;
+        }
+
+        .container {
+            width: min(var(--container), calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .topbar {
+            background: var(--bg-dark);
+            color: var(--color-white-a90);
+            border-bottom: 1px solid var(--color-white-a08);
+        }
+
+        .topbar__inner {
+            min-height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .topbar__left,
+        .topbar__right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .topbar__badge {
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--color-white-a08);
+            color: var(--color-white);
+            font-weight: 600;
+        }
+
+        .footer {
+            background: var(--bg-dark);
+            color: var(--color-white-a90);
+            padding: 54px 0 24px;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 1.1fr repeat(3, 1fr) 1.1fr;
+            gap: 24px;
+        }
+
+        .footer__logo strong {
+            display: block;
+            font-size: 28px;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            color: var(--color-white);
+        }
+
+        .footer__logo span {
+            display: block;
+            margin-top: 12px;
+            max-width: 280px;
+            color: var(--color-white-a66);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .footer__title {
+            margin: 0 0 16px;
+            color: var(--color-white);
+            font-size: 16px;
+            font-weight: 850;
+        }
+
+        .footer__list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .footer__list a,
+        .footer__list span {
+            color: var(--color-white-a66);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .footer__bottom {
+            margin-top: 34px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-white-a10);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+            color: var(--color-white-a56);
+            font-size: 13px;
+        }
+
+        @media (max-width: 1260px) {
+            .footer__grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 980px) {
+
+            .topbar__inner,
+            .topbar__left,
+            .topbar__right {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                width: min(var(--container), calc(100% - 20px));
+            }
+
+            .topbar__inner {
+                padding: 10px 0;
+                align-items: flex-start;
+            }
+
+            .footer {
+                padding-top: 42px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="site">
+        <div class="topbar">
+            <div class="container topbar__inner">
+                <div class="topbar__left">
+                    <span>Более 5 000 товаров для кондитеров и пекарей</span>
+                </div>
+                <div class="topbar__right">
+                    <span>Екатеринбург</span>
+                    <span>Самовывоз и доставка</span>
+                    <span>Пн–Вс: 09:00–20:00</span>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            
+
+            .header {
+                position: sticky;
+                top: 0;
+                z-index: 30;
+                background: var(--color-page-top-a88);
+                -webkit-backdrop-filter: blur(18px);
+                backdrop-filter: blur(18px);
+                border-bottom: 1px solid var(--color-accent-a10);
+                box-shadow: 0 10px 30px var(--color-header-shadow);
+            }
+
+            .header__shell {
+                display: grid;
+                gap: 14px;
+                padding: 18px 0 16px;
+            }
+
+            .header__inner {
+                display: grid;
+                grid-template-columns: 200px minmax(320px, 1fr) auto;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                min-width: 0;
+                padding-bottom: 3px;
+            }
+
+            .logo__mark {
+                width: 60px;
+                height: 60px;
+                flex: 0 0 60px;
+                border-radius: 20px;
+                display: grid;
+                place-items: center;
+                color: var(--color-white);
+                font-size: 22px;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent) 58%, var(--accent-2) 100%);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .logo__text {
+                min-width: 0;
+            }
+
+            .logo__title {
+                display: block;
+                font-size: 24px;
+                line-height: 1;
+                font-weight: 800;
+                letter-spacing: 0.03em;
+            }
+
+            .logo__sub {
+                display: block;
+                margin-top: 6px;
+                color: var(--text-soft);
+                font-size: 12px;
+                line-height: 1.35;
+            }
+
+            .header-search {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+            }
+
+            .searchbar {
+                position: relative;
+                flex: 1 1 auto;
+            }
+
+            .searchbar__field {
+                width: 100%;
+                min-height: 56px;
+                padding: 0 62px 0 20px;
+                border-radius: 20px;
+                border: 1px solid var(--line);
+                background: var(--bg-elevated);
+                color: var(--text);
+                outline: none;
+                box-shadow: var(--shadow-xs);
+                transition: border-color var(--transition), box-shadow var(--transition);
+            }
+
+            .searchbar__field:focus {
+                border-color: var(--line-strong);
+                box-shadow: 0 0 0 4px var(--color-accent-a08), var(--shadow-xs);
+            }
+
+            .searchbar__field::placeholder {
+                color: var(--text-muted);
+            }
+
+            .searchbar__submit {
+                position: absolute;
+                top: 50%;
+                right: 12px;
+                width: 38px;
+                height: 38px;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                border-radius: 14px;
+                background: var(--color-accent-a10);
+                color: var(--accent-strong);
+                transform: translateY(-50%);
+                cursor: pointer;
+                transition: background var(--transition), transform var(--transition);
+            }
+
+            .searchbar__submit:hover {
+                background: var(--color-accent-a16);
+                transform: translateY(-50%);
+            }
+
+            .searchbar__submit::before {
+                content: "";
+                position: absolute;
+                top: 9px;
+                left: 10px;
+                width: 13px;
+                height: 13px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+            }
+
+            .searchbar__submit::after {
+                content: "";
+                position: absolute;
+                right: 9px;
+                bottom: 10px;
+                width: 8px;
+                height: 2px;
+                border-radius: 999px;
+                background: currentColor;
+                transform: rotate(45deg);
+                transform-origin: center;
+            }
+
+            .header__actions {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .contact-pill {
+                padding: 0 0 0 4px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 5px;
+                white-space: nowrap;
+            }
+
+            .contact-pill span {
+                font-size: 12px;
+                color: var(--text-soft);
+            }
+
+            .contact-pill strong {
+                font-size: 20px;
+                line-height: 1;
+                letter-spacing: -0.01em;
+            }
+
+            .icon-link {
+                width: 52px;
+                height: 52px;
+                border-radius: 18px;
+                border: 1px solid var(--line);
+                background: var(--bg-elevated);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: var(--shadow-xs);
+                position: relative;
+                color: var(--text-soft);
+                transition: border-color var(--transition), color var(--transition), box-shadow var(--transition);
+            }
+
+            .icon-link:hover {
+                border-color: var(--line-strong);
+                color: var(--accent-strong);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .icon-link svg {
+                width: 22px;
+                height: 22px;
+                display: block;
+                stroke: currentColor;
+            }
+
+            .icon-link__count {
+                position: absolute;
+                top: 7px;
+                right: 7px;
+                min-width: 20px;
+                height: 20px;
+                padding: 0 6px;
+                border-radius: 999px;
+                background: var(--accent);
+                color: var(--color-white);
+                font-size: 11px;
+                font-weight: 700;
+                display: grid;
+                place-items: center;
+                box-shadow: 0 10px 20px var(--color-accent-a28);
+            }
+
+            .nav {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .nav__scroll {
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scrollbar-width: none;
+            }
+
+            .nav__scroll::-webkit-scrollbar {
+                display: none;
+            }
+
+            .nav__list {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                min-width: max-content;
+                width: 100%;
+                padding: 8px;
+                border: 1px solid var(--color-accent-a10);
+                border-radius: 26px;
+                background: var(--color-white-a78);
+                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 10px 24px var(--color-purple-shadow-a04);
+            }
+
+            .nav__item {
+                min-height: 46px;
+                padding: 0 18px;
+                border-radius: 14px;
+                border: 1px solid transparent;
+                background: transparent;
+                color: var(--color-nav-muted);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 9px;
+                font-size: 16px;
+                font-weight: 600;
+                white-space: nowrap;
+                transition: background var(--transition), border-color var(--transition), color var(--transition);
+            }
+
+            .nav__item:hover {
+                background: var(--color-accent-a06);
+                border-color: var(--color-accent-a08);
+                color: var(--text);
+            }
+
+            .nav__item--active {
+                color: var(--text);
+                background: var(--color-accent-a07);
+                border-color: var(--color-accent-a10);
+            }
+
+            .nav__item--feature {
+                color: var(--text);
+                font-weight: 700;
+                background: var(--color-accent-a04);
+                border-color: var(--color-accent-a08);
+            }
+
+            .nav__item--feature:hover {
+                background: var(--color-accent-a07);
+                border-color: var(--color-accent-a12);
+            }
+
+            .nav__item-icon {
+                width: 24px;
+                height: 24px;
+                flex: 0 0 24px;
+                border-radius: 8px;
+                background: var(--color-accent-a08);
+                color: var(--accent-strong);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav__item-icon svg {
+                width: 14px;
+                height: 14px;
+                display: block;
+                fill: currentColor;
+                stroke: none;
+            }
+
+            .nav__divider {
+                width: 1px;
+                height: 22px;
+                margin: 0 4px;
+                border-radius: 999px;
+                background: var(--color-accent-a12);
+                flex: 0 0 1px;
+            }
+
+            @media (max-width: 1260px) {
+                .header__inner {
+                    grid-template-columns: 240px 1fr;
+                }
+
+                .header__actions {
+                    grid-column: 1 / -1;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                }
+
+                .contact-pill {
+                    align-items: flex-start;
+                }
+
+                .nav__list {
+                    justify-content: flex-start;
+                }
+            }
+
+            @media (max-width: 980px) {
+                .header__actions {
+                    gap: 10px;
+                }
+
+                .header__shell {
+                    gap: 12px;
+                    padding: 14px 0;
+                }
+
+                .header__inner {
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                }
+
+                .header-search {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+
+                .contact-pill {
+                    width: 100%;
+                }
+
+                .nav__list {
+                    padding: 7px;
+                    border-radius: 22px;
+                }
+
+                .nav__item {
+                    min-height: 44px;
+                    padding: 0 15px;
+                    border-radius: 13px;
+                    font-size: 15px;
+                }
+
+                .nav__divider {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .logo {
+                    align-items: flex-start;
+                }
+
+                .logo__mark {
+                    width: 52px;
+                    height: 52px;
+                    flex-basis: 52px;
+                    border-radius: 18px;
+                    font-size: 19px;
+                }
+
+                .logo__title {
+                    font-size: 20px;
+                }
+
+                .logo__sub {
+                    font-size: 11px;
+                }
+
+                .searchbar__field {
+                    min-height: 54px;
+                }
+
+                .header__actions {
+                    flex-wrap: wrap;
+                }
+
+                .icon-link {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 16px;
+                }
+
+                .nav__list {
+                    gap: 6px;
+                    padding: 6px;
+                    border-radius: 18px;
+                }
+
+                .nav__item {
+                    min-height: 40px;
+                    padding: 0 13px;
+                    font-size: 14px;
+                    border-radius: 12px;
+                    gap: 8px;
+                }
+
+                .nav__item-icon {
+                    width: 22px;
+                    height: 22px;
+                    flex-basis: 22px;
+                    border-radius: 7px;
+                }
+
+                .nav__item-icon svg {
+                    width: 13px;
+                    height: 13px;
+                }
+            }
+        </style>
+
+        <header class="header">
+            <div class="container">
+                <div class="header__shell">
+                    <div class="header__inner">
+                        <a class="logo" href="#">
+                            <img class="logo__svg" height="60" alt="" src="italika-logo.svg" />
+                        </a>
+
+                        <div class="header-search">
+                            <form class="searchbar" action="#">
+                                <input class="searchbar__field" type="text"
+                                    placeholder="Поиск по товарам, категориям и брендам">
+                                <button class="searchbar__submit" type="submit" aria-label="Найти"></button>
+                            </form>
+                        </div>
+
+                        <div class="header__actions">
+                            <div class="contact-pill">
+                                <strong>+7 800 222-79-70</strong>
+                                <span>Заказы и консультации</span>
+                            </div>
+
+                            <a class="icon-link" href="#" aria-label="Личный кабинет">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="8" r="4" stroke-width="1.8"></circle>
+                                    <path d="M4 20c1.8-3.8 5-5.7 8-5.7S18.2 16.2 20 20" stroke-width="1.8"
+                                        stroke-linecap="round"></path>
+                                </svg>
+                            </a>
+
+                            <a class="icon-link" href="#" aria-label="Избранное">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M12 20.2 4.7 13.4A4.9 4.9 0 0 1 11.5 6l.5.6.5-.6a4.9 4.9 0 0 1 6.8 7.3L12 20.2Z"
+                                        stroke-width="1.8" stroke-linejoin="round"></path>
+                                </svg>
+                                <span class="icon-link__count">2</span>
+                            </a>
+
+                            <a class="icon-link" href="#" aria-label="Корзина">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M3.5 5H6l1.6 8.1c.1.7.7 1.2 1.4 1.2h7.7c.7 0 1.3-.5 1.4-1.2L19.5 8H7.1"
+                                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <circle cx="10" cy="18.2" r="1.2" fill="currentColor" stroke="none"></circle>
+                                    <circle cx="17" cy="18.2" r="1.2" fill="currentColor" stroke="none"></circle>
+                                </svg>
+                                <span class="icon-link__count">4</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <nav class="nav">
+                        <div class="nav__scroll">
+                            <div class="nav__list">
+                                <a class="nav__item nav__item--catalog nav__item--feature" href="#">
+                                    <span class="nav__item-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24">
+                                            <rect x="3" y="3" width="4" height="4" rx="1"></rect>
+                                            <rect x="10" y="3" width="4" height="4" rx="1"></rect>
+                                            <rect x="17" y="3" width="4" height="4" rx="1"></rect>
+                                            <rect x="3" y="10" width="4" height="4" rx="1"></rect>
+                                            <rect x="10" y="10" width="4" height="4" rx="1"></rect>
+                                            <rect x="17" y="10" width="4" height="4" rx="1"></rect>
+                                            <rect x="3" y="17" width="4" height="4" rx="1"></rect>
+                                            <rect x="10" y="17" width="4" height="4" rx="1"></rect>
+                                            <rect x="17" y="17" width="4" height="4" rx="1"></rect>
+                                        </svg>
+                                    </span>
+                                    <span>Каталог</span>
+                                </a>
+
+                                <a class="nav__item nav__item--sale nav__item--feature" href="#">
+                                    <span class="nav__item-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M13.5 2 5 13h5l-1.5 9L19 10h-5L13.5 2Z"></path>
+                                        </svg>
+                                    </span>
+                                    <span>Акции</span>
+                                </a>
+
+                                <span class="nav__divider" aria-hidden="true"></span>
+
+                                <a class="nav__item" href="#">
+                                    <span>Доставка и оплата</span>
+                                </a>
+
+                                <a class="nav__item" href="#">
+                                    <span>Новости</span>
+                                </a>
+
+                                <a class="nav__item" href="#">
+                                    <span>Рецепты</span>
+                                </a>
+
+                                <a class="nav__item" href="#">
+                                    <span>О нас</span>
+                                </a>
+
+                                <a class="nav__item" href="#">
+                                    <span>Контакты</span>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <section class="hero">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+                <style>
+                    .hero {
+                        padding: 18px 0 30px;
+                    }
+
+                    .hero__slider {
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: 30px;
+                        border: 1px solid var(--color-accent-a10);
+                        background: var(--color-white);
+                        box-shadow: 0 20px 50px var(--color-card-shadow-a08);
+                    }
+
+                    .hero__slide {
+                        position: relative;
+                        min-height: 620px;
+                    }
+
+                    .hero__media {
+                        position: absolute;
+                        inset: 0;
+                        overflow: hidden;
+                        background:
+                            radial-gradient(circle at top right, var(--color-accent-2-a16), transparent 26%),
+                            linear-gradient(135deg, var(--color-hero-grad-start) 0%, var(--color-white) 48%, var(--color-hero-grad-end) 100%);
+                    }
+
+                    .hero__image {
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+
+                    .hero__overlay {
+                        position: absolute;
+                        inset: 0;
+                        background:
+                            linear-gradient(90deg, var(--color-text-a60) 0%, var(--color-text-a26) 38%, var(--color-text-a08) 68%, var(--color-text-a16) 100%),
+                            linear-gradient(180deg, var(--color-text-a02) 0%, var(--color-text-a30) 100%);
+                    }
+
+                    .hero__content {
+                        position: relative;
+                        z-index: 2;
+                        min-height: 620px;
+                        display: flex;
+                        align-items: flex-end;
+                        padding: 34px;
+                    }
+
+                    .hero__box {
+                        max-width: 520px;
+                        padding: 22px 24px;
+                        border-radius: 24px;
+                        border: 1px solid var(--color-white-a12);
+                        background: var(--color-text-a28);
+                        -webkit-backdrop-filter: blur(16px);
+                        backdrop-filter: blur(16px);
+                        color: var(--color-white);
+                        box-shadow: 0 16px 36px var(--color-hero-box-shadow);
+                    }
+
+                    .hero__title {
+                        margin: 0;
+                        font-size: clamp(34px, 5vw, 60px);
+                        line-height: 0.94;
+                        letter-spacing: -0.05em;
+                        font-weight: 900;
+                    }
+
+                    .hero__text {
+                        margin: 12px 0 0;
+                        max-width: 430px;
+                        font-size: 16px;
+                        line-height: 1.6;
+                        color: var(--color-white-a82);
+                    }
+
+                    .hero__actions {
+                        margin-top: 18px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        flex-wrap: wrap;
+                    }
+
+                    .hero__button {
+                        min-height: 50px;
+                        padding: 0 20px;
+                        border-radius: 16px;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 14px;
+                        font-weight: 700;
+                        transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+                    }
+
+                    .hero__button:hover {
+                        transform: translateY(-1px);
+                    }
+
+                    .hero__button--primary {
+                        background: var(--color-white);
+                        color: var(--text);
+                    }
+
+                    .hero__button--secondary {
+                        border: 1px solid var(--color-white-a18);
+                        background: var(--color-white-a08);
+                        color: var(--color-white);
+                    }
+
+                    .hero__pagination {
+                        position: absolute;
+                        left: 34px !important;
+                        right: auto !important;
+                        bottom: 18px !important;
+                        width: auto !important;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        z-index: 3;
+                    }
+
+                    .hero__pagination .swiper-pagination-bullet {
+                        width: 9px;
+                        height: 9px;
+                        margin: 0 !important;
+                        opacity: 1;
+                        background: var(--color-white-a40);
+                    }
+
+                    .hero__pagination .swiper-pagination-bullet-active {
+                        background: var(--color-white);
+                    }
+
+                    .hero__nav {
+                        position: absolute;
+                        right: 18px;
+                        bottom: 18px;
+                        z-index: 3;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+
+                    .hero__arrow {
+                        width: 46px;
+                        height: 46px;
+                        padding: 0;
+                        border: 1px solid var(--color-white-a14);
+                        border-radius: 14px;
+                        background: var(--color-text-a28);
+                        -webkit-backdrop-filter: blur(14px);
+                        backdrop-filter: blur(14px);
+                        color: var(--color-white);
+                        cursor: pointer;
+                        transition: transform var(--transition), background var(--transition), border-color var(--transition);
+                    }
+
+                    .hero__arrow:hover {
+                        transform: translateY(-1px);
+                        background: var(--color-text-a40);
+                        border-color: var(--color-white-a22);
+                    }
+
+                    .hero__arrow::before {
+                        content: "";
+                        display: block;
+                        width: 10px;
+                        height: 10px;
+                        margin: 0 auto;
+                        border-top: 2px solid currentColor;
+                        border-right: 2px solid currentColor;
+                    }
+
+                    .hero__arrow--prev::before {
+                        transform: rotate(-135deg);
+                    }
+
+                    .hero__arrow--next::before {
+                        transform: rotate(45deg);
+                    }
+
+                    @media (max-width: 980px) {
+                        .hero {
+                            padding: 14px 0 24px;
+                        }
+
+                        .hero__slider {
+                            border-radius: 24px;
+                        }
+
+                        .hero__slide,
+                        .hero__content {
+                            min-height: 540px;
+                        }
+
+                        .hero__content {
+                            padding: 22px;
+                        }
+
+                        .hero__box {
+                            max-width: 100%;
+                            padding: 18px 18px 20px;
+                            border-radius: 20px;
+                        }
+
+                        .hero__pagination {
+                            left: 22px !important;
+                            bottom: 14px !important;
+                        }
+
+                        .hero__nav {
+                            right: 14px;
+                            bottom: 14px;
+                        }
+                    }
+
+                    @media (max-width: 767px) {
+                        .hero__slider {
+                            border-radius: 20px;
+                        }
+
+                        .hero__slide,
+                        .hero__content {
+                            min-height: 440px;
+                        }
+
+                        .hero__overlay {
+                            background:
+                                linear-gradient(180deg, var(--color-text-a16) 0%, var(--color-text-a58) 100%);
+                        }
+
+                        .hero__content {
+                            align-items: flex-end;
+                            padding: 16px 16px 72px;
+                        }
+
+                        .hero__box {
+                            padding: 16px;
+                            border-radius: 18px;
+                        }
+
+                        .hero__title {
+                            font-size: 34px;
+                        }
+
+                        .hero__text {
+                            margin-top: 10px;
+                            font-size: 14px;
+                        }
+
+                        .hero__actions {
+                            margin-top: 14px;
+                            gap: 8px;
+                        }
+
+                        .hero__button {
+                            width: 100%;
+                            min-height: 46px;
+                            border-radius: 14px;
+                        }
+
+                        .hero__pagination {
+                            left: 16px !important;
+                            bottom: 16px !important;
+                        }
+
+                        .hero__nav {
+                            right: 16px;
+                            bottom: 12px;
+                        }
+
+                        .hero__arrow {
+                            width: 42px;
+                            height: 42px;
+                            border-radius: 12px;
+                        }
+                    }
+                </style>
+
+                <div class="container">
+                    <div class="hero__slider swiper js-hero-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide hero__slide">
+                                <div class="hero__media">
+                                    <img class="hero__image" src="2.jpeg" alt="Кондитерские ингредиенты" loading="eager"
+                                        decoding="async">
+                                    <div class="hero__overlay"></div>
+                                </div>
+                                <div class="hero__content">
+                                    <div class="hero__box">
+                                        <h1 class="hero__title">Всё для кондитерского цеха в одном месте</h1>
+                                        <p class="hero__text">Ингредиенты, упаковка, инвентарь и сезонные предложения для ежедневной работы кондитеров, пекарен и кафе.</p>
+                                        <div class="hero__actions">
+                                            <a class="hero__button hero__button--primary" href="#">Каталог</a>
+                                            <a class="hero__button hero__button--secondary" href="#">Акции</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide hero__slide">
+                                <div class="hero__media">
+                                    <img class="hero__image" src="3.jpg" alt="Упаковка и инвентарь" loading="lazy"
+                                        decoding="async">
+                                    <div class="hero__overlay"></div>
+                                </div>
+                                <div class="hero__content">
+                                    <div class="hero__box">
+                                        <h2 class="hero__title">Ингредиенты, упаковка и инвентарь без лишних поисков</h2>
+                                        <p class="hero__text">Собрали ключевые категории так, чтобы быстро находить рабочие позиции для производства, витрины и доставки.</p>
+                                        <div class="hero__actions">
+                                            <a class="hero__button hero__button--primary" href="#">Смотреть товары</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide hero__slide">
+                                <div class="hero__media">
+                                    <img class="hero__image" src="4.jpg" alt="Товары для пекарен и кондитерских"
+                                        loading="lazy" decoding="async">
+                                    <div class="hero__overlay"></div>
+                                </div>
+                                <div class="hero__content">
+                                    <div class="hero__box">
+                                        <h2 class="hero__title">Поставки для стабильной ежедневной загрузки</h2>
+                                        <p class="hero__text">Товары для пекарен, кондитерских и HoReCa с понятным ассортиментом, актуальными акциями и быстрым переходом в нужный раздел.</p>
+                                        <div class="hero__actions">
+                                            <a class="hero__button hero__button--primary" href="#">Перейти</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hero__pagination"></div>
+
+                        <div class="hero__nav">
+                            <button class="hero__arrow hero__arrow--prev" type="button" aria-label="Назад"></button>
+                            <button class="hero__arrow hero__arrow--next" type="button" aria-label="Вперед"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var heroSlider = document.querySelector('.js-hero-slider');
+
+                        if (!heroSlider || typeof Swiper === 'undefined') {
+                            return;
+                        }
+
+                        new Swiper(heroSlider, {
+                            loop: true,
+                            speed: 700,
+                            spaceBetween: 0,
+                            autoplay: {
+                                delay: 5000,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true
+                            },
+                            pagination: {
+                                el: heroSlider.querySelector('.hero__pagination'),
+                                clickable: true
+                            },
+                            navigation: {
+                                prevEl: heroSlider.querySelector('.hero__arrow--prev'),
+                                nextEl: heroSlider.querySelector('.hero__arrow--next')
+                            }
+                        });
+                    });
+                </script>
+            </section>
+
+            <section class="catalog-promo">
+                <style>
+                    .catalog-promo {
+                        padding: 8px 0 56px;
+                    }
+
+                    .catalog-promo__head {
+                        display: grid;
+                        grid-template-columns: minmax(0, 1fr) auto;
+                        align-items: end;
+                        gap: 20px;
+                        margin-bottom: 22px;
+                    }
+
+                    .catalog-promo__intro {
+                        min-width: 0;
+                    }
+
+                    .catalog-promo__title {
+                        margin: 0;
+                        font-size: clamp(30px, 3.4vw, 52px);
+                        letter-spacing: -0.05em;
+                        font-weight: 900;
+                        color: var(--text);
+                    }
+
+                    .catalog-promo__button {
+                        min-height: 52px;
+                        padding: 0 20px;
+                        border-radius: 16px;
+                        border: 1px solid var(--color-accent-a12);
+                        background: var(--color-white-a82);
+                        color: var(--text);
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        white-space: nowrap;
+                        box-shadow: var(--shadow-xs);
+                        font-size: 14px;
+                        font-weight: 700;
+                        transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition);
+                    }
+
+                    .catalog-promo__button:hover {
+                        transform: translateY(-1px);
+                        border-color: var(--color-accent-a20);
+                        box-shadow: var(--shadow-sm);
+                        color: var(--accent-strong);
+                        background: var(--color-white-a94);
+                    }
+
+                    .catalog-promo__button::after {
+                        content: "";
+                        width: 8px;
+                        height: 8px;
+                        border-top: 2px solid currentColor;
+                        border-right: 2px solid currentColor;
+                        transform: rotate(45deg);
+                        margin-right: 2px;
+                    }
+
+                    .catalog-promo__grid {
+                        display: grid;
+                        grid-template-columns: repeat(3, minmax(0, 1fr));
+                        gap: 18px;
+                    }
+
+                    .catalog-promo__card {
+                        position: relative;
+                        min-height: 320px;
+                        border-radius: 28px;
+                        overflow: hidden;
+                        border: 1px solid var(--color-accent-a10);
+                        background: var(--color-white);
+                        box-shadow: 0 16px 40px var(--color-card-shadow-a06);
+                        transition: border-color var(--transition), box-shadow var(--transition);
+                    }
+
+                    .catalog-promo__card:hover {
+                        border-color: var(--color-accent-a18);
+                        box-shadow: 0 22px 50px var(--color-card-shadow-a10);
+                    }
+
+                    .catalog-promo__media {
+                        position: absolute;
+                        inset: 0;
+                        background-image:
+                            linear-gradient(180deg, var(--color-text-a04) 0%, var(--color-text-a26) 42%, var(--color-text-a78) 100%),
+                            var(--card-image);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        transition: transform 0.5s ease;
+                    }
+
+                    .catalog-promo__card:hover .catalog-promo__media {
+                        transform: scale(1.04);
+                    }
+
+                    .catalog-promo__content {
+                        position: relative;
+                        z-index: 2;
+                        min-height: 320px;
+                        padding: 20px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        gap: 14px;
+                    }
+
+                    .catalog-promo__body {
+                        display: grid;
+                        gap: 10px;
+                        max-width: 320px;
+                    }
+
+                    .catalog-promo__name {
+                        margin: 0;
+                        font-size: 28px;
+                        line-height: 0.98;
+                        letter-spacing: -0.05em;
+                        font-weight: 900;
+                        color: var(--color-white);
+                    }
+
+                    .catalog-promo__meta {
+                        font-size: 14px;
+                        line-height: 1.55;
+                        color: var(--color-white-a84);
+                    }
+
+                    .catalog-promo__bottom {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 12px;
+                    }
+
+                    .catalog-promo__link {
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: var(--color-white);
+                    }
+
+                    .catalog-promo__arrow {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 14px;
+                        border: 1px solid var(--color-white-a16);
+                        background: var(--color-white-a12);
+                        backdrop-filter: blur(12px);
+                        -webkit-backdrop-filter: blur(12px);
+                        position: relative;
+                        flex: 0 0 40px;
+                        transition: background var(--transition), border-color var(--transition), transform var(--transition);
+                    }
+
+                    .catalog-promo__card:hover .catalog-promo__arrow {
+                        background: var(--color-white-a18);
+                        border-color: var(--color-white-a24);
+                        transform: translateX(2px);
+                    }
+
+                    .catalog-promo__arrow::before {
+                        content: "";
+                        position: absolute;
+                        top: 14px;
+                        left: 13px;
+                        width: 9px;
+                        height: 9px;
+                        border-top: 2px solid var(--color-white);
+                        border-right: 2px solid var(--color-white);
+                        transform: rotate(45deg);
+                    }
+
+                    @media (max-width: 1100px) {
+                        .catalog-promo__grid {
+                            grid-template-columns: repeat(2, minmax(0, 1fr));
+                        }
+                    }
+
+                    @media (max-width: 767px) {
+                        .catalog-promo {
+                            padding: 2px 0 32px;
+                        }
+
+                        .catalog-promo__head {
+                            grid-template-columns: 1fr;
+                            align-items: stretch;
+                            gap: 14px;
+                            margin-bottom: 14px;
+                        }
+
+                        .catalog-promo__button {
+                            width: 100%;
+                            min-height: 48px;
+                            border-radius: 14px;
+                        }
+
+                        .catalog-promo__grid {
+                            grid-template-columns: 1fr;
+                            gap: 12px;
+                        }
+
+                        .catalog-promo__card,
+                        .catalog-promo__content {
+                            min-height: 240px;
+                        }
+
+                        .catalog-promo__content {
+                            padding: 16px;
+                            gap: 12px;
+                        }
+
+                        .catalog-promo__name {
+                            font-size: 24px;
+                        }
+
+                        .catalog-promo__meta {
+                            font-size: 13px;
+                        }
+
+                        .catalog-promo__arrow {
+                            width: 38px;
+                            height: 38px;
+                            border-radius: 13px;
+                            flex-basis: 38px;
+                        }
+
+                        .catalog-promo__arrow::before {
+                            top: 13px;
+                            left: 12px;
+                        }
+                    }
+                </style>
+
+                <div class="container">
+                    <div class="catalog-promo__head">
+                        <div class="catalog-promo__intro">
+                            <h2 class="catalog-promo__title">Основные категории каталога</h2>
+                        </div>
+
+                        <a class="catalog-promo__button" href="#">Перейти в каталог</a>
+                    </div>
+
+                    <div class="catalog-promo__grid">
+                        <a class="catalog-promo__card" href="#">
+                            <span class="catalog-promo__media" style="--card-image: url('2.jpeg');"></span>
+                            <span class="catalog-promo__content">
+                                <span class="catalog-promo__body">
+                                    <span class="catalog-promo__name">Шоколад и глазури</span>
+                                    <span class="catalog-promo__meta">Каллеты, плиточный шоколад, глазури и покрытия для корпусных конфет, декора и базовых производственных задач.</span>
+                                </span>
+                                <span class="catalog-promo__bottom">
+                                    <span class="catalog-promo__link">Открыть</span>
+                                    <span class="catalog-promo__arrow" aria-hidden="true"></span>
+                                </span>
+                            </span>
+                        </a>
+
+                        <a class="catalog-promo__card" href="#">
+                            <span class="catalog-promo__media" style="--card-image: url('3.jpg');"></span>
+                            <span class="catalog-promo__content">
+                                <span class="catalog-promo__body">
+                                    <span class="catalog-promo__name">Ингредиенты</span>
+                                    <span class="catalog-promo__meta">Начинки, смеси, ароматизаторы, красители и технологичные ингредиенты для десертов, выпечки и напитков.</span>
+                                </span>
+                                <span class="catalog-promo__bottom">
+                                    <span class="catalog-promo__link">Открыть</span>
+                                    <span class="catalog-promo__arrow" aria-hidden="true"></span>
+                                </span>
+                            </span>
+                        </a>
+
+                        <a class="catalog-promo__card" href="#">
+                            <span class="catalog-promo__media" style="--card-image: url('4.jpg');"></span>
+                            <span class="catalog-promo__content">
+                                <span class="catalog-promo__body">
+                                    <span class="catalog-promo__name">Упаковка</span>
+                                    <span class="catalog-promo__meta">Коробки, подложки, ленты, пакеты и расходные материалы для аккуратной выдачи, хранения и доставки.</span>
+                                </span>
+                                <span class="catalog-promo__bottom">
+                                    <span class="catalog-promo__link">Открыть</span>
+                                    <span class="catalog-promo__arrow" aria-hidden="true"></span>
+                                </span>
+                            </span>
+                        </a>
+
+                        <a class="catalog-promo__card" href="#">
+                            <span class="catalog-promo__media" style="--card-image: url('2.jpeg');"></span>
+                            <span class="catalog-promo__content">
+                                <span class="catalog-promo__body">
+                                    <span class="catalog-promo__name">Инвентарь</span>
+                                    <span class="catalog-promo__meta">Формы, насадки, шпатели, лопатки и рабочий инструмент для кондитерского и пекарского производства.</span>
+                                </span>
+                                <span class="catalog-promo__bottom">
+                                    <span class="catalog-promo__link">Открыть</span>
+                                    <span class="catalog-promo__arrow" aria-hidden="true"></span>
+                                </span>
+                            </span>
+                        </a>
+
+                        <a class="catalog-promo__card" href="#">
+                            <span class="catalog-promo__media" style="--card-image: url('3.jpg');"></span>
+                            <span class="catalog-promo__content">
+                                <span class="catalog-promo__body">
+                                    <span class="catalog-promo__name">Декор</span>
+                                    <span class="catalog-promo__meta">Посыпки, фигурки, топперы и готовые решения для витрины, праздничных заказов и сезонного оформления.</span>
+                                </span>
+                                <span class="catalog-promo__bottom">
+                                    <span class="catalog-promo__link">Открыть</span>
+                                    <span class="catalog-promo__arrow" aria-hidden="true"></span>
+                                </span>
+                            </span>
+                        </a>
+
+                        <a class="catalog-promo__card" href="#">
+                            <span class="catalog-promo__media" style="--card-image: url('4.jpg');"></span>
+                            <span class="catalog-promo__content">
+                                <span class="catalog-promo__body">
+                                    <span class="catalog-promo__name">Для выпечки</span>
+                                    <span class="catalog-promo__meta">Формы, коврики, бумага и сопутствующие товары для хлеба, сдобы, печенья и другой выпечки.</span>
+                                </span>
+                                <span class="catalog-promo__bottom">
+                                    <span class="catalog-promo__link">Открыть</span>
+                                    <span class="catalog-promo__arrow" aria-hidden="true"></span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sale-products">
+                <style>
+                    .sale-products {
+                        padding: 6px 0 64px;
+                    }
+
+                    .sale-products__head {
+                        display: grid;
+                        grid-template-columns: minmax(0, 1fr) auto;
+                        align-items: end;
+                        gap: 20px;
+                        margin-bottom: 22px;
+                    }
+
+                    .sale-products__title {
+                        margin: 0;
+                        font-size: clamp(30px, 3.4vw, 52px);
+                        line-height: 0.96;
+                        letter-spacing: -0.05em;
+                        font-weight: 900;
+                        color: var(--text);
+                    }
+
+                    .sale-products__link {
+                        min-height: 52px;
+                        padding: 0 20px;
+                        border-radius: 16px;
+                        border: 1px solid var(--color-accent-a12);
+                        background: var(--color-white-a82);
+                        color: var(--text);
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        white-space: nowrap;
+                        box-shadow: var(--shadow-xs);
+                        font-size: 14px;
+                        font-weight: 700;
+                        transition: border-color var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition);
+                    }
+
+                    .sale-products__link:hover {
+                        border-color: var(--color-accent-a20);
+                        box-shadow: var(--shadow-sm);
+                        color: var(--accent-strong);
+                        background: var(--color-white-a94);
+                    }
+
+                    .sale-products__link::after {
+                        content: "";
+                        width: 8px;
+                        height: 8px;
+                        border-top: 2px solid currentColor;
+                        border-right: 2px solid currentColor;
+                        transform: rotate(45deg);
+                        margin-right: 2px;
+                    }
+
+                    .sale-products__grid {
+                        display: grid;
+                        grid-template-columns: repeat(4, minmax(0, 1fr));
+                        gap: 18px;
+                    }
+
+                    .sale-products__card {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        min-width: 0;
+                        min-height: 100%;
+                        padding: 14px 14px 16px;
+                        border-radius: 24px;
+                        border: 1px solid var(--color-accent-a10);
+                        background: var(--color-white-a92);
+                        box-shadow: 0 16px 34px var(--color-card-shadow-a05);
+                        transition: border-color var(--transition), box-shadow var(--transition);
+                    }
+
+                    .sale-products__card:hover {
+                        border-color: var(--color-accent-a18);
+                        box-shadow: 0 22px 44px var(--color-card-shadow-a08);
+                    }
+
+                    .sale-products__badges {
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        z-index: 3;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 6px;
+                        pointer-events: none;
+                    }
+
+                    .sale-products__badge {
+                        min-height: 28px;
+                        padding: 0 10px;
+                        border-radius: 8px;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                        font-weight: 800;
+                        letter-spacing: 0.01em;
+                        background: var(--color-sale-badge);
+                        color: var(--color-sale-badge-text);
+                    }
+
+                    .sale-products__image-box {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-height: 220px;
+                        margin-bottom: 14px;
+                        padding: 18px;
+                        border-radius: 20px;
+                        background:
+                            radial-gradient(circle at top left, var(--color-accent-2-a14), transparent 42%),
+                            linear-gradient(180deg, var(--color-card-grad-start) 0%, var(--color-card-grad-end) 100%);
+                        overflow: hidden;
+                    }
+
+                    .sale-products__image {
+                        display: block;
+                        max-width: 100%;
+                        max-height: 184px;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.45s ease;
+                    }
+
+                    .sale-products__card:hover .sale-products__image {
+                        transform: scale(1.04);
+                    }
+
+                    .sale-products__content {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        min-height: 1px;
+                    }
+
+                    .sale-products__title-text {
+                        margin: 0;
+                        min-height: 72px;
+                        font-size: 17px;
+                        line-height: 1.5;
+                        font-weight: 800;
+                        color: var(--text);
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
+
+                    .sale-products__stock {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-size: 14px;
+                        line-height: 1.4;
+                        color: var(--color-stock);
+                    }
+
+                    .sale-products__stock::before {
+                        content: "";
+                        width: 7px;
+                        height: 7px;
+                        border-radius: 50%;
+                        flex: 0 0 7px;
+                        background: currentColor;
+                    }
+
+                    .sale-products__price-block {
+                        margin-top: auto;
+                        display: grid;
+                        gap: 4px;
+                        padding-top: 6px;
+                    }
+
+                    .sale-products__price-current {
+                        font-size: 17px;
+                        line-height: 1.3;
+                        font-weight: 900;
+                        color: var(--text);
+                    }
+
+                    .sale-products__price-old {
+                        font-size: 14px;
+                        line-height: 1.3;
+                        color: var(--text-muted);
+                        text-decoration: line-through;
+                        text-decoration-thickness: 1px;
+                    }
+
+                    .sale-products__benefit {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        flex-wrap: wrap;
+                        margin-top: 2px;
+                    }
+
+                    .sale-products__discount {
+                        min-height: 24px;
+                        padding: 0 8px;
+                        border-radius: 6px;
+                        background: var(--color-sale-badge);
+                        color: var(--color-sale-badge-text);
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                        font-weight: 800;
+                    }
+
+                    .sale-products__benefit-text {
+                        font-size: 13px;
+                        line-height: 1.4;
+                        color: var(--color-benefit-text);
+                    }
+
+                    .sale-products__actions {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 22px;
+                    }
+
+                    .sale-products__more {
+                        min-width: 220px;
+                        min-height: 54px;
+                        padding: 0 22px;
+                        border: 1px solid var(--color-accent-a12);
+                        border-radius: 16px;
+                        background: var(--color-white-a92);
+                        color: var(--text);
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        box-shadow: var(--shadow-xs);
+                        font-size: 14px;
+                        font-weight: 800;
+                        cursor: pointer;
+                        transition: border-color var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition), opacity var(--transition);
+                    }
+
+                    .sale-products__more:hover:not(:disabled) {
+                        border-color: var(--color-accent-a20);
+                        box-shadow: var(--shadow-sm);
+                        color: var(--accent-strong);
+                        background: var(--color-white-a100);
+                    }
+
+                    .sale-products__more:disabled {
+                        cursor: default;
+                    }
+
+                    .sale-products__more-spinner {
+                        display: none;
+                        width: 16px;
+                        height: 16px;
+                        border: 2px solid var(--color-accent-a18);
+                        border-top-color: var(--accent-strong);
+                        border-radius: 50%;
+                        animation: sale-products-spin 0.7s linear infinite;
+                    }
+
+                    .sale-products__more.is-loading .sale-products__more-spinner {
+                        display: inline-block;
+                    }
+
+                    .sale-products__more.is-loading .sale-products__more-text {
+                        opacity: 0.7;
+                    }
+
+                    .sale-products__more.is-finished {
+                        opacity: 0.8;
+                    }
+
+                    .sale-products__card--skeleton {
+                        pointer-events: none;
+                    }
+
+                    .sale-products__skeleton {
+                        position: relative;
+                        overflow: hidden;
+                        background: linear-gradient(180deg, var(--color-skeleton-start) 0%, var(--color-skeleton-end) 100%);
+                    }
+
+                    .sale-products__skeleton::after {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        transform: translateX(-100%);
+                        background: linear-gradient(90deg, transparent 0%, var(--color-white-a75) 50%, transparent 100%);
+                        animation: sale-products-shimmer 1.15s linear infinite;
+                    }
+
+                    .sale-products__skeleton-badges {
+                        position: absolute;
+                        top: 14px;
+                        left: 14px;
+                        z-index: 3;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 6px;
+                    }
+
+                    .sale-products__skeleton-badge {
+                        width: 72px;
+                        height: 28px;
+                        border-radius: 8px;
+                    }
+
+                    .sale-products__skeleton-image {
+                        width: 100%;
+                        height: 184px;
+                        border-radius: 16px;
+                    }
+
+                    .sale-products__skeleton-title {
+                        width: 100%;
+                        height: 18px;
+                        border-radius: 8px;
+                    }
+
+                    .sale-products__skeleton-title+.sale-products__skeleton-title {
+                        margin-top: 8px;
+                    }
+
+                    .sale-products__skeleton-stock {
+                        width: 56%;
+                        height: 14px;
+                        border-radius: 8px;
+                        margin-top: 12px;
+                    }
+
+                    .sale-products__skeleton-price {
+                        width: 48%;
+                        height: 18px;
+                        border-radius: 8px;
+                        margin-top: 18px;
+                    }
+
+                    .sale-products__skeleton-old {
+                        width: 34%;
+                        height: 14px;
+                        border-radius: 8px;
+                        margin-top: 8px;
+                    }
+
+                    .sale-products__skeleton-benefit {
+                        width: 70%;
+                        height: 24px;
+                        border-radius: 8px;
+                        margin-top: 10px;
+                    }
+
+                    @keyframes sale-products-spin {
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+                    @keyframes sale-products-shimmer {
+                        100% {
+                            transform: translateX(100%);
+                        }
+                    }
+
+                    @media (max-width: 1240px) {
+                        .sale-products__grid {
+                            grid-template-columns: repeat(3, minmax(0, 1fr));
+                        }
+                    }
+
+                    @media (max-width: 980px) {
+                        .sale-products {
+                            padding-bottom: 48px;
+                        }
+
+                        .sale-products__grid {
+                            grid-template-columns: repeat(2, minmax(0, 1fr));
+                            gap: 14px;
+                        }
+
+                        .sale-products__image-box {
+                            min-height: 200px;
+                        }
+
+                        .sale-products__title-text {
+                            min-height: 68px;
+                            font-size: 16px;
+                        }
+                    }
+
+                    @media (max-width: 767px) {
+                        .sale-products {
+                            padding: 2px 0 36px;
+                        }
+
+                        .sale-products__head {
+                            grid-template-columns: 1fr;
+                            align-items: stretch;
+                            gap: 14px;
+                            margin-bottom: 16px;
+                        }
+
+                        .sale-products__link {
+                            width: 100%;
+                            min-height: 48px;
+                            border-radius: 14px;
+                        }
+
+                        .sale-products__grid {
+                            grid-template-columns: 1fr;
+                            gap: 12px;
+                        }
+
+                        .sale-products__card {
+                            padding: 12px 12px 14px;
+                            border-radius: 20px;
+                        }
+
+                        .sale-products__badges {
+                            top: 12px;
+                            left: 12px;
+                        }
+
+                        .sale-products__image-box {
+                            min-height: 180px;
+                            margin-bottom: 12px;
+                            border-radius: 16px;
+                        }
+
+                        .sale-products__image {
+                            max-height: 160px;
+                        }
+
+                        .sale-products__title-text {
+                            min-height: auto;
+                            font-size: 16px;
+                        }
+
+                        .sale-products__stock {
+                            font-size: 13px;
+                        }
+
+                        .sale-products__price-current {
+                            font-size: 16px;
+                        }
+
+                        .sale-products__more {
+                            width: 100%;
+                            min-width: 0;
+                            min-height: 50px;
+                            border-radius: 14px;
+                        }
+                    }
+                </style>
+
+                <div class="container">
+                    <div class="sale-products__head">
+                        <h2 class="sale-products__title">Акции недели</h2>
+                        <a class="sale-products__link" href="#">Перейти в акции</a>
+                    </div>
+
+                    <div class="sale-products__grid js-sale-products-grid"></div>
+
+                    <div class="sale-products__actions">
+                        <button class="sale-products__more js-sale-products-more" type="button">
+                            <span class="sale-products__more-text">Показать ещё товары</span>
+                            <span class="sale-products__more-spinner" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <script>
+                    (function () {
+                        var section = document.querySelector('.sale-products');
+
+                        if (!section) {
+                            return;
+                        }
+
+                        var grid = section.querySelector('.js-sale-products-grid');
+                        var moreButton = section.querySelector('.js-sale-products-more');
+                        var moreButtonText = moreButton.querySelector('.sale-products__more-text');
+                        var initialCount = 12;
+                        var chunkSize = 4;
+                        var renderedCount = 0;
+                        var isLoading = false;
+                        var products = [
+                            {
+                                title: 'Топпер акриловый золотой "Звезда" 23 фев 55×58 мм, арт 134',
+                                image: '2.jpeg',
+                                href: '#',
+                                price: 47.60,
+                                oldPrice: 59.50,
+                                stock: 3
+                            },
+                            {
+                                title: 'Краситель гелевый насыщенный красный 35 г',
+                                image: '3.jpg',
+                                href: '#',
+                                price: 189.00,
+                                oldPrice: 236.00,
+                                stock: 8
+                            },
+                            {
+                                title: 'Шоколад белый кондитерский 500 г',
+                                image: '4.jpg',
+                                href: '#',
+                                price: 459.00,
+                                oldPrice: 549.00,
+                                stock: 14
+                            },
+                            {
+                                title: 'Коробка для торта с окном 300×300×190 мм',
+                                image: '2.jpeg',
+                                href: '#',
+                                price: 62.00,
+                                oldPrice: 78.00,
+                                stock: 26
+                            },
+                            {
+                                title: 'Посыпка сахарная микс "Праздник" 50 г',
+                                image: '3.jpg',
+                                href: '#',
+                                price: 79.00,
+                                oldPrice: 99.00,
+                                stock: 6
+                            },
+                            {
+                                title: 'Форма силиконовая для муссовых пирожных',
+                                image: '4.jpg',
+                                href: '#',
+                                price: 690.00,
+                                oldPrice: 840.00,
+                                stock: 5
+                            },
+                            {
+                                title: 'Капсулы бумажные усиленные белые 50×40 мм, 100 шт',
+                                image: '2.jpeg',
+                                href: '#',
+                                price: 115.00,
+                                oldPrice: 145.00,
+                                stock: 19
+                            },
+                            {
+                                title: 'Шпатель кондитерский металлический прямой 22 см',
+                                image: '3.jpg',
+                                href: '#',
+                                price: 219.00,
+                                oldPrice: 275.00,
+                                stock: 7
+                            },
+                            {
+                                title: 'Глазурь зеркальная нейтральная 250 г',
+                                image: '4.jpg',
+                                href: '#',
+                                price: 249.00,
+                                oldPrice: 312.00,
+                                stock: 11
+                            },
+                            {
+                                title: 'Лента атласная золото 25 мм, 23 м',
+                                image: '2.jpeg',
+                                href: '#',
+                                price: 138.00,
+                                oldPrice: 172.00,
+                                stock: 13
+                            },
+                            {
+                                title: 'Ароматизатор ваниль бурбон 10 мл',
+                                image: '3.jpg',
+                                href: '#',
+                                price: 98.00,
+                                oldPrice: 122.00,
+                                stock: 9
+                            },
+                            {
+                                title: 'Подложка усиленная круглая золото/белая 26 см',
+                                image: '4.jpg',
+                                href: '#',
+                                price: 31.00,
+                                oldPrice: 39.00,
+                                stock: 42
+                            },
+                            {
+                                title: 'Мастика сахарная белая 1 кг',
+                                image: '2.jpeg',
+                                href: '#',
+                                price: 349.00,
+                                oldPrice: 429.00,
+                                stock: 10
+                            },
+                            {
+                                title: 'Коробка для капкейков на 6 шт с окном',
+                                image: '3.jpg',
+                                href: '#',
+                                price: 52.00,
+                                oldPrice: 67.00,
+                                stock: 28
+                            },
+                            {
+                                title: 'Насадка кондитерская закрытая звезда 1М',
+                                image: '4.jpg',
+                                href: '#',
+                                price: 135.00,
+                                oldPrice: 168.00,
+                                stock: 17
+                            },
+                            {
+                                title: 'Форма разъемная круглая 20 см',
+                                image: '2.jpeg',
+                                href: '#',
+                                price: 429.00,
+                                oldPrice: 519.00,
+                                stock: 4
+                            },
+                            {
+                                title: 'Шоколад молочный в каллетах 1 кг',
+                                image: '3.jpg',
+                                href: '#',
+                                price: 890.00,
+                                oldPrice: 1040.00,
+                                stock: 12
+                            },
+                            {
+                                title: 'Коврик тефлоновый для выпечки 40×60 см',
+                                image: '4.jpg',
+                                href: '#',
+                                price: 278.00,
+                                oldPrice: 340.00,
+                                stock: 15
+                            },
+                            {
+                                title: 'Топпер зеркальный "С Днем Рождения" золото',
+                                image: '2.jpeg',
+                                href: '#',
+                                price: 54.00,
+                                oldPrice: 69.00,
+                                stock: 21
+                            },
+                            {
+                                title: 'Упаковка для эклеров крафт с прозрачным окном',
+                                image: '3.jpg',
+                                href: '#',
+                                price: 43.00,
+                                oldPrice: 56.00,
+                                stock: 32
+                            }
+                        ];
+
+                        function escapeHtml(value) {
+                            return String(value)
+                                .replace(/&/g, '&amp;')
+                                .replace(/</g, '&lt;')
+                                .replace(/>/g, '&gt;')
+                                .replace(/"/g, '&quot;')
+                                .replace(/'/g, '&#039;');
+                        }
+
+                        function formatPrice(value) {
+                            return Number(value).toLocaleString('ru-RU', {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2
+                            }) + ' ₽';
+                        }
+
+                        function getDiscountPercent(price, oldPrice) {
+                            return Math.round((1 - price / oldPrice) * 100);
+                        }
+
+                        function getSavings(price, oldPrice) {
+                            return oldPrice - price;
+                        }
+
+                        function createCardMarkup(product) {
+                            var discountPercent = getDiscountPercent(product.price, product.oldPrice);
+                            var savings = getSavings(product.price, product.oldPrice);
+
+                            return '' +
+                                '<a class="sale-products__card" href="' + escapeHtml(product.href) + '">' +
+                                '<span class="sale-products__badges">' +
+                                '<span class="sale-products__badge">Акция</span>' +
+                                '</span>' +
+                                '<span class="sale-products__image-box">' +
+                                '<img class="sale-products__image" src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.title) + '" loading="lazy" decoding="async">' +
+                                '</span>' +
+                                '<span class="sale-products__content">' +
+                                '<span class="sale-products__title-text">' + escapeHtml(product.title) + '</span>' +
+                                '<span class="sale-products__stock">Есть в наличии: ' + escapeHtml(product.stock) + '</span>' +
+                                '<span class="sale-products__price-block">' +
+                                '<span class="sale-products__price-current">' + formatPrice(product.price) + '/шт</span>' +
+                                '<span class="sale-products__price-old">' + formatPrice(product.oldPrice) + '</span>' +
+                                '<span class="sale-products__benefit">' +
+                                '<span class="sale-products__discount">-' + escapeHtml(getDiscountPercent(product.price, product.oldPrice)) + '%</span>' +
+                                '<span class="sale-products__benefit-text">Экономия ' + formatPrice(savings) + '</span>' +
+                                '</span>' +
+                                '</span>' +
+                                '</span>' +
+                                '</a>';
+                        }
+
+                        function createSkeletonMarkup() {
+                            return '' +
+                                '<div class="sale-products__card sale-products__card--skeleton">' +
+                                '<span class="sale-products__skeleton-badges">' +
+                                '<span class="sale-products__skeleton sale-products__skeleton-badge"></span>' +
+                                '</span>' +
+                                '<span class="sale-products__image-box">' +
+                                '<span class="sale-products__skeleton sale-products__skeleton-image"></span>' +
+                                '</span>' +
+                                '<span class="sale-products__content">' +
+                                '<span>' +
+                                '<span class="sale-products__skeleton sale-products__skeleton-title"></span>' +
+                                '<span class="sale-products__skeleton sale-products__skeleton-title"></span>' +
+                                '<span class="sale-products__skeleton sale-products__skeleton-stock"></span>' +
+                                '</span>' +
+                                '<span class="sale-products__price-block">' +
+                                '<span class="sale-products__skeleton sale-products__skeleton-price"></span>' +
+                                '<span class="sale-products__skeleton sale-products__skeleton-old"></span>' +
+                                '<span class="sale-products__skeleton sale-products__skeleton-benefit"></span>' +
+                                '</span>' +
+                                '</span>' +
+                                '</div>';
+                        }
+
+                        function appendProducts(items) {
+                            var fragment = document.createDocumentFragment();
+                            var wrapper = document.createElement('div');
+                            var i = 0;
+
+                            for (i = 0; i < items.length; i++) {
+                                wrapper.innerHTML = createCardMarkup(items[i]);
+                                fragment.appendChild(wrapper.firstChild);
+                            }
+
+                            grid.appendChild(fragment);
+                        }
+
+                        function appendSkeletons(count) {
+                            var fragment = document.createDocumentFragment();
+                            var wrapper = document.createElement('div');
+                            var i = 0;
+
+                            for (i = 0; i < count; i++) {
+                                wrapper.innerHTML = createSkeletonMarkup();
+                                fragment.appendChild(wrapper.firstChild);
+                            }
+
+                            grid.appendChild(fragment);
+                        }
+
+                        function removeSkeletons() {
+                            var skeletons = grid.querySelectorAll('.sale-products__card--skeleton');
+                            var i = 0;
+
+                            for (i = 0; i < skeletons.length; i++) {
+                                skeletons[i].parentNode.removeChild(skeletons[i]);
+                            }
+                        }
+
+                        function updateButtonState() {
+                            if (renderedCount >= products.length) {
+                                moreButton.disabled = true;
+                                moreButton.classList.add('is-finished');
+                                moreButtonText.textContent = 'Больше нет товаров';
+                                return;
+                            }
+
+                            moreButton.disabled = false;
+                            moreButton.classList.remove('is-finished');
+                            moreButtonText.textContent = 'Загрузить еще';
+                        }
+
+                        function renderInitial() {
+                            var initialItems = products.slice(0, initialCount);
+                            renderedCount = initialItems.length;
+                            appendProducts(initialItems);
+                            updateButtonState();
+                        }
+
+                        function loadMore() {
+                            var nextItems;
+                            var nextCount;
+
+                            if (isLoading || renderedCount >= products.length) {
+                                return;
+                            }
+
+                            isLoading = true;
+                            moreButton.disabled = true;
+                            moreButton.classList.add('is-loading');
+                            moreButtonText.textContent = 'Загрузка';
+
+                            nextCount = Math.min(chunkSize, products.length - renderedCount);
+                            appendSkeletons(nextCount);
+
+                            setTimeout(function () {
+                                removeSkeletons();
+                                nextItems = products.slice(renderedCount, renderedCount + nextCount);
+                                appendProducts(nextItems);
+                                renderedCount += nextItems.length;
+                                isLoading = false;
+                                moreButton.classList.remove('is-loading');
+                                updateButtonState();
+                            }, 900);
+                        }
+
+                        renderInitial();
+                        moreButton.addEventListener('click', loadMore);
+                    })();
+                </script>
+            </section>
+
+            <section class="news-strip">
+                <style>
+                    .news-strip {
+                        padding: 6px 0 64px;
+                    }
+
+                    .news-strip__head {
+                        display: grid;
+                        grid-template-columns: minmax(0, 1fr) auto;
+                        align-items: end;
+                        gap: 20px;
+                        margin-bottom: 22px;
+                    }
+
+                    .news-strip__lead {
+                        display: flex;
+                        align-items: flex-end;
+                        gap: 18px;
+                        flex-wrap: wrap;
+                        min-width: 0;
+                    }
+
+                    .news-strip__title {
+                        margin: 0;
+                        font-size: clamp(30px, 3.4vw, 52px);
+                        line-height: 0.96;
+                        letter-spacing: -0.05em;
+                        font-weight: 900;
+                        color: var(--text);
+                    }
+
+                    .news-strip__subscribe {
+                        align-self: flex-end;
+                    }
+
+                    .news-strip__subscribe {
+                        min-height: 38px;
+                        padding: 0 14px;
+                        border-radius: 999px;
+                        border: 1px solid var(--color-accent-a10);
+                        background: var(--color-white-a72);
+                        color: var(--text-soft);
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        font-size: 13px;
+                        font-weight: 700;
+                        letter-spacing: 0.02em;
+                        text-transform: uppercase;
+                        white-space: nowrap;
+                        box-shadow: var(--shadow-xs);
+                        transition: border-color var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition);
+                    }
+
+                    .news-strip__subscribe:hover {
+                        border-color: var(--color-accent-a18);
+                        box-shadow: var(--shadow-sm);
+                        color: var(--accent-strong);
+                        background: var(--color-white-a92);
+                    }
+
+                    .news-strip__subscribe-icon {
+                        width: 16px;
+                        height: 16px;
+                        display: block;
+                        flex: 0 0 16px;
+                        stroke: currentColor;
+                    }
+
+                    .news-strip__actions {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        min-width: 0;
+                    }
+
+                    .news-strip__all {
+                        min-height: 40px;
+                        padding: 0 2px;
+                        color: var(--accent-strong);
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 14px;
+                        font-weight: 800;
+                        letter-spacing: 0.02em;
+                        text-transform: uppercase;
+                        white-space: nowrap;
+                        transition: color var(--transition), opacity var(--transition);
+                    }
+
+                    .news-strip__all:hover {
+                        opacity: 0.8;
+                    }
+
+                    .news-strip__nav {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+
+                    .news-strip__arrow {
+                        width: 44px;
+                        height: 44px;
+                        padding: 0;
+                        border: 1px solid var(--color-accent-a10);
+                        border-radius: 14px;
+                        background: var(--color-white-a82);
+                        color: var(--text);
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: var(--shadow-xs);
+                        cursor: pointer;
+                        transition: border-color var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition), opacity var(--transition);
+                    }
+
+                    .news-strip__arrow:hover {
+                        border-color: var(--color-accent-a18);
+                        box-shadow: var(--shadow-sm);
+                        color: var(--accent-strong);
+                        background: var(--color-white-a96);
+                    }
+
+                    .news-strip__arrow.swiper-button-disabled {
+                        opacity: 0.42;
+                        cursor: default;
+                        box-shadow: var(--shadow-xs);
+                    }
+
+                    .news-strip__arrow::before {
+                        content: "";
+                        width: 9px;
+                        height: 9px;
+                        display: block;
+                        border-top: 2px solid currentColor;
+                        border-right: 2px solid currentColor;
+                    }
+
+                    .news-strip__arrow--prev::before {
+                        transform: rotate(-135deg);
+                        margin-left: 4px;
+                    }
+
+                    .news-strip__arrow--next::before {
+                        transform: rotate(45deg);
+                        margin-right: 4px;
+                    }
+
+                    .news-strip__slide {
+                        height: auto;
+                    }
+
+                    .news-strip__card {
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        border-radius: 24px;
+                        overflow: hidden;
+                        border: 1px solid var(--color-accent-a10);
+                        background: var(--color-white-a92);
+                        transition: border-color var(--transition), box-shadow var(--transition);
+                    }
+
+                    .news-strip__card:hover {
+                        border-color: var(--color-accent-a18);
+                        box-shadow: 0 22px 44px var(--color-card-shadow-a08);
+                    }
+
+                    .news-strip__media {
+                        position: relative;
+                        overflow: hidden;
+                        aspect-ratio: 1 / 0.82;
+                        background:
+                            radial-gradient(circle at top left, var(--color-accent-2-a14), transparent 42%),
+                            linear-gradient(180deg, var(--color-card-grad-start) 0%, var(--color-card-grad-end) 100%);
+                    }
+
+                    .news-strip__image {
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        object-fit: cover;
+                        transition: transform 0.5s ease;
+                    }
+
+                    .news-strip__card:hover .news-strip__image {
+                        transform: scale(1.04);
+                    }
+
+                    .news-strip__body {
+                        display: grid;
+                        gap: 14px;
+                        padding: 18px 18px 20px;
+                    }
+
+                    .news-strip__meta {
+                        font-size: 11px;
+                        line-height: 1.3;
+                        font-weight: 800;
+                        letter-spacing: 0.08em;
+                        text-transform: uppercase;
+                        color: var(--text-muted);
+                    }
+
+                    .news-strip__name {
+                        margin: 0;
+                        font-size: 22px;
+                        line-height: 1.34;
+                        font-weight: 800;
+                        color: var(--text);
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
+
+                    .news-strip__date {
+                        margin-top: auto;
+                        font-size: 14px;
+                        line-height: 1.4;
+                        color: var(--text-soft);
+                    }
+
+                    @media (max-width: 1100px) {
+                        .news-strip__name {
+                            font-size: 20px;
+                        }
+                    }
+
+                    @media (max-width: 980px) {
+                        .news-strip {
+                            padding-bottom: 48px;
+                        }
+
+                        .news-strip__head {
+                            grid-template-columns: 1fr;
+                            align-items: stretch;
+                        }
+
+                        .news-strip__actions {
+                            justify-content: space-between;
+                        }
+
+                        .news-strip__name {
+                            font-size: 18px;
+                        }
+
+                        .news-strip__body {
+                            padding: 16px 16px 18px;
+                        }
+                    }
+
+                    @media (max-width: 767px) {
+                        .news-strip {
+                            padding: 2px 0 36px;
+                        }
+
+                        .news-strip__lead {
+                            align-items: flex-start;
+                            gap: 12px;
+                        }
+
+                        .news-strip__subscribe {
+                            min-height: 34px;
+                            padding: 0 12px;
+                            font-size: 12px;
+                        }
+
+                        .news-strip__actions {
+                            gap: 12px;
+                        }
+
+                        .news-strip__all {
+                            min-height: 34px;
+                            font-size: 13px;
+                        }
+
+                        .news-strip__arrow {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 12px;
+                        }
+
+                        .news-strip__body {
+                            gap: 12px;
+                            padding: 14px 14px 16px;
+                        }
+
+                        .news-strip__name {
+                            font-size: 17px;
+                        }
+
+                        .news-strip__date {
+                            font-size: 13px;
+                        }
+                    }
+                </style>
+
+                <div class="container">
+                    <div class="news-strip__head">
+                        <div class="news-strip__lead">
+                            <h2 class="news-strip__title">Новости</h2>
+
+                            <a class="news-strip__subscribe" href="#">
+                                <svg class="news-strip__subscribe-icon" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 4 10 15" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="m21 4-7 16-4-8-8-4 19-4Z" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                                <span>Подписаться</span>
+                            </a>
+                        </div>
+
+                        <div class="news-strip__actions">
+                            <a class="news-strip__all" href="#">Все новости</a>
+
+                            <div class="news-strip__nav">   
+                                <button class="news-strip__arrow news-strip__arrow--prev js-news-strip-prev"
+                                    type="button" aria-label="Назад"></button>
+                                <button class="news-strip__arrow news-strip__arrow--next js-news-strip-next"
+                                    type="button" aria-label="Вперед"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-strip__slider swiper js-news-strip-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide news-strip__slide">
+                                <a class="news-strip__card" href="#">
+                                    <div class="news-strip__media">
+                                        <img class="news-strip__image" src="2.jpeg" alt="Новость компании"
+                                            loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="news-strip__body">
+                                        <h3 class="news-strip__name">Обновили подборку сезонных ингредиентов и упаковки к весеннему меню</h3>
+                                        <div class="news-strip__date">20 марта 2026</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide news-strip__slide">
+                                <a class="news-strip__card" href="#">
+                                    <div class="news-strip__media">
+                                        <img class="news-strip__image" src="3.jpg" alt="Новость компании" loading="lazy"
+                                            decoding="async">
+                                    </div>
+                                    <div class="news-strip__body">
+                                        <h3 class="news-strip__name">В ассортименте появились новые формы и декор для муссовых десертов</h3>
+                                        <div class="news-strip__date">03 октября 2025</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide news-strip__slide">
+                                <a class="news-strip__card" href="#">
+                                    <div class="news-strip__media">
+                                        <img class="news-strip__image" src="4.jpg" alt="Новость компании" loading="lazy"
+                                            decoding="async">
+                                    </div>
+                                    <div class="news-strip__body">
+                                        <h3 class="news-strip__name">Подвели итоги отраслевой встречи в Екатеринбурге и собрали материалы для партнёров</h3>
+                                        <div class="news-strip__date">14 апреля 2025</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide news-strip__slide">
+                                <a class="news-strip__card" href="#">
+                                    <div class="news-strip__media">
+                                        <img class="news-strip__image" src="2.jpeg" alt="Новость компании"
+                                            loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="news-strip__body">
+                                        <h3 class="news-strip__name">Снизили минимальную партию на ряд позиций для небольших кондитерских цехов</h3>
+                                        <div class="news-strip__date">04 июня 2023</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide news-strip__slide">
+                                <a class="news-strip__card" href="#">
+                                    <div class="news-strip__media">
+                                        <img class="news-strip__image" src="3.jpg" alt="Новость компании" loading="lazy"
+                                            decoding="async">
+                                    </div>
+                                    <div class="news-strip__body">
+                                        <h3 class="news-strip__name">Обновили условия для оптовых клиентов и расширили список акционных категорий</h3>
+                                        <div class="news-strip__date">11 января 2023</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide news-strip__slide">
+                                <a class="news-strip__card" href="#">
+                                    <div class="news-strip__media">
+                                        <img class="news-strip__image" src="4.jpg" alt="Новость компании" loading="lazy"
+                                            decoding="async">
+                                    </div>
+                                    <div class="news-strip__body">
+                                        <h3 class="news-strip__name">Изменили график поставок по ходовым позициям и сократили срок комплектации заказов</h3>
+                                        <div class="news-strip__date">17 сентября 2025</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide news-strip__slide">
+                                <a class="news-strip__card" href="#">
+                                    <div class="news-strip__media">
+                                        <img class="news-strip__image" src="2.jpeg" alt="Новость компании"
+                                            loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="news-strip__body">
+                                        <h3 class="news-strip__name">Подготовили фотоотчёт с отраслевой встречи по ингредиентам, инвентарю и упаковке</h3>
+                                        <div class="news-strip__date">29 августа 2025</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide news-strip__slide">
+                                <a class="news-strip__card" href="#">
+                                    <div class="news-strip__media">
+                                        <img class="news-strip__image" src="3.jpg" alt="Новость компании" loading="lazy"
+                                            decoding="async">
+                                    </div>
+                                    <div class="news-strip__body">
+                                        <h3 class="news-strip__name">Открыли запись на весенние мастер-классы для кондитеров и технологов</h3>
+                                        <div class="news-strip__date">08 февраля 2026</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var slider = document.querySelector('.js-news-strip-slider');
+
+                        if (!slider || typeof Swiper === 'undefined') {
+                            return;
+                        }
+
+                        new Swiper(slider, {
+                            speed: 650,
+                            spaceBetween: 18,
+                            slidesPerView: 1.15,
+                            grabCursor: true,
+                            watchOverflow: true,
+                            navigation: {
+                                prevEl: document.querySelector('.js-news-strip-prev'),
+                                nextEl: document.querySelector('.js-news-strip-next')
+                            },
+                            breakpoints: {
+                                768: {
+                                    slidesPerView: 2.2
+                                },
+                                981: {
+                                    slidesPerView: 3
+                                },
+                                1200: {
+                                    slidesPerView: 4
+                                },
+                                1360: {
+                                    slidesPerView: 5
+                                }
+                            }
+                        });
+                    });
+                </script>
+            </section>
+
+            <section class="recipe-cats">
+    <style>
+        .recipe-cats {
+            padding: 6px 0 64px;
+        }
+
+        .recipe-cats__head {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: end;
+            gap: 20px;
+            margin-bottom: 22px;
+        }
+
+        .recipe-cats__lead {
+            display: flex;
+            align-items: flex-end;
+            gap: 18px;
+            flex-wrap: wrap;
+            min-width: 0;
+        }
+
+        .recipe-cats__title {
+            margin: 0;
+            font-size: clamp(30px, 3.4vw, 52px);
+            line-height: 0.96;
+            letter-spacing: -0.05em;
+            font-weight: 900;
+            color: var(--text);
+        }
+
+        .recipe-cats__subscribe {
+            min-height: 38px;
+            padding: 0 14px;
+            border-radius: 999px;
+            border: 1px solid var(--color-accent-a10);
+            background: var(--color-white-a72);
+            color: var(--text-soft);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            box-shadow: var(--shadow-xs);
+            transition: border-color var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition);
+            align-self: flex-end;
+        }
+
+        .recipe-cats__subscribe:hover {
+            border-color: var(--color-accent-a18);
+            box-shadow: var(--shadow-sm);
+            color: var(--accent-strong);
+            background: var(--color-white-a92);
+        }
+
+        .recipe-cats__subscribe-icon {
+            width: 16px;
+            height: 16px;
+            display: block;
+            flex: 0 0 16px;
+            stroke: currentColor;
+        }
+
+        .recipe-cats__actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .recipe-cats__all {
+            min-height: 40px;
+            padding: 0 2px;
+            color: var(--accent-strong);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: color var(--transition), opacity var(--transition);
+        }
+
+        .recipe-cats__all:hover {
+            opacity: 0.8;
+        }
+
+        .recipe-cats__nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .recipe-cats__arrow {
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border: 1px solid var(--color-accent-a10);
+            border-radius: 14px;
+            background: var(--color-white-a82);
+            color: var(--text);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xs);
+            cursor: pointer;
+            transition: border-color var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition), opacity var(--transition);
+        }
+
+        .recipe-cats__arrow:hover {
+            border-color: var(--color-accent-a18);
+            box-shadow: var(--shadow-sm);
+            color: var(--accent-strong);
+            background: var(--color-white-a96);
+        }
+
+        .recipe-cats__arrow.swiper-button-disabled {
+            opacity: 0.42;
+            cursor: default;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .recipe-cats__arrow::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            display: block;
+            border-top: 2px solid currentColor;
+            border-right: 2px solid currentColor;
+        }
+
+        .recipe-cats__arrow--prev::before {
+            transform: rotate(-135deg);
+            margin-left: 4px;
+        }
+
+        .recipe-cats__arrow--next::before {
+            transform: rotate(45deg);
+            margin-right: 4px;
+        }
+
+        .recipe-cats__slider {
+            overflow: hidden;
+        }
+
+        .recipe-cats__slide {
+            height: auto;
+        }
+
+        .recipe-cats__card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--color-accent-a10);
+            background: var(--color-white-a92);
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .recipe-cats__card:hover {
+            border-color: var(--color-accent-a18);
+            box-shadow: 0 22px 44px var(--color-card-shadow-a08);
+        }
+
+        .recipe-cats__media {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1 / 0.7;
+            background:
+                radial-gradient(circle at top left, var(--color-accent-2-a14), transparent 42%),
+                linear-gradient(180deg, var(--color-card-grad-start) 0%, var(--color-card-grad-end) 100%);
+        }
+
+        .recipe-cats__image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .recipe-cats__card:hover .recipe-cats__image {
+            transform: scale(1.04);
+        }
+
+        .recipe-cats__body {
+            display: grid;
+            gap: 12px;
+            padding: 18px 18px 20px;
+        }
+
+        .recipe-cats__meta {
+            font-size: 11px;
+            line-height: 1.3;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .recipe-cats__name {
+            margin: 0;
+            min-height: 64px;
+            font-size: 22px;
+            line-height: 1.35;
+            font-weight: 800;
+            color: var(--text);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @media (max-width: 1100px) {
+            .recipe-cats__name {
+                font-size: 20px;
+                min-height: 58px;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .recipe-cats {
+                padding-bottom: 48px;
+            }
+
+            .recipe-cats__head {
+                grid-template-columns: 1fr;
+                align-items: stretch;
+            }
+
+            .recipe-cats__actions {
+                justify-content: space-between;
+            }
+
+            .recipe-cats__name {
+                font-size: 18px;
+                min-height: 52px;
+            }
+
+            .recipe-cats__body {
+                padding: 16px 16px 18px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .recipe-cats {
+                padding: 2px 0 36px;
+            }
+
+            .recipe-cats__lead {
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .recipe-cats__subscribe {
+                min-height: 34px;
+                padding: 0 12px;
+                font-size: 12px;
+                margin-bottom: 0;
+            }
+
+            .recipe-cats__actions {
+                gap: 12px;
+            }
+
+            .recipe-cats__all {
+                min-height: 34px;
+                font-size: 13px;
+            }
+
+            .recipe-cats__arrow {
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+            }
+
+            .recipe-cats__body {
+                gap: 10px;
+                padding: 14px 14px 16px;
+            }
+
+            .recipe-cats__name {
+                min-height: auto;
+                font-size: 17px;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="recipe-cats__head">
+            <div class="recipe-cats__lead">
+                <h2 class="recipe-cats__title">Рецепты</h2>
+
+                <a class="recipe-cats__subscribe" href="#">
+                    <svg class="recipe-cats__subscribe-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 4 10 15" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="m21 4-7 16-4-8-8-4 19-4Z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Подписаться</span>
+                </a>
+            </div>
+
+            <div class="recipe-cats__actions">
+                <a class="recipe-cats__all" href="#">Все рецепты</a>
+
+                <div class="recipe-cats__nav">
+                    <button class="recipe-cats__arrow recipe-cats__arrow--prev js-recipe-cats-prev" type="button" aria-label="Назад"></button>
+                    <button class="recipe-cats__arrow recipe-cats__arrow--next js-recipe-cats-next" type="button" aria-label="Вперед"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe-cats__slider swiper js-recipe-cats-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide recipe-cats__slide">
+                    <a class="recipe-cats__card" href="#">
+                        <div class="recipe-cats__media">
+                            <img class="recipe-cats__image" src="2.jpeg" alt="Напитки" loading="lazy" decoding="async">
+                        </div>
+                        <div class="recipe-cats__body">
+                            <div class="recipe-cats__meta">Рецепты</div>
+                            <h3 class="recipe-cats__name">Напитки</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide recipe-cats__slide">
+                    <a class="recipe-cats__card" href="#">
+                        <div class="recipe-cats__media">
+                            <img class="recipe-cats__image" src="3.jpg" alt="Летнее меню" loading="lazy" decoding="async">
+                        </div>
+                        <div class="recipe-cats__body">
+                            <div class="recipe-cats__meta">Рецепты</div>
+                            <h3 class="recipe-cats__name">Летнее меню</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide recipe-cats__slide">
+                    <a class="recipe-cats__card" href="#">
+                        <div class="recipe-cats__media">
+                            <img class="recipe-cats__image" src="4.jpg" alt="Торты, пирожные, бисквит" loading="lazy" decoding="async">
+                        </div>
+                        <div class="recipe-cats__body">
+                            <div class="recipe-cats__meta">Рецепты</div>
+                            <h3 class="recipe-cats__name">Торты, пирожные, бисквит</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide recipe-cats__slide">
+                    <a class="recipe-cats__card" href="#">
+                        <div class="recipe-cats__media">
+                            <img class="recipe-cats__image" src="2.jpeg" alt="Шоколадные рецепты" loading="lazy" decoding="async">
+                        </div>
+                        <div class="recipe-cats__body">
+                            <div class="recipe-cats__meta">Рецепты</div>
+                            <h3 class="recipe-cats__name">Шоколадные рецепты</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide recipe-cats__slide">
+                    <a class="recipe-cats__card" href="#">
+                        <div class="recipe-cats__media">
+                            <img class="recipe-cats__image" src="3.jpg" alt="Печенье и тарталетки" loading="lazy" decoding="async">
+                        </div>
+                        <div class="recipe-cats__body">
+                            <div class="recipe-cats__meta">Рецепты</div>
+                            <h3 class="recipe-cats__name">Печенье и тарталетки</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide recipe-cats__slide">
+                    <a class="recipe-cats__card" href="#">
+                        <div class="recipe-cats__media">
+                            <img class="recipe-cats__image" src="4.jpg" alt="Пасхальная выпечка" loading="lazy" decoding="async">
+                        </div>
+                        <div class="recipe-cats__body">
+                            <div class="recipe-cats__meta">Рецепты</div>
+                            <h3 class="recipe-cats__name">Пасхальная выпечка</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide recipe-cats__slide">
+                    <a class="recipe-cats__card" href="#">
+                        <div class="recipe-cats__media">
+                            <img class="recipe-cats__image" src="2.jpeg" alt="Кремы и начинки" loading="lazy" decoding="async">
+                        </div>
+                        <div class="recipe-cats__body">
+                            <div class="recipe-cats__meta">Рецепты</div>
+                            <h3 class="recipe-cats__name">Кремы и начинки</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide recipe-cats__slide">
+                    <a class="recipe-cats__card" href="#">
+                        <div class="recipe-cats__media">
+                            <img class="recipe-cats__image" src="3.jpg" alt="Десерты в стакане" loading="lazy" decoding="async">
+                        </div>
+                        <div class="recipe-cats__body">
+                            <div class="recipe-cats__meta">Рецепты</div>
+                            <h3 class="recipe-cats__name">Десерты в стакане</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var slider = document.querySelector('.js-recipe-cats-slider');
+
+            if (!slider || typeof Swiper === 'undefined') {
+                return;
+            }
+
+            new Swiper(slider, {
+                speed: 650,
+                spaceBetween: 18,
+                slidesPerView: 1.12,
+                grabCursor: true,
+                watchOverflow: true,
+                navigation: {
+                    prevEl: document.querySelector('.js-recipe-cats-prev'),
+                    nextEl: document.querySelector('.js-recipe-cats-next')
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2.2
+                    },
+                    981: {
+                        slidesPerView: 3
+                    },
+                    1200: {
+                        slidesPerView: 4
+                    }
+                }
+            });
+        });
+    </script>
+</section>
+
+<section class="about-promo">
+    <style>
+        .about-promo {
+            padding: 8px 0 72px;
+        }
+
+        .about-promo__box {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+            gap: 28px;
+            align-items: center;
+            padding: 32px;
+            border: 1px solid var(--color-accent-a10);
+            border-radius: 30px;
+            background: var(--color-white-a88);
+            box-shadow: 0 16px 40px var(--color-card-shadow-a05);
+        }
+
+        .about-promo__content {
+            min-width: 0;
+        }
+
+        .about-promo__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 34px;
+            padding: 0 14px;
+            border-radius: 999px;
+            background: var(--color-accent-a08);
+            color: var(--accent-strong);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .about-promo__title {
+            margin: 14px 0 0;
+            max-width: 780px;
+            font-size: clamp(30px, 3.8vw, 54px);
+            line-height: 0.98;
+            letter-spacing: -0.05em;
+            font-weight: 900;
+            color: var(--text);
+        }
+
+        .about-promo__text {
+            margin: 16px 0 0;
+            max-width: 720px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-soft);
+        }
+
+        .about-promo__actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .about-promo__button {
+            min-height: 52px;
+            padding: 0 22px;
+            border-radius: 16px;
+            border: 1px solid var(--color-accent-a12);
+            background: var(--color-white-a96);
+            color: var(--text);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: var(--shadow-xs);
+            font-size: 14px;
+            font-weight: 800;
+            transition: border-color var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition);
+        }
+
+        .about-promo__button:hover {
+            border-color: var(--color-accent-a20);
+            box-shadow: var(--shadow-sm);
+            color: var(--accent-strong);
+            background: var(--color-white-a100);
+        }
+
+        .about-promo__button::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid currentColor;
+            border-right: 2px solid currentColor;
+            transform: rotate(45deg);
+            margin-right: 2px;
+        }
+
+        .about-promo__aside {
+            display: grid;
+            gap: 12px;
+            justify-items: end;
+        }
+
+        .about-promo__stat {
+            width: 100%;
+            max-width: 280px;
+            padding: 18px 18px 16px;
+            border: 1px solid var(--color-accent-a10);
+            border-radius: 22px;
+            background: var(--color-accent-a03);
+        }
+
+        .about-promo__stat-value {
+            display: block;
+            font-size: 28px;
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            color: var(--text);
+        }
+
+        .about-promo__stat-label {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--text-soft);
+        }
+
+        @media (max-width: 980px) {
+            .about-promo {
+                padding-bottom: 52px;
+            }
+
+            .about-promo__box {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 24px;
+                border-radius: 24px;
+            }
+
+            .about-promo__aside {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                justify-items: stretch;
+            }
+
+            .about-promo__stat {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .about-promo {
+                padding: 2px 0 40px;
+            }
+
+            .about-promo__box {
+                padding: 18px;
+                gap: 16px;
+                border-radius: 20px;
+            }
+
+            .about-promo__title {
+                font-size: 34px;
+            }
+
+            .about-promo__text {
+                font-size: 14px;
+            }
+
+            .about-promo__actions {
+                margin-top: 18px;
+            }
+
+            .about-promo__button {
+                width: 100%;
+                min-height: 48px;
+                border-radius: 14px;
+            }
+
+            .about-promo__aside {
+                grid-template-columns: 1fr;
+            }
+
+            .about-promo__stat {
+                padding: 16px;
+                border-radius: 18px;
+            }
+
+            .about-promo__stat-value {
+                font-size: 24px;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="about-promo__box">
+            <div class="about-promo__content">
+                <div class="about-promo__eyebrow">О компании</div>
+                <h2 class="about-promo__title">Комплексное снабжение и поддержка для кондитерских</h2>
+                <p class="about-promo__text">Ингредиенты, расходные материалы, инвентарь и технологическая поддержка для кондитерских, пекарен и HORECA. Кратко о компании, подходе и опыте — на отдельной странице.</p>
+
+                <div class="about-promo__actions">
+                    <a class="about-promo__button" href="#">Подробнее</a>
+                </div>
+            </div>
+
+            <div class="about-promo__aside">
+                <div class="about-promo__stat">
+                    <span class="about-promo__stat-value">1997</span>
+                    <span class="about-promo__stat-label">работаем на рынке</span>
+                </div>
+
+                <div class="about-promo__stat">
+                    <span class="about-promo__stat-value">HORECA</span>
+                    <span class="about-promo__stat-label">работаем с производствами и проф. сегментом</span>
+                </div>
+
+                <div class="about-promo__stat">
+                    <span class="about-promo__stat-value">Опыт</span>
+                    <span class="about-promo__stat-label">технологическая помощь, ассортимент, практика</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__grid">
+                    <div class="footer__logo">
+                        <strong>ITALIKA</strong>
+                        <span>Интернет-магазин для кондитеров, пекарен и HoReCa: ингредиенты, упаковка, инвентарь, рецепты, новости и рабочие решения для ежедневных закупок.</span>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">Каталог</h3>
+                        <div class="footer__list">
+                            <a href="#">Шоколад и глазури</a>
+                            <a href="#">Ингредиенты</a>
+                            <a href="#">Упаковка</a>
+                            <a href="#">Инвентарь</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">Информация</h3>
+                        <div class="footer__list">
+                            <a href="#">Доставка и оплата</a>
+                            <a href="#">Вопросы и ответы</a>
+                            <a href="#">Новости</a>
+                            <a href="#">Рецепты</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">Компания</h3>
+                        <div class="footer__list">
+                            <a href="#">О компании</a>
+                            <a href="#">Контакты</a>
+                            <a href="#">Политика конфиденциальности</a>
+                            <a href="#">Публичная оферта</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">Контакты</h3>
+                        <div class="footer__list">
+                            <span>+7 800 222-79-70</span>
+                            <span>info@italika.ru</span>
+                            <span>г. Екатеринбург, ул. Черкасская, 10</span>
+                            <span>Пн–Вс: 09:00–20:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
+                    <span>© 2026 ITALIKA. Все права защищены.</span>
+                    <span>Интернет-магазин для кондитеров, пекарен и HoReCa</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
