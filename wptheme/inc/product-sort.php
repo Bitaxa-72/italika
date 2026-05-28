@@ -180,12 +180,6 @@ if (!function_exists('italika_product_sort_maybe_backfill')) {
 			return;
 		}
 
-		$page = isset($_GET['page']) ? sanitize_key(wp_unslash($_GET['page'])) : '';
-
-		if ($page !== '' && strpos($page, 'duplicator') !== false) {
-			return;
-		}
-
 		$lock_key = 'italika_product_sort_backfill_lock';
 
 		if (get_transient($lock_key)) {
