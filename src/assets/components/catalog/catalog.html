@@ -12,12 +12,34 @@
       </p>
     </div>
 
+    <button
+      class="catalog-page__rail-toggle js-catalog-menu-open"
+      type="button"
+      aria-controls="catalog-category-drawer"
+      aria-expanded="false"
+    >
+      <span>Категории</span>
+    </button>
+    <button
+      class="catalog-page__drawer-backdrop js-catalog-menu-close"
+      type="button"
+      aria-label="Закрыть категории"
+    ></button>
+
     <div class="catalog-page__layout">
       <aside
+        id="catalog-category-drawer"
         class="catalog-page__aside"
         aria-label="Категории каталога"
       >
-        <h2 class="catalog-page__aside-title">Категории</h2>
+        <div class="catalog-page__aside-head">
+          <h2 class="catalog-page__aside-title">Категории</h2>
+          <button
+            class="catalog-page__drawer-close js-catalog-menu-close"
+            type="button"
+            aria-label="Закрыть категории"
+          ></button>
+        </div>
 
         <div class="catalog-page__nav">
           <div class="catalog-page__cat-list">
@@ -219,7 +241,17 @@
 
       <div class="catalog-page__content">
         <div class="catalog-page__toolbar">
-          <h2 class="catalog-page__subtitle">Все товары</h2>
+          <div class="catalog-page__toolbar-main">
+            <button
+              class="catalog-page__mobile-categories js-catalog-menu-open"
+              type="button"
+              aria-controls="catalog-category-drawer"
+              aria-expanded="false"
+            >
+              <span>Категории</span>
+            </button>
+            <h2 class="catalog-page__subtitle">Все товары</h2>
+          </div>
           <span
             class="catalog-page__count js-catalog-count"
           ></span>
@@ -269,6 +301,12 @@
       var countNode = section.querySelector(
         '.js-catalog-count'
       )
+      var categoryList = section.querySelector(
+        '.catalog-page__cat-list'
+      )
+      var mobileCategoryQuery = window.matchMedia
+        ? window.matchMedia('(max-width: 980px)')
+        : null
       var pageSize = 21
       var renderedCount = 0
       var isLoading = false
@@ -458,6 +496,257 @@
         return products
       }
 
+      function isMobileCategoryMenu() {
+        return mobileCategoryQuery
+          ? mobileCategoryQuery.matches
+          : window.innerWidth <= 980
+      }
+
+      function getDirectChildByClass(node, className) {
+        var children = node ? node.children : []
+        var i = 0
+
+        for (i = 0; i < children.length; i++) {
+          if (children[i].classList.contains(className)) {
+            return children[i]
+          }
+        }
+
+        return null
+      }
+
+      function getDirectSubcats(item) {
+        return getDirectChildByClass(
+          item,
+          'catalog-page__subcats'
+        )
+      }
+
+      function getDirectToggle(item) {
+        return getDirectChildByClass(
+          item,
+          'catalog-page__cat-toggle'
+        )
+      }
+
+      function setCategoryItemOpen(item, isOpen) {
+        var toggle = getDirectToggle(item)
+
+        item.classList.toggle('is-open', isOpen)
+
+        if (toggle) {
+          toggle.setAttribute(
+            'aria-expanded',
+            isOpen ? 'true' : 'false'
+          )
+        }
+      }
+
+      function closeSiblingCategories(item) {
+        var parent = item.parentNode
+        var children = parent ? parent.children : []
+        var i = 0
+
+        for (i = 0; i < children.length; i++) {
+          if (
+            children[i] !== item &&
+            children[i].classList &&
+            (children[i].classList.contains(
+              'catalog-page__cat-item'
+            ) ||
+              children[i].classList.contains(
+                'catalog-page__subcat-item'
+              ))
+          ) {
+            setCategoryItemOpen(children[i], false)
+          }
+        }
+      }
+
+      function initCategoryMenu() {
+        var drawer = section.querySelector(
+          '.catalog-page__aside'
+        )
+        var openButtons = section.querySelectorAll(
+          '.js-catalog-menu-open'
+        )
+        var closeButtons = section.querySelectorAll(
+          '.js-catalog-menu-close'
+        )
+        var items
+        var i = 0
+        var item
+        var subcats
+        var toggle
+
+        function setDrawerOpen(isOpen) {
+          var j = 0
+
+          section.classList.toggle(
+            'is-category-drawer-open',
+            isOpen
+          )
+          document.body.classList.toggle(
+            'is-catalog-drawer-open',
+            isOpen
+          )
+
+          if (drawer) {
+            drawer.setAttribute(
+              'aria-hidden',
+              isOpen ? 'false' : 'true'
+            )
+          }
+
+          for (j = 0; j < openButtons.length; j++) {
+            openButtons[j].setAttribute(
+              'aria-expanded',
+              isOpen ? 'true' : 'false'
+            )
+          }
+        }
+
+        if (!categoryList) {
+          return
+        }
+
+        if (drawer) {
+          drawer.setAttribute(
+            'aria-hidden',
+            isMobileCategoryMenu() ? 'true' : 'false'
+          )
+        }
+
+        for (i = 0; i < openButtons.length; i++) {
+          openButtons[i].addEventListener(
+            'click',
+            function (event) {
+              event.preventDefault()
+              setDrawerOpen(true)
+            }
+          )
+        }
+
+        for (i = 0; i < closeButtons.length; i++) {
+          closeButtons[i].addEventListener(
+            'click',
+            function (event) {
+              event.preventDefault()
+              setDrawerOpen(false)
+            }
+          )
+        }
+
+        document.addEventListener('keydown', function (event) {
+          if (
+            event.key === 'Escape' &&
+            section.classList.contains(
+              'is-category-drawer-open'
+            )
+          ) {
+            setDrawerOpen(false)
+          }
+        })
+
+        window.addEventListener('resize', function () {
+          if (!isMobileCategoryMenu()) {
+            setDrawerOpen(false)
+
+            if (drawer) {
+              drawer.setAttribute('aria-hidden', 'false')
+            }
+          } else if (
+            !section.classList.contains(
+              'is-category-drawer-open'
+            ) &&
+            drawer
+          ) {
+            drawer.setAttribute('aria-hidden', 'true')
+          }
+        })
+
+        items = categoryList.querySelectorAll(
+          '.catalog-page__cat-item, .catalog-page__subcat-item'
+        )
+
+        for (i = 0; i < items.length; i++) {
+          item = items[i]
+          subcats = getDirectSubcats(item)
+
+          if (!subcats) {
+            continue
+          }
+
+          item.classList.add(
+            'catalog-page__cat-item--has-children'
+          )
+
+          if (getDirectToggle(item)) {
+            continue
+          }
+
+          toggle = document.createElement('button')
+          toggle.className = 'catalog-page__cat-toggle'
+          toggle.type = 'button'
+          toggle.setAttribute('aria-expanded', 'false')
+          toggle.setAttribute(
+            'aria-label',
+            'Open subcategories'
+          )
+          item.insertBefore(toggle, subcats)
+        }
+
+        categoryList.addEventListener('click', function (event) {
+          var toggleButton = event.target.closest(
+            '.catalog-page__cat-toggle'
+          )
+          var link = event.target.closest(
+            '.catalog-page__cat-link, .catalog-page__subcat-link'
+          )
+          var currentItem
+          var hasSubcats
+          var shouldOpen
+
+          if (toggleButton) {
+            currentItem = toggleButton.parentNode
+            hasSubcats = getDirectSubcats(currentItem)
+
+            if (!hasSubcats) {
+              return
+            }
+
+            event.preventDefault()
+            event.stopPropagation()
+            shouldOpen =
+              !currentItem.classList.contains('is-open')
+            closeSiblingCategories(currentItem)
+            setCategoryItemOpen(currentItem, shouldOpen)
+            return
+          }
+
+          if (!link || !isMobileCategoryMenu()) {
+            return
+          }
+
+          currentItem = link.closest(
+            '.catalog-page__cat-item, .catalog-page__subcat-item'
+          )
+          hasSubcats =
+            currentItem && getDirectSubcats(currentItem)
+
+          if (
+            !hasSubcats ||
+            currentItem.classList.contains('is-open')
+          ) {
+            return
+          }
+
+          event.preventDefault()
+          closeSiblingCategories(currentItem)
+          setCategoryItemOpen(currentItem, true)
+        })
+      }
+
       function updateCatalogState() {
         var titleNode = section.querySelector(
           '.catalog-page__title'
@@ -472,9 +761,15 @@
         )
 
         if (activeLink) {
-          activeLink
-            .closest('.catalog-page__cat-item')
-            .classList.add('is-current')
+          var activeItem = activeLink.closest(
+            '.catalog-page__cat-item'
+          )
+
+          activeItem.classList.add('is-current')
+
+          if (getDirectSubcats(activeItem)) {
+            setCategoryItemOpen(activeItem, true)
+          }
         }
 
         if (activeCategory === 'sale') {
@@ -757,6 +1052,7 @@
       })
 
       moreButton.addEventListener('click', loadMore)
+      initCategoryMenu()
       updateCatalogState()
       renderInitial()
     })()

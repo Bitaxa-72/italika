@@ -10,7 +10,25 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+old_website/
+/archive/
+/exports/
+/tools/
+/vendor/
+/composer.json
+/composer.lock
+/htaccess
+/*.csv
+/*.xls
+/*.xlsx
+/*.zip
+wptheme/*.zip
 *.local
+.env
+.env.*
+.local-telegram.env
+.local-max.env
+SEO_TASK_CURRENT.md
 
 # Editor directories and files
 .vscode/*

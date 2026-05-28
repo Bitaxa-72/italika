@@ -4,7 +4,7 @@ import injectHTML from 'vite-plugin-html-inject'
 export default defineConfig({
   base:
     process.env.NODE_ENV === 'production'
-      ? '/italika/'
+      ? './'
       : '/',
   server: {
     port: 3030
