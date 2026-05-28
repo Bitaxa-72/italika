@@ -161,7 +161,7 @@ if (!function_exists('italika_1c_import_prepare_row_calculation')) {
 		$row['sell_unit_size'] = $unit_size;
 		$row['sell_unit_detected'] = $detected_unit_size !== null;
 		$row['sell_unit_warning'] = $is_weight_unit && $detected_unit_size === null;
-		$row['import_price'] = $row['price'] !== null ? (float) $row['price'] * $unit_size : null;
+		$row['import_price'] = $row['price'] !== null ? (float) $row['price'] : null;
 		$row['import_stock_quantity'] = $row['stock'] !== null ? max(0, (int) floor(max(0, (float) $row['stock']) / $unit_size)) : null;
 		$row['is_on_request'] = $row['import_price'] !== null && (float) $row['import_price'] <= 0;
 
